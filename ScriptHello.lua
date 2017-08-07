@@ -14,11 +14,14 @@
 	--Variables:
 	local npcID = 90002
 	local nombre = "Rasky!!!!"
+	local menuID = 321
 	
 	--         --
 	
 	local function OnGossipHello (event, player, object)
-		Player = GetPlayerByName(nombre)
+		player:GossipClearMenu() -- required for player gossip
+		player:GossipMenuAddItem(0, "Aloha!!", 1, 1)
+		
 	end
 	
 
