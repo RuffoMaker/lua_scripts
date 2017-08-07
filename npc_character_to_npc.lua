@@ -50,7 +50,7 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 		if(capucha == true) then
 			player:SendBroadcastMessage('El personaje lleva capucha.')
 		else
-			player:SendBroadcastMessage('El personaje no lleva capucha.)
+			player:SendBroadcastMessage('El personaje no lleva capucha.')
 		end
 		
 		
