@@ -21,6 +21,7 @@ local emoteCasting = 173
 local emoteFinishCast = 439
 
 local estado = ''
+local entry = 0
 
 local tiempo = 0
 local tiempoBuscandoPersonaje = 4000
@@ -29,6 +30,10 @@ local tiempoPersonajeEncontrado = 2000
 local personajeEncontradoDicho = false
 local tiempoCreandoPersonaje = 5000
 local creandoPersonajeDicho = false
+local tiempoPersonajeCreado = 2000
+local personajeCreadoDicho = false
+local tiempoRecordatorio = 2000
+local recordatorioDicho = false
 
 
 
@@ -124,6 +129,33 @@ function creatureAI(event, creature, diff)
 		creature:Emote(emoteFinishCast)
 	end
 	
+	if(estado == 'personajeCreado') then
+		if(personajeCreadoDicho == false) then
+			creature:SendUnitSay('Ya está... El entry del NPC es el '..entry..'...', 0)
+			personajeCreadoDicho = true
+			tiempo = 0
+		end
+		if(tiempo > tiempoPersonajeCreado) then
+			estado = 'recordatorio'
+			tiempo = 0
+		end
+	end
+	
+	if(estado == 'recordatorio') then
+		if(recordatorioDicho == false) then
+			creature:SendUnitSay('Recuerda que debes reiniciar el servidor para poder ver los cambios efectuados...', 0)
+			recordatorioDicho = true
+			tiempo = 0
+		end
+		if(tiempo > tiempoRecordatorio) then
+			estado = ''
+			tiempo = 0
+			reset()
+		end
+		
+		creature:Emote(emoteFinishCast)
+	end
+	
 	
 	
 	tiempo = tiempo + diff
@@ -131,6 +163,7 @@ end
 
 function reset()
 	estado = ''
+	entry = 0
 	tiempo = 0
 	personaje = ''
 	subnombre = ''
@@ -138,6 +171,8 @@ function reset()
 	buscandoPersonajeDicho = false
 	personajeEncontradoDicho = false
 	creandoPersonajeDicho = false
+	personajeCreadoDicho = false
+	recordatorioDicho = false
 end
 
 function crearNPC(player, creature)
