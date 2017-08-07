@@ -37,7 +37,7 @@ local function saludar(event, creature, diff)
     local personaje = creature:GetAITarget(SELECT_TARGET_MAXDISTANCE, true, 0, 200)
     
     if (unit:GetUnitType() == "Player" and creature:IsWithinDistInMap(unit, 15)) then
-        creature:CastSpell(unit, 16472)
+        creature:CastSpell(unit, 20000)
         creature:SendUnitSay(mensaje, 0)
     end
     --if(milisegundos > tiempoSaludar) then
