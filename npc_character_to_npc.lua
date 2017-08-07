@@ -17,13 +17,13 @@ local personaje = ''
 local subnombre = ''
 local capucha = true
 
-local function OnGossipHello(event, player, object)
+function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Crear un NPC a partir de un Personaje.", 1, 1)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
-local function OnGossipSelect(event, player, object, sender, intid, code, menuid)
+function OnGossipSelect(event, player, object, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipMenuAddItem(0, "Escribir el Nombre del Personaje.", 1, 2, true, nil)
         player:GossipMenuAddItem(0, "Cancelar", 1, 3)
@@ -61,7 +61,7 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 	--player:GossipComplete()
 end
 
-local function crearNPC(player, creature)
+function crearNPC(player, creature)
 	player:SendBroadcastMessage('El nombre del Personaje es ' .. personaje)
 	player:SendBroadcastMessage('El subnombre del Personaje es ' .. subnombre)
 	if(capucha == true) then
