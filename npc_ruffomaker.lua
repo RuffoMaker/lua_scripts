@@ -34,8 +34,7 @@ end
 
 local function saludar(event, creature, diff)
     milisegundos = milisegundos + diff
-    local personaje = creature:GetAITarget(SELECT_TARGET_MAXDISTANCE, true, 0, 200)
-    if(personaje)then
+    if(creature:GetAITarget(SELECT_TARGET_MAXDISTANCE, true, 0, 200))then
         creature:Emote(emoteSaludar)
     end
     --if(milisegundos > tiempoSaludar) then
