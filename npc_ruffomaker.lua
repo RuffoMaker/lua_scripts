@@ -36,6 +36,7 @@ local function saludar(event, creature, diff)
     milisegundos = milisegundos + diff
     if(milisegundos > tiempoSaludar) then
         creature:Emote(emoteSaludar)
+        milisegundos = 0
     end
 end
 
