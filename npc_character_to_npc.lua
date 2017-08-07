@@ -22,7 +22,7 @@ local function onCreate(event, creature)
 	creature:RegisterEvent(emoteMorir, 10000, 1)
 end
 
-local function emoteMorir()
+local function emoteMorir(event, delay, pCall, creature)
 	creature:Emote(emote)
 end
 
