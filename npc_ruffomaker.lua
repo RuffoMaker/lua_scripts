@@ -34,7 +34,7 @@ end
 
 local function saludar(event, creature, unit)
     --milisegundos = milisegundos + diff
-    if (unit:GetUnitType() == "Player" and creature:IsWithinDistInMap(unit, 150)) then
+    if (unit:GetUnitType() == "Player" and creature:IsWithinDistInMap(unit, 150) and unit:IsInAccessiblePlaceFor(creature)) then
         creature:CastSpell(unit, 20000)
         creature:SendUnitSay(mensaje, 0)
     end
