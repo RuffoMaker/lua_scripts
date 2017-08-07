@@ -37,7 +37,7 @@ local function saludar(event, creature, unit)
     if(unit ~= nil)then
         if (creature:IsWithinDistInMap(unit, 15) and unit:IsInAccessiblePlaceFor(creature)) then
             --creature:CastSpell(unit, 20000)
-            creature:SendUnitSay(unit:GetUnitType(), 0)
+            --creature:SendUnitSay(unit:GetUnitType(), 0)
         end
     end
     --if(milisegundos > tiempoSaludar) then
