@@ -30,7 +30,7 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 2) then
 		personaje = code
-		object:sendUnitSay(personaje)
+		player:SendBroadcastMessage(personaje)
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 3) then
 		player:GossipComplete()
