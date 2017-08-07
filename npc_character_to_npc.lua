@@ -21,7 +21,7 @@ local emoteCasting = 173
 local emoteFinishCast = 439
 
 local estado = ''
-local entry = 0
+local entry = '0'
 
 local tiempo = 0
 local tiempoBuscandoPersonaje = 4000
@@ -163,7 +163,7 @@ end
 
 function reset()
 	estado = ''
-	entry = 0
+	entry = '0'
 	tiempo = 0
 	personaje = ''
 	subnombre = ''
