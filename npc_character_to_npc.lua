@@ -20,11 +20,22 @@ local capucha = true
 local emoteCasting = 173
 local emoteFinishCast = 439
 
+local estado = ''
+
+local tiempo = 0
+local tiempoBuscandoPersonaje = 4000
+local buscandoPersonajeDicho = false
+local tiempoPersonajeEncontrado = 2000
+local personajeEncontradoDicho = false
+local tiempoCreandoPersonaje = 5000
+local creandoPersonajeDicho = false
+
 
 
 
 
 function OnGossipHello(event, player, object)
+	reset()
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Crear un NPC a partir de un Personaje.", 1, 1)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
@@ -52,11 +63,13 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 5) then
 		capucha = true
-		crearNPC(player, object)
+		--crearNPC(player, object)
+		estado = 'buscandoPersonaje'
 		player:GossipComplete()
 	elseif (intid == 6) then
 		capucha = false
-		crearNPC(player, object)
+		--crearNPC(player, object)
+		estado = 'buscandoPersonaje'
 		player:GossipComplete()
 	elseif (intid == 3) then
 		player:GossipComplete()
@@ -68,9 +81,61 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 	--player:GossipComplete()
 end
 
+function creatureAI(event, creature, diff)
+	if(estado == 'buscarPersonaje') then
+		if(buscandoPersonajeDicho == false) then
+			creature:SendUnitSay('Veamos...', 0)
+			creature:Emote(emoteCasting)
+			buscandoPersonajeDicho = true
+		end
+		if(tiempo > tiempoPersonajeEncontrado) then
+			estado = 'personajeEncontrado'
+			tiempo = 0
+		end
+	end
+	
+	if(estado == 'personajeEncontrado') then
+		if(personajeEncontradoDicho == false) then
+			creature:SendUnitSay('He encontrado el personaje '..personaje..' en la base de datos...', 0)
+			creature:Emote(emoteCasting)
+			personajeEncontradoDicho = true
+		end
+		if(tiempo > tiempoBuscandoPersonaje) then
+			estado = 'creandoPersonaje'
+			tiempo = 0
+		end
+	end
+	
+	if(estado == 'creandoPersonaje') then
+		if(creandoPersonajeDicho == false) then
+			creature:SendUnitSay('Veamos...', 0)
+			creature:Emote(emoteCasting)
+			creandoPersonajeDicho = true
+		end
+		if(tiempo > tiempoCreandoPersonaje) then
+			estado = 'personajeCreado'
+			tiempo = 0
+		end
+	end
+	
+	
+	
+	tiempo = tiempo + diff
+end
+
+function reset()
+	estado = ''
+	tiempo = 0
+	personaje = ''
+	subnombre = ''
+	capucha = true
+	buscandoPersonajeDicho = false
+	personajeEncontradoDicho = false
+	creandoPersonajeDicho = false
+end
+
 function crearNPC(player, creature)
-	creature:SendUnitSay('Veamos...', 0)
-	creature:Emote(emoteCasting)
+	
 	
 	creature:SendUnitSay('He encontrado el personaje '..personaje..' en la base de datos...', 0)
 	creature:Emote(emoteFinishCast)
@@ -89,3 +154,5 @@ end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+
+RegisterCreatureEvent(NpcId, 7, creatureAI)
