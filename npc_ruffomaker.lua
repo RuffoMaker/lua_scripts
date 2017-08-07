@@ -32,10 +32,8 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 	end
 end
 
-local function saludar(event, creature, diff)
-    milisegundos = milisegundos + diff
-    local personaje = creature:GetAITarget(SELECT_TARGET_MAXDISTANCE, true, 0, 200)
-    
+local function saludar(event, creature, unit)
+    --milisegundos = milisegundos + diff
     if (unit:GetUnitType() == "Player" and creature:IsWithinDistInMap(unit, 15)) then
         creature:CastSpell(unit, 20000)
         creature:SendUnitSay(mensaje, 0)
