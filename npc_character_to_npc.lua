@@ -95,7 +95,7 @@ function creatureAI(event, creature, diff)
 			creature:SendUnitSay('Veamos...', 0)
 			buscandoPersonajeDicho = true
 			tiempo = 0
-			buscarPersonaje()
+			buscarPersonaje(creature)
 		end
 		if(tiempo > tiempoPersonajeEncontrado) then
 			if(queryBuscarPersonaje == true) then
@@ -181,7 +181,7 @@ function reset()
 	queryBuscarPersonaje = false
 end
 
-function buscarPersonaje()
+function buscarPersonaje(creature)
 	local results = CharDBQuery( "SELECT `guid` FROM `characters` WHERE  UPPER(`name`) =  UPPER('"..personaje.."') LIMIT 1" )
 	if (results) then
         repeat
@@ -189,7 +189,18 @@ function buscarPersonaje()
         until not results:NextRow()
     end
 	
-	queryBuscarPersonaje = true
+	if(entry == '0') then
+		lanzarError()
+		
+	else
+		queryBuscarPersonaje = true
+	end
+end
+
+function lanzarError(creature)
+	errores = true
+	creature:SendUnitSay('Oops!! Ha habido un error al crear el NPC...', 0)
+	reset()
 end
 
 function crearNPC(player, creature)
