@@ -38,8 +38,8 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 	elseif (intid == 4) then
 		subnombre = code
 		
-		player:GossipMenuAddItem(0, "El personaje lleva la capucha puesta.", 1, 5, true, nil)
-		player:GossipMenuAddItem(0, "El personaje NO lleva la capucha puesta.", 1, 6, true, nil)
+		player:GossipMenuAddItem(0, "El personaje lleva la capucha puesta.", 1, 5)
+		player:GossipMenuAddItem(0, "El personaje NO lleva la capucha puesta.", 1, 6)
         player:GossipMenuAddItem(0, "Cancelar", 1, 3)
 		
 		player:GossipSendMenu(1, object, MenuId)
