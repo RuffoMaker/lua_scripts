@@ -10,7 +10,7 @@
 --]]
 
 
-local NpcId = 90000
+local NpcId = 12481
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 local mensaje = "Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)"
 local emoteSaludar = 66
