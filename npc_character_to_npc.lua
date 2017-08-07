@@ -15,18 +15,19 @@ local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 local mensaje = "Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)"
 local emote = 387
 local milisegundos = 0
+
+local contadorEmote = 0
 local tiempoEmote = 10000
 
 
-local function onCreate(event, creature)
+local function onCreate(event, creature, diff)
+	if(contadorEmote > tiempoEmote)then
+		contadorEmote = 0
+		creature:Emote(emote)
+	end
 	
-	creature:RegisterEvent(emoteMorir, 10000, 1)
+	contadorEmote = contadorEmote + diff
 end
-
-local function emoteMorir(event, delay, pCall, creature)
-	creature:Emote(emote)
-end
-
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
@@ -59,4 +60,4 @@ end
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 
-RegisterCreatureEvent(NpcId, 5, onCreate)
+RegisterCreatureEvent(NpcId, 7, onCreate)
