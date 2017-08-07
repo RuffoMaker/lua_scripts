@@ -17,6 +17,13 @@ local personaje = ''
 local subnombre = ''
 local capucha = true
 
+local emoteCasting = 173
+local emoteFinishCast = 439
+
+
+
+
+
 function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Crear un NPC a partir de un Personaje.", 1, 1)
@@ -62,13 +69,22 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 end
 
 function crearNPC(player, creature)
-	player:SendBroadcastMessage('El nombre del Personaje es ' .. personaje)
-	player:SendBroadcastMessage('El subnombre del Personaje es ' .. subnombre)
-	if(capucha == true) then
-		player:SendBroadcastMessage('El Personaje lleva la capucha puesta.')
-	else
-		player:SendBroadcastMessage('El Personaje no lleva la capucha puesta.')
-	end
+	creature:SendUnitSay('Veamos...', 0)
+	creature:Emote(emoteCasting)
+	
+	creature:SendUnitSay('He encontrado el personaje '..personaje..' en la base de datos...', 0)
+	creature:Emote(emoteFinishCast)
+	creature:SendUnitSay('Estoy creando el NPC...', 0)
+	
+	--player:SendBroadcastMessage('El nombre del Personaje es ' .. personaje)
+	--player:SendBroadcastMessage('El subnombre del Personaje es ' .. subnombre)
+	--if(capucha == true) then
+		--player:SendBroadcastMessage('El Personaje lleva la capucha puesta.')
+	--else
+		--player:SendBroadcastMessage('El Personaje no lleva la capucha puesta.')
+	--end
+	
+	WorldDBQuery("SELECT entry, name FROM creature_template LIMIT 10")
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
