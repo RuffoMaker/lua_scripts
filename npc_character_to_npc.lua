@@ -85,7 +85,6 @@ function creatureAI(event, creature, diff)
 	if(estado == 'buscandoPersonaje') then
 		if(buscandoPersonajeDicho == false) then
 			creature:SendUnitSay('Veamos...', 0)
-			creature:Emote(emoteCasting)
 			buscandoPersonajeDicho = true
 			tiempo = 0
 		end
@@ -93,12 +92,13 @@ function creatureAI(event, creature, diff)
 			estado = 'personajeEncontrado'
 			tiempo = 0
 		end
+		
+		creature:Emote(emoteCasting)
 	end
 	
 	if(estado == 'personajeEncontrado') then
 		if(personajeEncontradoDicho == false) then
 			creature:SendUnitSay('He encontrado el personaje '..personaje..' en la base de datos...', 0)
-			creature:Emote(emoteCasting)
 			personajeEncontradoDicho = true
 			tiempo = 0
 		end
@@ -106,12 +106,13 @@ function creatureAI(event, creature, diff)
 			estado = 'creandoPersonaje'
 			tiempo = 0
 		end
+		
+		creature:Emote(emoteCasting)
 	end
 	
 	if(estado == 'creandoPersonaje') then
 		if(creandoPersonajeDicho == false) then
 			creature:SendUnitSay('Estoy creando el NPC...', 0)
-			creature:Emote(emoteCasting)
 			creandoPersonajeDicho = true
 			tiempo = 0
 		end
@@ -119,6 +120,8 @@ function creatureAI(event, creature, diff)
 			estado = 'personajeCreado'
 			tiempo = 0
 		end
+		
+		creature:Emote(emoteFinishCast)
 	end
 	
 	
