@@ -19,7 +19,7 @@ local tiempoEmote = 10000
 
 
 local function onCreate(event, creature)
-	creature:RegisterEvent(emoteMorir, 10000, 0)
+	creature:RegisterEvent(emoteMorir, 10000, 1)
 end
 
 local function emoteMorir()
