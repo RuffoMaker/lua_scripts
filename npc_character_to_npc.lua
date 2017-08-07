@@ -31,6 +31,26 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 	elseif (intid == 2) then
 		personaje = code
 		player:SendBroadcastMessage(personaje)
+		
+		player:GossipMenuAddItem(0, "Escribir el SubNombre del Personaje.", 1, 4, true, nil)
+        player:GossipMenuAddItem(0, "Cancelar", 1, 3)
+		
+		player:GossipSendMenu(1, object, MenuId)
+	elseif (intid == 4) then
+		subnombre = code
+		player:SendBroadcastMessage(subnombre)
+		
+		player:GossipMenuAddItem(0, "¿El personaje lleva la capucha puesta?", 1, 5, false, "¿El personaje lleva la capucha puesta?")
+        player:GossipMenuAddItem(0, "Cancelar", 1, 3)
+		
+		player:GossipSendMenu(1, object, MenuId)
+	elseif (intid == 5) then
+		subnombre = code
+		player:SendBroadcastMessage(subnombre)
+		
+		player:GossipMenuAddItem(0, "¿El personaje lleva la capucha puesta?", 1, 5, false, "¿El personaje lleva la capucha puesta?")
+        player:GossipMenuAddItem(0, "Cancelar", 1, 3)
+		
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 3) then
 		player:GossipComplete()
