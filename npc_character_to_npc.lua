@@ -23,14 +23,14 @@ local function OnGossipHello(event, player, object)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
-local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
+local function OnGossipSelect(event, player, object, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipMenuAddItem(0, "Escribir el Nombre del Personaje.", 1, 2, true, nil)
         player:GossipMenuAddItem(0, "Cancelar", 1, 3)
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 2) then
 		personaje = code
-		creature:sendUnitSay(personaje)
+		object:sendUnitSay(personaje)
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 3) then
 		player:GossipComplete()
