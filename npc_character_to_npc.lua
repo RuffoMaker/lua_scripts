@@ -22,6 +22,7 @@ local emoteFinishCast = 439
 
 local estado = ''
 local entry = '0'
+local guid = '0'
 local errores = false
 
 local tiempo = 0
@@ -168,6 +169,7 @@ end
 function reset()
 	estado = ''
 	entry = '0'
+	guid = '0'
 	errores = false
 	tiempo = 0
 	personaje = ''
@@ -185,11 +187,11 @@ function buscarPersonaje(creature)
 	local results = CharDBQuery( "SELECT `guid` FROM `characters` WHERE  UPPER(`name`) =  UPPER('"..personaje.."') LIMIT 1" )
 	if (results) then
         repeat
-            entry = results:GetString(0)
+            guid = results:GetString(0)
         until not results:NextRow()
     end
 	
-	if(entry == '0') then
+	if(guid == '0') then
 		lanzarError(creature)
 		
 	else
