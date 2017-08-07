@@ -131,7 +131,7 @@ function creatureAI(event, creature, diff)
 	
 	if(estado == 'personajeCreado') then
 		if(personajeCreadoDicho == false) then
-			creature:SendUnitSay('Ya esta... El entry del NPC que he creado es el 1234.', 0)
+			creature:SendUnitSay('Ya esta... El entry del NPC que he creado es el '..entry..'.', 0)
 			personajeCreadoDicho = true
 			tiempo = 0
 		end
