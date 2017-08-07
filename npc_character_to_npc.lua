@@ -15,7 +15,7 @@ local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 
 local personaje = ''
 local subnombre = ''
-local capucha = ''
+local capucha = true
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
@@ -45,13 +45,15 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 		
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 5) then
-		subnombre = code
-		player:SendBroadcastMessage(subnombre)
+		capucha = code
 		
-		player:GossipMenuAddItem(0, "¿El personaje lleva la capucha puesta?", 1, 5, false, "¿El personaje lleva la capucha puesta?")
-        player:GossipMenuAddItem(0, "Cancelar", 1, 3)
+		if(capucha == true) then
+			player:SendBroadcastMessage('El personaje lleva capucha.')
+		else
+			player:SendBroadcastMessage('El personaje no lleva capucha.)
+		end
 		
-		player:GossipSendMenu(1, object, MenuId)
+		
 	elseif (intid == 3) then
 		player:GossipComplete()
 	end
