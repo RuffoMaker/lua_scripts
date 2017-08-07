@@ -15,14 +15,14 @@ local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
-    player:GossipMenuAddItem(0, "Quiero ser GM!!.", 1, 1)
+    player:GossipMenuAddItem(0, "Quiero ser GM", 1, 1)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
 local function OnGossipSelect(event, player, object, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-		player:SendBroadcastMessage("Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com")
+		player:SendBroadcastMessage("Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)")
 	end
 end
 
