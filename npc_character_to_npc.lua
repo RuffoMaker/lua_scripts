@@ -185,7 +185,7 @@ function buscarPersonaje(creature)
 	local results = CharDBQuery( "SELECT `guid` FROM `characters` WHERE  UPPER(`name`) =  UPPER('"..personaje.."') LIMIT 1" )
 	if (results) then
         repeat
-            local entry = results:GetString(0)
+            entry = results:GetString(0)
         until not results:NextRow()
     end
 	
