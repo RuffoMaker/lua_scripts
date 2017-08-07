@@ -15,7 +15,7 @@ local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
-    player:GossipMenuAddItem(0, "Quiero ser GM", 1, 1)
+    player:GossipMenuAddItem(0, "Quiero ser GM!!", 1, 1)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
