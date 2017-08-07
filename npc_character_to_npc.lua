@@ -82,7 +82,7 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 end
 
 function creatureAI(event, creature, diff)
-	if(estado == 'buscarPersonaje') then
+	if(estado == 'buscandoPersonaje') then
 		if(buscandoPersonajeDicho == false) then
 			creature:SendUnitSay('Veamos...', 0)
 			creature:Emote(emoteCasting)
