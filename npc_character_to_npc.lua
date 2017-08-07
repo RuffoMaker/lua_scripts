@@ -10,7 +10,7 @@
 --]]
 
 
-local NpcId = 90001
+local NpcId = 50000
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 local mensaje = "Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)"
 local emote = 387
@@ -19,6 +19,7 @@ local tiempoEmote = 10000
 
 
 local function onCreate(event, creature)
+	
 	creature:RegisterEvent(emoteMorir, 10000, 1)
 end
 
