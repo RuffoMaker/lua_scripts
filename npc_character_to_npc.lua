@@ -131,7 +131,7 @@ function creatureAI(event, creature, diff)
 	
 	if(estado == 'personajeCreado') then
 		if(personajeCreadoDicho == false) then
-			creature:SendUnitSay('Ya está... El entry del NPC es el '..entry..'...', 0)
+			creature:SendUnitSay('Ya está... El entry del NPC es el ...', 0)
 			personajeCreadoDicho = true
 			tiempo = 0
 		end
@@ -152,8 +152,6 @@ function creatureAI(event, creature, diff)
 			tiempo = 0
 			reset()
 		end
-		
-		creature:Emote(emoteFinishCast)
 	end
 	
 	
