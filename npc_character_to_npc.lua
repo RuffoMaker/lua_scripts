@@ -30,7 +30,6 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 2) then
 		personaje = code
-		player:SendBroadcastMessage(personaje)
 		
 		player:GossipMenuAddItem(0, "Escribir el SubNombre del Personaje.", 1, 4, true, nil)
         player:GossipMenuAddItem(0, "Cancelar", 1, 3)
@@ -38,22 +37,20 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 4) then
 		subnombre = code
-		player:SendBroadcastMessage(subnombre)
 		
-		player:GossipMenuAddItem(0, "¿El personaje lleva la capucha puesta?", 1, 5, false, "¿El personaje lleva la capucha puesta?")
+		player:GossipMenuAddItem(0, "El personaje lleva la capucha puesta.", 1, 5, true, nil)
+		player:GossipMenuAddItem(0, "El personaje NO lleva la capucha puesta.", 1, 6, true, nil)
         player:GossipMenuAddItem(0, "Cancelar", 1, 3)
 		
 		player:GossipSendMenu(1, object, MenuId)
 	elseif (intid == 5) then
-		capucha = code
-		
-		if(capucha == true) then
-			player:SendBroadcastMessage('El personaje lleva capucha.')
-		else
-			player:SendBroadcastMessage('El personaje no lleva capucha.')
-		end
-		
-		
+		capucha = true
+		crearNPC(player, object)
+		player:GossipComplete()
+	elseif (intid == 6) then
+		capucha = false
+		crearNPC(player, object)
+		player:GossipComplete()
 	elseif (intid == 3) then
 		player:GossipComplete()
 	end
@@ -62,6 +59,16 @@ local function OnGossipSelect(event, player, object, sender, intid, code, menuid
 	--creature:SendUnitSay(mensaje, 0)
 	--player:SendBroadcastMessage(mensaje)
 	--player:GossipComplete()
+end
+
+local function crearNPC(player, creature)
+	player:SendBroadcastMessage('El nombre del Personaje es ' .. personaje)
+	player:SendBroadcastMessage('El subnombre del Personaje es ' .. subnombre)
+	if(capucha == true) then
+		player:SendBroadcastMessage('El Personaje lleva la capucha puesta.')
+	else
+		player:SendBroadcastMessage('El Personaje no lleva la capucha puesta.')
+	end
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
