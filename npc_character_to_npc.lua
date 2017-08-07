@@ -12,8 +12,6 @@
 
 local NpcId = 50000
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
-local mensaje = "Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)"
-local milisegundos = 0
 
 local personaje = ''
 local subnombre = ''
@@ -46,5 +44,3 @@ end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
-
-RegisterCreatureEvent(NpcId, 7, onCreate)
