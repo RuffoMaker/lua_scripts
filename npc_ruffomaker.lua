@@ -12,6 +12,7 @@
 
 local NpcId = 90000
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
+local mensaje = "Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)"
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
@@ -19,10 +20,11 @@ local function OnGossipHello(event, player, object)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
-local function OnGossipSelect(event, player, object, sender, intid, code, menuid)
+local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-		player:SendBroadcastMessage("Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)")
+        creature:SendUnitSay(mensaje)
+		--player:SendBroadcastMessage(mensaje)
 	end
 end
 
