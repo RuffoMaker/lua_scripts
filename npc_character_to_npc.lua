@@ -190,7 +190,7 @@ function buscarPersonaje(creature)
     end
 	
 	if(entry == '0') then
-		lanzarError()
+		lanzarError(creature)
 		
 	else
 		queryBuscarPersonaje = true
