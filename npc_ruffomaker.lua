@@ -36,8 +36,8 @@ local function saludar(event, creature, diff)
     milisegundos = milisegundos + diff
     local personaje = creature:GetAITarget(SELECT_TARGET_MAXDISTANCE, true, 0, 200)
     
-    if(personaje ~= nil)then
-        creature:Emote(emoteSaludar)
+    if (unit:GetUnitType() == "Player" and creature:IsWithinDistInMap(unit, 15) and unit:IsInAccessiblePlaceFor(creature)) then
+        creature:CastSpell(unit, 16472)
     end
     --if(milisegundos > tiempoSaludar) then
         --creature:Emote(emoteSaludar)
@@ -48,4 +48,4 @@ end
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 
-RegisterCreatureEvent(NpcId, 7, saludar)
+RegisterCreatureEvent(NpcId, 27, saludar)
