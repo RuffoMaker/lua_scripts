@@ -22,6 +22,7 @@ local emoteFinishCast = 439
 
 local estado = ''
 local entry = '0'
+local errores = false
 
 local tiempo = 0
 local tiempoBuscandoPersonaje = 4000
@@ -34,6 +35,8 @@ local tiempoPersonajeCreado = 4000
 local personajeCreadoDicho = false
 local tiempoRecordatorio = 2000
 local recordatorioDicho = false
+
+local queryBuscarPersonaje = false
 
 
 
@@ -92,10 +95,13 @@ function creatureAI(event, creature, diff)
 			creature:SendUnitSay('Veamos...', 0)
 			buscandoPersonajeDicho = true
 			tiempo = 0
+			buscarPersonaje()
 		end
 		if(tiempo > tiempoPersonajeEncontrado) then
-			estado = 'personajeEncontrado'
-			tiempo = 0
+			if(queryBuscarPersonaje == true) then
+				estado = 'personajeEncontrado'
+				tiempo = 0
+			end
 		end
 		
 		creature:Emote(emoteCasting)
@@ -162,6 +168,7 @@ end
 function reset()
 	estado = ''
 	entry = '0'
+	errores = false
 	tiempo = 0
 	personaje = ''
 	subnombre = ''
@@ -171,6 +178,18 @@ function reset()
 	creandoPersonajeDicho = false
 	personajeCreadoDicho = false
 	recordatorioDicho = false
+	queryBuscarPersonaje = false
+end
+
+function buscarPersonaje()
+	local results = CharDBQuery( "SELECT `guid` FROM `characters` WHERE  UPPER(`name`) =  UPPER('"..personaje.."') LIMIT 1" )
+	if (results) then
+        repeat
+            local entry = results:GetString(0)
+        until not results:NextRow()
+    end
+	
+	queryBuscarPersonaje = true
 end
 
 function crearNPC(player, creature)
