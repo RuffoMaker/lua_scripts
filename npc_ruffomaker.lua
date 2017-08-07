@@ -23,7 +23,7 @@ end
 local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-        creature:SendUnitSay(mensaje)
+        creature:SendUnitSay(mensaje, 0)
 		--player:SendBroadcastMessage(mensaje)
 	end
 end
