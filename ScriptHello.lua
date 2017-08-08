@@ -22,7 +22,7 @@ local function OnGossipHello(event, player, object)
 	player:GossipClearMenu() -- required for player gossip
 	Player:GossipMenuAddItem( 1, "hola amigo", 1, 1 )
 	player:GossipSendMenu(1, object, menuID)
-	Unit:SendUnitSay( mensaje, 0 )
+	--Unit:SendUnitSay( mensaje, 0 )
 
 end
 
