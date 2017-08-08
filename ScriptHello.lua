@@ -15,11 +15,13 @@
 local NpcId = 90002
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 local mensaje = "Rasky !!"
+local insulto = "que te den!"
 
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Hola amigo!!", 1, 1)
+    player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
@@ -29,6 +31,10 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
         creature:SendUnitSay(mensaje, 0)
 		--player:SendBroadcastMessage(mensaje)
 	end
+	if(intid == 1) then
+		 player:GossipComplete()
+        creature:SendUnitSay(mensaje, 0)
+    end
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
