@@ -287,9 +287,6 @@ function crearPersonaje(creature)
 
   local sqlCreatureEquipTemplate = "REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES ("..entry..", 1, "..arma1..", "..arma2..", "..arma3..", 0);"
 	local resultCreatureEquipTemplate = WorldDBQuery(sqlCreatureEquipTemplate)
-
-
-  end
 	
 	if(entry == '0') then
 		lanzarError(creature, 'Oops!! Ha habido un error al intentar crear el NPC...')
