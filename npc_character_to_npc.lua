@@ -79,6 +79,7 @@ function OnGossipHello(event, player, object)
 	reset()
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Crear un NPC a partir de un Personaje.", 1, 1)
+    player:GossipMenuAddItem(0, "Ver lista de NPC creados.", 7, 1)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
@@ -113,6 +114,8 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 	elseif (intid == 3) then
 		reset()
 		player:GossipComplete()
+	elseif (intid == 7) then
+		
 	end
 	
 	
