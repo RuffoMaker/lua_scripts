@@ -1,4 +1,4 @@
-local entry = 31233
+local entry = -31233
 
 local contadorMordisco = 0
 local tiempoMordisco = 3000
