@@ -14,7 +14,7 @@
 	--Variables:
 local NpcId = 90002
 local MenuId = 123 
-local mensaje = "Rasky !!"
+local mensaje = "Aloha !!"
 local insulto = "que te den!"
 
 
