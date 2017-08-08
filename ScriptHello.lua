@@ -19,7 +19,7 @@ local mensaje = "Rasky !!"
 
 local function OnGossipHello(event, player, object)
     player:GossipClearMenu() -- required for player gossip
-    player:GossipMenuAddItem(0, "Quiero ser GM!!", 1, 1)
+    player:GossipMenuAddItem(0, "Hola amigo!!", 1, 1)
     player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
 
