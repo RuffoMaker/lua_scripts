@@ -255,7 +255,8 @@ function crearPersonaje(creature)
 			pelo = results:GetUInt32(5)
 			color = results:GetUInt32(6)
 			barba = results:GetUInt32(7)
-  until not results:NextRow()
+  	until not results:NextRow()
+  end
 
   if(capucha == false) then
   	casco = 0
@@ -266,7 +267,8 @@ function crearPersonaje(creature)
   if (resultGetNextEntry) then
   	repeat
   		entry = resultGetNextEntry:GetUInt32(0)
-  until not resultGetNextEntry:NextRow()
+  	until not resultGetNextEntry:NextRow()
+  end
 
 
   local sqlGetOutfitId = "SELECT MAX(`entry`) + 1 FROM `creature_template_outfits`;"
@@ -274,7 +276,8 @@ function crearPersonaje(creature)
   if (resultGetOutfitId) then
   	repeat
   		outfit = resultGetOutfitId:GetUInt32(0)
-  until not resultGetOutfitId:NextRow()
+  	until not resultGetOutfitId:NextRow()
+  end
 
   local sqlCreatureTemplateOutfits = "REPLACE INTO `creature_template_outfits` (`entry`, `race`, `class`, `gender`, `skin`, `face`, `hair`, `haircolor`, `facialhair`, `head`, `shoulders`, `body`, `chest`, `waist`, `legs`, `feet`, `wrists`, `hands`, `back`, `tabard`) VALUES ("..outfit..", "..raza..", "..clase..", "..genero..", "..piel..", "..cara..", "..pelo..", "..color..", "..barba..", "..casco..", "..hombreras..", "..camisa..", "..pechera..", "..cinturon..", "..pantalones..", "..botas..", "..brazaletes..", "..guantes..", "..capa..", "..tabardo..");"
   local resultCreatureTemplateOutfits = WorldDBQuery(sqlCreatureTemplateOutfits)
