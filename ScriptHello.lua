@@ -18,7 +18,7 @@ local mensaje = "Rasky !!"
 local insulto = "que te den!"
 
 
-local function OnGossipHello(event, player, object)
+local function OnGossipHi(event, player, object)
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Hola amigo!!", 1, 1)
     player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
@@ -31,11 +31,11 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
         creature:SendUnitSay(mensaje, 0)
 		--player:SendBroadcastMessage(mensaje)
 	end
-	if(intid == 1) then
+	if(intid == 2) then
 		 player:GossipComplete()
-        creature:SendUnitSay(mensaje, 0)
+        creature:SendUnitSay(insulto, 0)
     end
 end
 
-RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
