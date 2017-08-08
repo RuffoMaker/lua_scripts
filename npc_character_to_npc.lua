@@ -38,6 +38,7 @@ local tiempoRecordatorio = 2000
 local recordatorioDicho = false
 
 local queryBuscarPersonaje = false
+local queryCrearPersonaje = false
 
 
 
@@ -204,7 +205,7 @@ function buscarPersonaje(creature)
 end
 
 function crearPersonaje(creature)
-
+	queryCrearPersonaje = true
 end
 
 function lanzarError(creature, mensaje)
