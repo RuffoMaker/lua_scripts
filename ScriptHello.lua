@@ -16,10 +16,10 @@
 	local nombre = "Rasky!!!!"
 	local menuID = 321
 	
-	local function CreatureDialog(event, player, creature)
-		ScriptName = Creature:GetScriptName()
+	--local function CreatureDialog(event, player, creature)
+		--ScriptName = Creature:GetScriptName()
 		
-	end
+	--end
 
 
 RegisterCreatureEvent( npcID, 35, CreatureDialog )
