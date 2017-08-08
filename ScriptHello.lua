@@ -12,26 +12,24 @@
 ]]--
 
 	--Variables:
-	local npcID = 90002
-	local mensaje = "Rasky!!!!"
-	local menuID = 123
-	
-local function OnGossipHello(event, player, object)
-	--SendWorldMessage( nombre )
-	--creature:SendUnitSay( '¡¡¡Wooooff woooof!!!', 0 )
-	player:GossipClearMenu() -- required for player gossip
-	Player:GossipMenuAddItem( 1, "hola amigo", 1, 1 )
-	player:GossipSendMenu(1, object, menuID)
-	--Unit:SendUnitSay( mensaje, 0 )
+local NpcId = 90002
+local MenuId = 123 -- Unique ID to recognice player gossip menu among others
+local mensaje = "Rasky !!"
 
+
+local function OnGossipHello(event, player, object)
+    player:GossipClearMenu() -- required for player gossip
+    player:GossipMenuAddItem(0, "Quiero ser GM!!", 1, 1)
+    player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
 end
+
 local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
         creature:SendUnitSay(mensaje, 0)
+		--player:SendBroadcastMessage(mensaje)
 	end
 end
 
-
-RegisterCreatureEvent( npcID, 1, OnGossipHello )
-RegisterCreatureGossipEvent(npcID, 2, OnGossipSelect)
+RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
