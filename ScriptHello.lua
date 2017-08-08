@@ -25,6 +25,13 @@ local function OnGossipHello(event, player, object)
 	--Unit:SendUnitSay( mensaje, 0 )
 
 end
+local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
+    if (intid == 1) then
+        player:GossipComplete()
+        creature:SendUnitSay(mensaje, 0)
+	end
+end
 
 
 RegisterCreatureEvent( npcID, 1, OnGossipHello )
+RegisterCreatureGossipEvent(npcID, 2, OnGossipSelect)
