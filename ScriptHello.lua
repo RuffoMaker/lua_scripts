@@ -17,9 +17,13 @@
 	local menuID = 321
 	
 local function OnGossipHello(event, player, object)
+	--SendWorldMessage( nombre )
+	--creature:SendUnitSay( '¡¡¡Wooooff woooof!!!', 0 )
 	player:GossipMenuAddItem(0, "Hola señor!.", 1, 1)
-	player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
+	player:GossipSendMenu(1, object, MenuId) 
 	creature:SendUnitSay( '¡¡¡Hola Rasky Player!!!', 0 )
+	player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
+	
 end
 
 
