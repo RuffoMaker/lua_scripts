@@ -81,6 +81,7 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		estado = 'buscandoPersonaje'
 		player:GossipComplete()
 	elseif (intid == 3) then
+		reset()
 		player:GossipComplete()
 	end
 	
