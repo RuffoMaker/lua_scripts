@@ -1,3 +1,5 @@
+-- BUG EN EL QUE CUANDO CAMBIAS DE ZONA O RELOGUEAS VES A LOS OTROS PLAYERS DESNUDOS
+
 local function NakedBugFix(event, player)
   if not (player:HasAura(54844)) then
     player:AddAura(54844, player)
