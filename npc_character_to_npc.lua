@@ -128,10 +128,13 @@ function creatureAI(event, creature, diff)
 			creature:SendUnitSay('Estoy creando el NPC...', 0)
 			creandoPersonajeDicho = true
 			tiempo = 0
+			crearPersonaje(creature)
 		end
 		if(tiempo > tiempoCreandoPersonaje) then
-			estado = 'personajeCreado'
-			tiempo = 0
+			if(queryCrearPersonaje == true) then
+				estado = 'personajeCreado'
+				tiempo = 0
+			end
 		end
 		
 		creature:Emote(emoteFinishCast)
@@ -193,16 +196,20 @@ function buscarPersonaje(creature)
     end
 	
 	if(guid == '0') then
-		lanzarError(creature)
+		lanzarError(creature, 'Oops!! No encuentro el personaje en la base de datos... ¿Lo has escrito correctamente?')
 		
 	else
 		queryBuscarPersonaje = true
 	end
 end
 
-function lanzarError(creature)
+function crearPersonaje(creature)
+
+end
+
+function lanzarError(creature, mensaje)
 	errores = true
-	creature:SendUnitSay('Oops!! Ha habido un error al crear el NPC...', 0)
+	creature:SendUnitSay(mensaje, 0)
 	reset()
 end
 
