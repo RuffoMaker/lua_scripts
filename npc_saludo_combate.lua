@@ -1,4 +1,4 @@
-local entry = 299
+local entry = 31233
 
 function saludar(event, creature, target)
 	creature:SendUnitSay( '¡¡¡Wooooff woooof!!!', 0 )
