@@ -13,16 +13,17 @@
 
 	--Variables:
 local NpcId = 90002
-local MenuId = 123 -- Unique ID to recognice player gossip menu among others
+local MenuId = 123 
 local mensaje = "Rasky !!"
 local insulto = "que te den!"
 
 
 local function OnGossipHi(event, player, object)
-    player:GossipClearMenu() -- required for player gossip
+    player:GossipClearMenu() 
     player:GossipMenuAddItem(0, "Hola amigo!!", 1, 1)
     player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
-    player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
+     player:GossipMenuAddItem(0,"A que te meto!!",1,3)
+    player:GossipSendMenu(1, object, MenuId)
 end
 
 local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
@@ -34,6 +35,11 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 	if(intid == 2) then
 		 player:GossipComplete()
         creature:SendUnitSay(insulto, 0)
+    end
+    if(intid == 3)then
+    	player:GossipComplete()   	
+    	Unit:Attack( player, meleeAttack )
+
     end
 end
 
