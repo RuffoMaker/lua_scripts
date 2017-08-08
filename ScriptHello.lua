@@ -17,7 +17,7 @@
 	local menuID = 321
 	
 	local function CreatureDialog(event, player, creature)
-		nombre = Creature:GetScriptName()
+		ScriptName = Creature:GetScriptName()
 		
 	end
 
