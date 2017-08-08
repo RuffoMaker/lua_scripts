@@ -21,7 +21,7 @@ local hombreras = 0
 local camisa = 0
 local pechera = 2586
 local cinturon = 0
-local pantalones 0
+local pantalones = 0
 local botas = 11508
 local brazaletes = 0
 local guantes = 0
