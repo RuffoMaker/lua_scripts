@@ -12,7 +12,7 @@ function aiUpdate(event, creature, diff)
 
 	target = creature:GetAITarget( 1, true )
 
-	if(target ~= nil)then
+	if(target ~= nil) then
 		if(contadorMordisco > tiempoMordisco) then
 			creature:CastSpell( target, mordisco, 1 )
 			contadorMordisco = 0
