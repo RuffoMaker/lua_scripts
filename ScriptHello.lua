@@ -16,14 +16,11 @@
 	local nombre = "Rasky!!!!"
 	local menuID = 321
 	
-	--         --
-	
-	local function OnGossipHello (event, player, object)
-		player:GossipClearMenu() -- required for player gossip
-		player:GossipMenuAddItem(0, "Aloha!!", 1, 1)
-		
-	end
-	
+local function OnGossipHello(event, player, object)
+	player:GossipMenuAddItem(0, "Hola señor!.", 1, 1)
+	player:GossipSendMenu(1, object, MenuId) -- MenuId required for player gossip
+	creature:SendUnitSay( '¡¡¡Hola Rasky Player!!!', 0 )
+end
 
-	
-RegisterCreatureGossipEvent(npcID, 1, OnGossipHello)
+
+RegisterCreatureEvent( npcID, 1, OnGossipHello )
