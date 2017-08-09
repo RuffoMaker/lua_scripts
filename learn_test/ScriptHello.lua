@@ -61,6 +61,10 @@ function onLeaveCombat(event, creature)
     reset()
 end
 
+function onReachHome(event, creature)
+    reset()
+end
+
 --Si el Npc palma devuelve true
 function SielNpcMuere(event, creature, killer) 
     creature:SendUnitSay("Mal nacido!!, que has hecho...",0)
@@ -83,3 +87,4 @@ RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 RegisterCreatureEvent( NpcId, 2, onLeaveCombat)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
+RegisterCreatureEvent( NpcId, 24, OnReachHome)
