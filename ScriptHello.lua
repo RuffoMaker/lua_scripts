@@ -45,11 +45,11 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     end
     if(intid == 4)then
     	 player:GossipClearMenu() 
-   		 player:GossipMenuAddItem(2, "Ventormenta.!!", 2, 1)
-    	 player:GossipMenuAddItem(2,"Ogrimar.",2,2)
-   		 player:GossipMenuAddItem(2,"Darnassus.",2,3)
-   		 player:GossipMenuAddItem(2,"Forjaz.",2,4)
-   		 player:GossipMenuAddItem(2,"y mas...",2,5)
+   		 player:GossipMenuAddItem(2, "Ventormenta.!!", 1, 5)
+    	 player:GossipMenuAddItem(2,"Ogrimar.",1,6)
+   		 player:GossipMenuAddItem(2,"Darnassus.",1,7)
+   		 player:GossipMenuAddItem(2,"Forjaz.",1,8)
+   		 player:GossipMenuAddItem(2,"y mas...",1,9)
     end
 end
 
