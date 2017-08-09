@@ -59,33 +59,33 @@ end
 
 function OnLeaveCombat(event, creature)
     creature:SendUnitSay('Sali del combate jajaja', 0)
-    reset(creature)
+    creature:SetFaction(35)
+    creature:AttackStop()
 end
 
 function OnReachHome(event, creature)
     creature:SendUnitSay('He vuelto!', 0)
-    reset(creature)
+    creature:SetFaction(35)
+    creature:AttackStop()
 end
 
 --Si el Npc palma devuelve true
 function SielNpcMuere(event, creature, killer) 
     creature:SendUnitSay("Mal nacido!!, que has hecho...", 0)
     creature:Respawn()
-    reset(creature)
+    creature:SetFaction(35)
+    creature:AttackStop()
 end
 
 
 function OnReset(event, creature)
     creature:SendUnitSay('Me he resetau', 0)
-    reset(creature)
+    creature:SetFaction(35)
+    creature:AttackStop()
 end
 
 function OnVictimDied(event, creature, victim)
     creature:SendUnitSay('Te mate puto!', 0)
-    reset(creature)
-end
-
-function reset(creature)
     creature:SetFaction(35)
     creature:AttackStop()
 end
