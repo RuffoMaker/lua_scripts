@@ -18,7 +18,7 @@ local mensaje = "Aloha !!"
 local insulto = "que te den!"
 
 
-local function OnGossipHi(event, player, object)
+function OnGossipHi(event, player, object)
     player:GossipClearMenu() 
     player:GossipMenuAddItem(0,"Hola amigo!!", 1, 1)
     player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
@@ -29,7 +29,7 @@ local function OnGossipHi(event, player, object)
     player:GossipSendMenu(1, object, MenuId)
 end
 
-local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
+function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
         creature:SendUnitSay(mensaje, 0)
@@ -56,17 +56,29 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     end
 end
 
-local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
-    victim = creature:AttackStop()
-    Creature:SetFaction(35)--REVISAR, No se vuelve amistoso el NPC si PALMA EL JUGADOR
+--Si el player muere devuelve true
+function ElPlayerPalmo(event, creature, victim ) 
+    reset()
 end
 
-local function NpcSaleDeCombate(event, creature)
-    creature:SetFaction(35)
+function NpcSaleDeCombate(event, creature)
+    reset()
 end
-local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
+
+--Si el Npc palma devuelve true
+function SielNpcMuere(event, creature, killer) 
     creature:SendUnitSay("Mal nacido!!, que has hecho...",0)
     creature:Respawn()
+    reset()
+end
+
+function ElNpcNace(event, creature)
+    reset()
+end
+
+function reset()
+    creature:SetFaction(35)
+    creature:AttackStop()
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
@@ -74,3 +86,4 @@ RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 RegisterCreatureEvent( NpcId, 2, NpcSaleDeCombate)
 RegisterCreatureEvent( NpcId, 3, ElPlayerPalmo)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
+RegisterCreatureEvent( NpcId, 5, ElNpcNace)
