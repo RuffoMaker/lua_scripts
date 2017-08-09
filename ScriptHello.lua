@@ -25,6 +25,7 @@ local function OnGossipHi(event, player, object)
     player:GossipMenuAddItem(0,"A que te meto!!",1,3)
     player:GossipMenuAddItem(0,"Ir a la casa de subastas de...",1,4)
     player:GossipMenuAddItem(0,"Pagar un Sicario.",1,5)
+        player:GossipMenuAddItem(0,"Creame un rival digno!.",1,6)
     player:GossipSendMenu(1, object, MenuId)
 end
 
@@ -46,11 +47,11 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     end
     if(intid == 4)then
     	 player:GossipClearMenu() 
-   		 player:GossipMenuAddItem(0, "Ventormenta.!!", 1, 6)
-    	 player:GossipMenuAddItem(0,"Ogrimar.",1,7)
-   		 player:GossipMenuAddItem(0,"Darnassus.",1,8)
-   		 player:GossipMenuAddItem(0,"Forjaz.",1,8)
-   		 player:GossipMenuAddItem(0,"y mas...",1,10)
+   		 player:GossipMenuAddItem(0, "Ventormenta.!!", 1, 7)
+    	 player:GossipMenuAddItem(0,"Ogrimar.",1,8)
+   		 player:GossipMenuAddItem(0,"Darnassus.",1,9)
+   		 player:GossipMenuAddItem(0,"Forjaz.",1,10)
+   		 player:GossipMenuAddItem(0,"y mas...",1,11)
     end
 end
 
