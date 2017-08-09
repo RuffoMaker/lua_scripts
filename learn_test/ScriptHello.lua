@@ -43,7 +43,7 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
         player:GossipComplete()           
         creature:SetFaction(44)
         creature:AttackStart(player)
-       
+       creature:SendUnitSay("Te vas a enterar tu!",0)
     end
     if(intid == 4)then
          player:GossipClearMenu() 
@@ -57,7 +57,7 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 end
 
 local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
-    creature = creature:AttackStop()
+    victim = creature:AttackStop()
     Creature:SetFaction(35)--REVISAR, No se vuelve amistoso el NPC si PALMA EL JUGADOR
 end
 
