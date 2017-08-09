@@ -85,7 +85,9 @@ function OnReset(event, creature)
 end
 
 function OnVictimDied(event, creature, victim)
-    return true
+    creature:SendUnitSay('Te mate puto!', 0)
+    creature:SetFaction(35)
+    creature:AttackStop()
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
