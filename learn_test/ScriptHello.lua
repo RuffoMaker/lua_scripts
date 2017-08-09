@@ -32,7 +32,7 @@ end
 local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-        Creature:SendUnitSay(mensaje, 0)
+        creature:SendUnitSay(mensaje, 0)
         --player:SendBroadcastMessage(mensaje)
     end
     if(intid == 2) then
@@ -41,8 +41,8 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     end
     if(intid == 3)then
         player:GossipComplete()           
-        Creature:SetFaction(1953)
-        Creature:AttackStart(player)
+        creature:SetFaction(1953)
+        creature:AttackStart(player)
        
     end
     if(intid == 4)then
@@ -61,8 +61,8 @@ local function ElPlayerPalmo(event, creature, victim )--Si el player muere devue
 end
 
 local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
-    Creature:SendUnitSay("Mal nacido que has hecho...",0)
-    Creature:Respawn()
+    creature:SendUnitSay("Mal nacido que has hecho...",0)
+    creature:Respawn()
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
