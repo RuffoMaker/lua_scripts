@@ -22,7 +22,7 @@ local function OnGossipHi(event, player, object)
     player:GossipClearMenu() 
     player:GossipMenuAddItem(0, "Hola amigo!!", 1, 1)
     player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
-     player:GossipMenuAddItem(0,"A que te meto!!",1,3)
+    player:GossipMenuAddItem(0,"A que te meto!!",1,3)
     player:GossipSendMenu(1, object, MenuId)
 end
 
