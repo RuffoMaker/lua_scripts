@@ -61,7 +61,7 @@ function onLeaveCombat(event, creature)
     reset()
 end
 
-function onReachHome(event, creature)
+function OnReachHome(event, creature)
     reset()
 end
 
