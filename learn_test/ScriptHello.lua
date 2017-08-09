@@ -20,7 +20,7 @@ local insulto = "que te den!"
 
 local function OnGossipHi(event, player, object)
     player:GossipClearMenu() 
-    player:GossipMenuAddItem(0, "Hola amigo!!", 1, 1)
+    player:GossipMenuAddItem(0,"Hola amigo!!", 1, 1)
     player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
     player:GossipMenuAddItem(0,"A que te meto!!",1,3)
     player:GossipMenuAddItem(0,"Ir a la casa de subastas de...",1,4)
@@ -44,20 +44,20 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
         Creature:SetFaction(1953)
         Creature:AttackStart(player)
        
-
     end
     if(intid == 4)then
          player:GossipClearMenu() 
-         player:GossipMenuAddItem(0, "Ventormenta.!!", 1, 5)
-         player:GossipMenuAddItem(0,"Ogrimar.",1,6)
-         player:GossipMenuAddItem(0,"Darnassus.",1,7)
-         player:GossipMenuAddItem(0,"Forjaz.",1,8)
-         player:GossipMenuAddItem(0,"y mas...",1,9)
+         player:GossipMenuAddItem(0,"Ventormenta.!!",2, 5)
+         player:GossipMenuAddItem(0,"Ogrimar.",2,6)
+         player:GossipMenuAddItem(0,"Darnassus.",2,7)
+         player:GossipMenuAddItem(0,"Forjaz.",2,8)
+         player:GossipMenuAddItem(0,"y mas...",2,9)
+         player:GossipSendMenu(2, object, MenuId)
     end
 end
 
 local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
-    Creature:SetFaction(35)
+    Creature:SetFaction(53)
 end
 
 local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
