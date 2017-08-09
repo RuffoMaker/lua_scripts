@@ -57,7 +57,8 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 end
 
 local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
-        Creature:SetFaction(53)
+    creature = creature:AttackStop()
+    Creature:SetFaction(53)
 end
 
 local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
