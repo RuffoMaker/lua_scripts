@@ -17,11 +17,14 @@ end
 function onGossipSelect(event, plr, unit, arg2, intid)
     if (intid > 0) then
         local resultado = CharDBQuery("SELECT name,rating FROM arena_team WHERE type='"..intid.."' ORDER BY rating DESC LIMIT 10")
-        repeat
-        time = resultado:GetString(0);
-        pontos = resultado:GetUInt32(1);
-        plr:SendBroadcastMessage("|cFF33CCFFNome do time : |r ".. time .." ,  |cFF33CCFFRating : |r" .. pontos .. "  puntos de arena ")
-        until not resultado:NextRow()    
+        if(resultado) then
+            repeat
+                local puntos = 0
+                time = resultado:GetString(0);
+                puntos = resultado:GetUInt32(1);
+                plr:SendBroadcastMessage("|cFF33CCFFNome do time : |r ".. time .." ,  |cFF33CCFFRating : |r" .. puntos .. "  puntos de arena ")
+            until not resultado:NextRow()    
+        end
     end
 end
 RegisterCreatureGossipEvent(NPC_ID, 1, onGossipHello)
