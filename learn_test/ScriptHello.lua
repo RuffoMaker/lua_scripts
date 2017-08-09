@@ -57,16 +57,20 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 end
 
 local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
-    creature = creature:AttackStop()
+    --creature = creature:AttackStop()
     Creature:SetFaction(53)
 end
 
+local function NpcSaleDeCombate(event, creature)
+    creature:SetFaction(53)
+end
 local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
-    creature:SendUnitSay("Mal nacido que has hecho...",0)
+    creature:SendUnitSay("Mal nacido!!, que has hecho...",0)
     creature:Respawn()
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+RegisterCreatureEvent( NpcId, 2, NpcSaleDeCombate)
 RegisterCreatureEvent( NpcId, 3, ElPlayerPalmo)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
