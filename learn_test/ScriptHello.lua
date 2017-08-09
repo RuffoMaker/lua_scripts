@@ -57,6 +57,9 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 end
 
 
+function onLeaveCombat(event, creature)
+    reset()
+end
 
 --Si el Npc palma devuelve true
 function SielNpcMuere(event, creature, killer) 
@@ -77,5 +80,6 @@ end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+RegisterCreatureEvent( NpcId, 2, onLeaveCombat)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
