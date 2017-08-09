@@ -47,23 +47,23 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     end
     if(intid == 4)then
          player:GossipClearMenu() 
-         player:GossipMenuAddItem(0,"Ventormenta.!!",2, 5)
-         player:GossipMenuAddItem(0,"Ogrimar.",2,6)
+         player:GossipMenuAddItem(0,"Ventormenta.!!",1, 5)
+         player:GossipMenuAddItem(0,"Ogrimar.",1,6)
          player:GossipMenuAddItem(0,"Darnassus.",2,7)
-         player:GossipMenuAddItem(0,"Forjaz.",2,8)
-         player:GossipMenuAddItem(0,"y mas...",2,9)
-         player:GossipSendMenu(2, object, MenuId)
+         player:GossipMenuAddItem(0,"Forjaz.",1,8)
+         player:GossipMenuAddItem(0,"y mas...",1,9)
+         player:GossipSendMenu(1, object, MenuId)
     end
 end
 
 local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
     creature = creature:AttackStop()
-    Creature:SetFaction(53)
+    Creature:SetFaction(53)--REVISAR, No se vuelve amistoso el NPC si PALMA EL JUGADOR
 end
 
---local function NpcSaleDeCombate(event, creature)
-    --creature:SetFaction(53)
---end
+local function NpcSaleDeCombate(event, creature)
+    creature:SetFaction(53)
+end
 local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
     creature:SendUnitSay("Mal nacido!!, que has hecho...",0)
     creature:Respawn()
