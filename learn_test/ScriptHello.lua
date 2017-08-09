@@ -58,11 +58,11 @@ end
 
 local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
     creature = creature:AttackStop()
-    Creature:SetFaction(53)--REVISAR, No se vuelve amistoso el NPC si PALMA EL JUGADOR
+    Creature:SetFaction(35)--REVISAR, No se vuelve amistoso el NPC si PALMA EL JUGADOR
 end
 
 local function NpcSaleDeCombate(event, creature)
-    creature:SetFaction(53)
+    creature:SetFaction(35)
 end
 local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
     creature:SendUnitSay("Mal nacido!!, que has hecho...",0)
