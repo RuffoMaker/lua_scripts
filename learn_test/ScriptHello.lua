@@ -26,7 +26,7 @@ local function OnGossipHi(event, player, object)
     player:GossipMenuAddItem(0,"Ir a la casa de subastas de...",1,4)
     player:GossipMenuAddItem(0,"Pagar un Sicario.",1,10)
     player:GossipMenuAddItem(0,"Creame un rival digno!.",1,11)--Hara como el que bebe una pocion y se convertira en algun otro bicho distintas spells
-    player:GossipSendMenu(1, object, MenuId)
+    --player:GossipSendMenu(1, object, MenuId)
 end
 
 local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
