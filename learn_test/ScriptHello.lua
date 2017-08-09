@@ -42,6 +42,7 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     if(intid == 3)then
         player:GossipComplete()     
         --player = Unit:Attack(player )
+        creature:SetFaction(5)
         creature:AttackStart(player)
         --creature:Attack(player, false )
 
