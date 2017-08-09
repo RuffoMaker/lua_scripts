@@ -8,11 +8,11 @@
     *== Script Info ==*
     * Zona: 
     * Descripcion:
-    * Npc: <MJ> Rasky <90002>
+    * Npc: <MJ> Rasky <90008>
 ]]--
 
     --Variables:
-local NpcId = 90002
+local NpcId = 90008
 local MenuId = 123 
 local mensaje = "Aloha !!"
 local insulto = "que te den!"
