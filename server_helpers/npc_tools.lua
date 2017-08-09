@@ -22,7 +22,7 @@ function morph_select(event, player, creature, sender, intid)
    
     if (intid == 2) then -- Heal
         player:SetHealth(player:GetMaxHealth())
-        player:SetPower(player:GetMaxPower(127), 127)
+        player:SetPower(player:GetMaxPower(0), 0)
         player:GossipComplete()
     end
    

@@ -2,7 +2,7 @@
 
 function restaurarVida(event, player, oldLevel)
     player:SetHealth(player:GetMaxHealth())
-    player:SetPower(player:GetMaxPower(127), 127)
+    player:SetPower(player:GetMaxPower(0), 0)
 end
 
 RegisterPlayerEvent(13, restaurarVida)
