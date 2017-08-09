@@ -76,6 +76,10 @@ function ElNpcNace(event, creature)
     reset()
 end
 
+function OnReset(event, creature)
+    reset()
+end
+
 function reset()
     creature:SetFaction(35)
     creature:AttackStop()
@@ -87,3 +91,4 @@ RegisterCreatureEvent( NpcId, 2, NpcSaleDeCombate)
 RegisterCreatureEvent( NpcId, 3, ElPlayerPalmo)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 5, ElNpcNace)
+RegisterCreatureEvent( NpcId, 23, OnReset)
