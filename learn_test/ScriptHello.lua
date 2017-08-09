@@ -36,63 +36,63 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
         
     end
     if(intid == 2) then
-         player:GossipComplete()
+        player:GossipComplete()
         creature:SendUnitSay(insulto, 0)
     end
     if(intid == 3)then
         player:GossipComplete()           
         creature:SetFaction(44)
         creature:AttackStart(player)
-       creature:SendUnitSay("Te vas a enterar tu!",0)
+        creature:SendUnitSay("Te vas a enterar tu!",0)
     end
     if(intid == 4)then
-         player:GossipClearMenu() 
-         player:GossipMenuAddItem(0,"Ventormenta.!!",2, 5)
-         player:GossipMenuAddItem(0,"Ogrimar.",2,6)
-         player:GossipMenuAddItem(0,"Darnassus.",2,7)
-         player:GossipMenuAddItem(0,"Forjaz.",2,8)
-         player:GossipMenuAddItem(0,"y mas...",2,9)
-         player:GossipSendMenu(2, object, menuid)
+        player:GossipClearMenu() 
+        player:GossipMenuAddItem(0,"Ventormenta.!!",2, 5)
+        player:GossipMenuAddItem(0,"Ogrimar.",2,6)
+        player:GossipMenuAddItem(0,"Darnassus.",2,7)
+        player:GossipMenuAddItem(0,"Forjaz.",2,8)
+        player:GossipMenuAddItem(0,"y mas...",2,9)
+        player:GossipSendMenu(2, object, menuid)
     end
 end
 
 
-function onLeaveCombat(event, creature)
+local function OnLeaveCombat(event, creature)
     creature:SendUnitSay('Sali del combate jajaja')
     reset()
 end
 
-function OnReachHome(event, creature)
+local function OnReachHome(event, creature)
     creature:SendUnitSay('He vuelto!')
     reset()
 end
 
 --Si el Npc palma devuelve true
-function SielNpcMuere(event, creature, killer) 
+local function SielNpcMuere(event, creature, killer) 
     creature:SendUnitSay("Mal nacido!!, que has hecho...",0)
     creature:Respawn()
     reset()
 end
 
 
-function OnReset(event, creature)
+local function OnReset(event, creature)
     creature:SendUnitSay('Me he resetau')
     reset()
 end
 
-function onVictimDied(event, creature, victim)
+local function OnVictimDied(event, creature, victim)
     creature:SendUnitSay('Te mate puto!')
 end
 
-function reset()
+local function reset()
     creature:SetFaction(35)
     creature:AttackStop()
 end
 
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
-RegisterCreatureEvent( NpcId, 2, onLeaveCombat)
-RegisterCreatureEvent( NpcId, 3, onVictimDied)
+RegisterCreatureEvent( NpcId, 2, OnLeaveCombat)
+RegisterCreatureEvent( NpcId, 3, OnVictimDied)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
 RegisterCreatureEvent( NpcId, 24, OnReachHome)
