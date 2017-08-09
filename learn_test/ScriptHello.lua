@@ -57,35 +57,35 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 end
 
 
-local function OnLeaveCombat(event, creature)
+function OnLeaveCombat(event, creature)
     creature:SendUnitSay('Sali del combate jajaja', 0)
     reset(creature)
 end
 
-local function OnReachHome(event, creature)
+function OnReachHome(event, creature)
     creature:SendUnitSay('He vuelto!', 0)
     reset(creature)
 end
 
 --Si el Npc palma devuelve true
-local function SielNpcMuere(event, creature, killer) 
+function SielNpcMuere(event, creature, killer) 
     creature:SendUnitSay("Mal nacido!!, que has hecho...", 0)
     creature:Respawn()
     reset(creature)
 end
 
 
-local function OnReset(event, creature)
+function OnReset(event, creature)
     creature:SendUnitSay('Me he resetau', 0)
     reset(creature)
 end
 
-local function OnVictimDied(event, creature, victim)
+function OnVictimDied(event, creature, victim)
     creature:SendUnitSay('Te mate puto!', 0)
     reset(creature)
 end
 
-local function reset(creature)
+function reset(creature)
     creature:SetFaction(35)
     creature:AttackStop()
 end
