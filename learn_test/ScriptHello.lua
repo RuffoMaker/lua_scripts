@@ -25,14 +25,14 @@ local function OnGossipHi(event, player, object)
     player:GossipMenuAddItem(0,"A que te meto!!",1,3)
     player:GossipMenuAddItem(0,"Ir a la casa de subastas de...",1,4)
     player:GossipMenuAddItem(0,"Pagar un Sicario.",1,5)
-        player:GossipMenuAddItem(0,"Creame un rival digno!.",1,6)
+    player:GossipMenuAddItem(0,"Creame un rival digno!.",1,6)
     player:GossipSendMenu(1, object, MenuId)
 end
 
 local function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-        creature:SendUnitSay(mensaje, 0)
+        Creature:SendUnitSay(mensaje, 0)
         --player:SendBroadcastMessage(mensaje)
     end
     if(intid == 2) then
@@ -40,11 +40,10 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
         creature:SendUnitSay(insulto, 0)
     end
     if(intid == 3)then
-        player:GossipComplete()     
-        --player = Unit:Attack(player )
-        creature:SetFaction(1953)
-        creature:AttackStart(player)
-        --creature:Attack(player, false )
+        player:GossipComplete()           
+        Creature:SetFaction(1953)
+        Creature:AttackStart(player)
+       
 
     end
     if(intid == 4)then
@@ -57,5 +56,16 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
     end
 end
 
+local function ElPlayerPalmo(event, creature, victim )--Si el player muere devuelve true
+    Creature:SetFaction(35)
+end
+
+local function SielNpcMuere(event, creature, killer)--Si el Npc palma devuelve true
+    Creature:SendUnitSay("Mal nacido que has hecho...",0)
+    Creature:Respawn()
+end
+
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+RegisterCreatureEvent( NpcId, 3, ElPlayerPalmo)
+RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
