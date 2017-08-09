@@ -58,10 +58,12 @@ end
 
 
 function onLeaveCombat(event, creature)
+    creature:SendUnitSay('Sali del combate jajaja')
     reset()
 end
 
 function OnReachHome(event, creature)
+    creature:SendUnitSay('He vuelto!')
     reset()
 end
 
@@ -74,6 +76,7 @@ end
 
 
 function OnReset(event, creature)
+    creature:SendUnitSay('Me he resetau')
     reset()
 end
 
