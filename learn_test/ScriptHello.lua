@@ -77,6 +77,10 @@ function OnReset(event, creature)
     reset()
 end
 
+function onVictimDied(event, creature, victim)
+    victim:SendUnitSay('Oh! No! Me mori!')
+end
+
 function reset()
     creature:SetFaction(35)
     creature:AttackStop()
@@ -85,6 +89,7 @@ end
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 RegisterCreatureEvent( NpcId, 2, onLeaveCombat)
+RegisterCreatureEvent( NpcId, 3, onVictimDied)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
 RegisterCreatureEvent( NpcId, 24, OnReachHome)
