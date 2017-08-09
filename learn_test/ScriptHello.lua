@@ -46,13 +46,12 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
         creature:SendUnitSay("Te vas a enterar tu!",0)
     end
     if(intid == 4)then
-        player:GossipClearMenu() 
         player:GossipMenuAddItem(0,"Ventormenta.!!",1, 7)
         player:GossipMenuAddItem(0,"Ogrimar.",1,8)
-        player:GossipMenuAddItem(0,"Darnassus.",2,9)
+        player:GossipMenuAddItem(0,"Darnassus.",1,9)
         player:GossipMenuAddItem(0,"Forjaz.",1,10)
         player:GossipMenuAddItem(0,"y mas...",1,11)
-        player:GossipSendMenu(1, object, menuid)
+        player:GossipSendMenu(1, object, MenuId)
     end
 end
 
