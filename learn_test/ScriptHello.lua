@@ -78,7 +78,7 @@ function OnReset(event, creature)
 end
 
 function onVictimDied(event, creature, victim)
-    victim:Say('Oh! No! Me mori!')
+    creature:SendUnitSay('Te mate puto!')
 end
 
 function reset()
