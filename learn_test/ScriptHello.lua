@@ -35,7 +35,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 2) then
         player:GossipComplete()
         creature:SendUnitSay("Que te den!", 0)
-        creature:Emote( emoteId )
+        creature:Emote(77)
     end
     if(intid == 3)then
         player:GossipComplete()           
@@ -68,7 +68,7 @@ end
 
 --Si el Npc palma devuelve true
 function SielNpcMuere(event, creature, killer) 
-    creature:SendUnitSay("Mal nacido!!, que has hecho...", 0)
+    creature:SendUnitSay("Mal nacido!!, mal rayo te partaaa...", 0)
     creature:Respawn()
     creature:SetFaction(35)
     creature:AttackStop()
