@@ -12,7 +12,7 @@
 ]]--
 
     --Variables:
-local NpcId = 90003
+local NpcId = 90008
 local MenuId = 123 
 local noseSiMorirme
 
@@ -36,7 +36,23 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 2) then
         player:GossipComplete()
         creature:SendUnitSay("Que te den!", 0)
-      
+        creature:EmoteState(14)--NO PASA DE AQUI <=====================
+        creature:EmoteState(0)
+
+       creature:SendUnitSay("No se si morirme..")
+       noseSiMorirme = math.random(1,2)
+      if(noseSiMorirme ==1)then
+            -- no me muero
+           creature:SendUnitSay("No me muero..")
+      elseif
+            --se muere
+            creature:SendUnitSay("Po me muero...")
+            creature:Kill(creature)
+
+       end
+
+    end --EN PRUEBAS <===============================
+
     if(intid == 3)then
         player:GossipComplete()           
         creature:SetFaction(44)
