@@ -43,6 +43,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
       if(noseSiMorirme == 1)then
             -- no me muero
            creature:SendUnitSay("No me muero..", 0)
+           Creature:Emote(0)
       else
             --se muere
             creature:SendUnitSay("Po me muero...", 0)
