@@ -51,7 +51,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
        end
 
-    end --EN PRUEBAS <===============================
+    end --EN PRUEBAS <=============================== CONTROLAS los tiempos entre accion  y acccion updateai para que te entiendas como los  hilos de espera three sleep
 
     if(intid == 3)then
         player:GossipComplete()           
