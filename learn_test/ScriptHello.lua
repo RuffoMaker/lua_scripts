@@ -36,7 +36,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 2) then
         player:GossipComplete()
         creature:SendUnitSay("Que te den!", 0)
-        creature:EmoteState(14)--NO PASA DE AQUI
+        creature:EmoteState(14)--NO PASA DE AQUI <=====================
         creature:EmoteState(0)
 
        creature:SendUnitSay("No se si morirme..")
@@ -51,7 +51,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
        end
 
-    end --EN PRUEBAS
+    end --EN PRUEBAS <===============================
 
     if(intid == 3)then
         player:GossipComplete()           
