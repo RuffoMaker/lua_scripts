@@ -43,7 +43,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
        noseSiMorirme = math.random(1,2)
       if(noseSiMorirme ==1)then
             -- no me muero
-          --  creature:SendUnitSay("No me muero..")
+           creature:SendUnitSay("No me muero..")
       elseif
             --se muere
             creature:SendUnitSay("Po me muero...")
