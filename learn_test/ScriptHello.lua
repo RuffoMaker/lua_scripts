@@ -14,8 +14,6 @@
     --Variables:
 local NpcId = 90008
 local MenuId = 123 
-local mensaje = "Aloha !!"
-local insulto = "que te den!"
 
 
 function OnGossipHi(event, player, creature)
@@ -28,15 +26,16 @@ function OnGossipHi(event, player, creature)
     player:GossipSendMenu(1, creature, MenuId)
 end
 
-function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
-    if (intid == 1) then
+function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --Creature a sido cambiado en lugar de Object como viene en la Referencias,
+    if (intid == 1) then                                                       -- Ya que ayi toman object como que le puede llegar cualquier cosa, en este caso lo que tratamos es la criatura..
         player:GossipComplete()
-        creature:SendUnitSay(mensaje, 0)
+        creature:SendUnitSay("Aloha", 0)
         
     end
     if(intid == 2) then
         player:GossipComplete()
-        creature:SendUnitSay(insulto, 0)
+        creature:SendUnitSay("Que te den!", 0)
+        creature:Emote( emoteId )
     end
     if(intid == 3)then
         player:GossipComplete()           
