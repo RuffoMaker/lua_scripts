@@ -36,7 +36,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         player:GossipComplete()
         --creature:SendUnitSay("Que te den!", 0)
         --creature:Emote(14)
-        Unit:SendUnitEmote( "Que te den!", player, 14)
+        creature:SendUnitEmote( "Que te den!", player, 14)
     end
     if(intid == 3)then
         player:GossipComplete()           
