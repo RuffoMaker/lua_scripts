@@ -37,7 +37,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         player:GossipComplete()
         creature:SendUnitSay("Que te den!", 0)
         creature:EmoteState(14)--NO PASA DE AQUI
-        creature:EmoteState(1)
+        creature:EmoteState(23)
         creature:SendUnitSay("No se si morirme..")
        noseSiMorirme = math.random(1,2)
        if(noseSiMorirme ==1)then
