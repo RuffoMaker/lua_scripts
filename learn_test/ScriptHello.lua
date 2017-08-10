@@ -12,7 +12,7 @@
 ]]--
 
     --Variables:
-local NpcId = 90008
+local NpcId = 90003
 local MenuId = 123 
 local noseSiMorirme
 
