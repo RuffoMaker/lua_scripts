@@ -51,7 +51,8 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
        end
 
-    end
+    end --EN PRUEBAS
+
     if(intid == 3)then
         player:GossipComplete()           
         creature:SetFaction(44)
