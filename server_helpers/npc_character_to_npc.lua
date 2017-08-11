@@ -16,7 +16,7 @@ local entryMax = 99999
 local entryMin = 90000
 
 -- CONFIGURACION DE LA ROPA
-local casco = 0
+local casco = 12064
 local hombreras = 0
 local camisa = 0
 local pechera = 2586
