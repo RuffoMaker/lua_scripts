@@ -7,7 +7,7 @@ local charactersSQL = [[
 		`ip` VARCHAR(20) NOT NULL DEFAULT '0.0.0.0' , 
 		`fecha` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
 		PRIMARY KEY (`id`)
-	) ENGINE = InnoDB;
+	);
 ]]
 CharDBQuery(charactersSQL)
 
