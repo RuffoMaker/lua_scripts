@@ -1,5 +1,6 @@
 
 
+
 local worldSQL = [[
 	CREATE TABLE IF NOT EXISTS `promociones` ( 
 		`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
