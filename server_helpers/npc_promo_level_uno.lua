@@ -5,7 +5,7 @@ local charactersSQL = [[
 		`personaje_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
 		`cuenta_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
 		`ip` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0.0.0.0' , 
-		`fecha` INT(10) UNSIGNED NOT NULL DEFAULT '0', 
+		`fecha` INT(10) UNSIGNED NOT NULL DEFAULT, 
 		PRIMARY KEY (`id`)
 	) ENGINE = InnoDB;
 ]]
