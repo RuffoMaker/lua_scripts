@@ -18,6 +18,7 @@ local worldSQL = [[
 		`unica_personaje` TINYINT(1) NOT NULL DEFAULT '0' , 
 		`unica_cuenta` TINYINT(1) NOT NULL DEFAULT '0' , 
 		`unica_ip` TINYINT(1) NOT NULL DEFAULT '0' , 
+		`promo_padre` INT(10) UNSIGNED NOT NULL '0' ,
 		PRIMARY KEY (`id`)
 	) ENGINE = InnoDB;
 ]]
@@ -26,6 +27,8 @@ WorldDBQuery(worldSQL)
 worldSQL = [[
 	CREATE TABLE IF NOT EXISTS `promocion_requerimientos` ( 
 		`promo_id` INT(20) UNSIGNED NOT NULL , 
+		`clase` TINYINT(3) NOT NULL DEFAULT '0' , 
+		`raza` TINYINT(3) NOT NULL DEFAULT '0' , 
 		`nivel` TINYINT(3) NOT NULL DEFAULT '0' , 
 		`nivel_gm` TINYINT(2) NOT NULL DEFAULT '0' , 
 		`oro` INT(20) NOT NULL DEFAULT '0' , 
