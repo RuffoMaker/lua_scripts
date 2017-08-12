@@ -1,5 +1,13 @@
 local charactersSQL = [[
-
+	CREATE TABLE IF NOT EXISTS `promociones_entregadas` ( 
+		`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
+		`promocion_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
+		`personaje_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
+		`cuenta_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
+		`ip` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0.0.0.0' , 
+		`fecha` INT(10) UNSIGNED NOT NULL DEFAULT '0', 
+		PRIMARY KEY (`id`)
+	) ENGINE = InnoDB;
 ]]
 CharDBQuery(charactersSQL)
 
@@ -10,7 +18,7 @@ local worldSQL = [[
 		`unica_personaje` TINYINT(1) NOT NULL DEFAULT '0' , 
 		`unica_cuenta` TINYINT(1) NOT NULL DEFAULT '0' , 
 		`unica_ip` TINYINT(1) NOT NULL DEFAULT '0' , 
-		`promo_padre` INT(10) UNSIGNED NOT NULL '0' ,
+		`promo_padre` INT(10) UNSIGNED NOT NULL DEFAULT '0' ,
 		PRIMARY KEY (`id`)
 	) ENGINE = InnoDB;
 ]]
