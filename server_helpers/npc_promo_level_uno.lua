@@ -4,10 +4,10 @@ local charactersSQL = [[
 		`promocion_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
 		`personaje_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
 		`cuenta_id` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
-		`ip` VARCHAR(20) NOT NULL DEFAULT '0.0.0.0' , 
+		`ip` VARCHAR(20) NOT NULL DEFAULT '' , 
 		`fecha` INT(10) UNSIGNED NOT NULL DEFAULT '0' , 
 		PRIMARY KEY (`id`)
-	);
+	) ENGINE = InnoDB;
 ]]
 CharDBQuery(charactersSQL)
 
