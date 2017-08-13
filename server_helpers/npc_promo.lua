@@ -70,13 +70,15 @@ function OnGossipHello(event, player, creature)
 	reset()
     player:GossipClearMenu() -- required for player gossip
     player:GossipMenuAddItem(0, "Promocion 1.", 1, 1)
-    player:GossipMenuAddItem(0, "No quiero nada...", 1, -1)
+    player:GossipMenuAddItem(0, "No quiero nada...", 1,0)
     player:GossipSendMenu(1, creature, MenuId) -- MenuId required for player gossip
 end
 
 function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
-  if (intid == -1) then
+  if (intid == 0) then
     player:GossipComplete()
+  elseif (intid == 1)
+  	creature:SendUnitSay('Bien!', 0)
 	end
 end
 
