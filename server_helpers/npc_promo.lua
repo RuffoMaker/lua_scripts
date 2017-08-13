@@ -1,3 +1,5 @@
+local npcEntry = 60003
+
 local charactersSQL = [[
 	CREATE TABLE IF NOT EXISTS `promociones_entregadas` ( 
 		`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
@@ -49,6 +51,16 @@ worldSQL = [[
 		`tipo_recompensa` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'item' , 
 		`valor` INT(20) NOT NULL DEFAULT '0' , 
 		PRIMARY KEY (`id`), INDEX (`promocion_id`)
+	) ENGINE = InnoDB;
+]]
+WorldDBQuery(worldSQL)
+
+worldSQL = [[
+	CREATE TABLE IF NOT EXISTS `npc_lua` ( 
+		`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
+		`npc_entry` INT(10) UNSIGNED NOT NULL , 
+		`lua_script` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'item' ,
+		PRIMARY KEY (`id`)
 	) ENGINE = InnoDB;
 ]]
 WorldDBQuery(worldSQL)
