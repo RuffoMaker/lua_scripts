@@ -88,7 +88,7 @@ local events = WorldDBQuery( "SELECT `npc_entry`, `lua_script` FROM `npc_lua` WH
 if (events) then
   repeat
     local npc_entry = events:GetUInt32(0)
-    print npc_entry
+    print(npc_entry)
 		RegisterCreatureGossipEvent(npc_entry, 1, OnGossipHello)
 		RegisterCreatureGossipEvent(npc_entry, 2, OnGossipSelect)
 	until not events:NextRow()
