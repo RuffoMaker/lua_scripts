@@ -109,11 +109,11 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 		  		local recompensas = WorldDBQuery( "SELECT `tipo_recompensa`, `valor` FROM `promocion_recompensas` WHERE `promocion_id` = '"..id.."';" )
 					if (recompensas) then
 					  repeat
-					  	local tipo_recompensa = promociones:GetString(0)
-		  				local valor = promociones:GetUInt32(1)
+					  	local tipo_recompensa = recompensas:GetString(0)
+		  				local valor = recompensas:GetUInt32(1)
 
 		  				if(tipo_recompensa == 'item') then
-		  					player:AddItem(valor)
+		  					player:AddItem(valor, 1)
 		  				end
 
 		  				if(tipo_recompensa == 'oro') then
