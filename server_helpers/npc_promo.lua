@@ -136,22 +136,23 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 		  					player:SetLevel(valor)
 		  				end
 
-		  				local player_name = player:GetName()
-		  				personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
-		  				if (personaje) then
-					  		repeat
-					  			player_guid = personaje:GetUInt32(0)
-					  		until not personaje:NextRow()
-							end
-		  				local player_account_id = player:GetAccountId()
-		  				local player_ip = player:GetPlayerIP()
-		  				local timestamp = os.time()
-
-		  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
-		  				
-
 					  until not recompensas:NextRow()
 					end
+
+					local player_name = player:GetName()
+  				personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
+  				if (personaje) then
+			  		repeat
+			  			player_guid = personaje:GetUInt32(0)
+			  		until not personaje:NextRow()
+					end
+  				local player_account_id = player:GetAccountId()
+  				local player_ip = player:GetPlayerIP()
+  				local timestamp = os.time()
+
+  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
+  				
+
 			    player:GossipComplete()
 				end
 
