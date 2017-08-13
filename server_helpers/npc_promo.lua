@@ -1,4 +1,4 @@
-local npcEntry = 60003
+local scriptName = 'npc_promo'
 
 local charactersSQL = [[
 	CREATE TABLE IF NOT EXISTS `promociones_entregadas` ( 
@@ -59,8 +59,37 @@ worldSQL = [[
 	CREATE TABLE IF NOT EXISTS `npc_lua` ( 
 		`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
 		`npc_entry` INT(10) UNSIGNED NOT NULL , 
-		`lua_script` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'item' ,
+		`lua_script` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' ,
 		PRIMARY KEY (`id`)
 	) ENGINE = InnoDB;
 ]]
 WorldDBQuery(worldSQL)
+
+
+function OnGossipHello(event, player, creature)
+	reset()
+    player:GossipClearMenu() -- required for player gossip
+    player:GossipMenuAddItem(0, "Promocion 1.", 1, 1)
+    player:GossipMenuAddItem(0, "No quiero nada...", 1, -1)
+    player:GossipSendMenu(1, creature, MenuId) -- MenuId required for player gossip
+end
+
+function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
+  if (intid == -1) then
+    player:GossipComplete()
+	end
+end
+
+
+
+local events = WorldDBQuery( "SELECT `npc_entry`, `lua_script` FROM `npc_lua` WHERE  UPPER(`lua_script`) =  UPPER('"..scriptName.."') LIMIT 1" )
+if (events) then
+  repeat
+    local npc_entry = events:GetUInt32(0)
+		RegisterCreatureGossipEvent(npc_entry, 1, OnGossipHello)
+		RegisterCreatureGossipEvent(npc_entry, 2, OnGossipSelect)
+	until not events:NextRow()
+end
+
+
+
