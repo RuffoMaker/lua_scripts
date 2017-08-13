@@ -93,9 +93,63 @@ end
 function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
   if (intid == 0) then
     player:GossipComplete()
-  elseif (intid == 1) then
-  	creature:SendUnitSay('Bien!', 0)
 	end
+
+	local contador = 1
+    local promociones = WorldDBQuery( "SELECT `id`, `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
+		if (promociones) then
+		  repeat
+		  	local id = promociones:GetUInt32(0)
+		  	local nombre = promociones:GetString(1)
+		  	local unica_personaje = promociones:GetUInt32(2)
+		  	local unica_cuenta = promociones:GetUInt32(3)
+		  	local unica_ip = promociones:GetUInt32(4)
+
+		  	if (intid == contador) then
+		  		local recompensas = WorldDBQuery( "SELECT `tipo_recompensa`, `valor` FROM `promocion_recompensas` WHERE `promocion_id` = '"..id.."';" )
+					if (recompensas) then
+					  repeat
+					  	local tipo_recompensa = promociones:GetString(0)
+		  				local valor = promociones:GetUInt32(1)
+
+		  				if(tipo_recompensa == 'item') then
+		  					player:AddItem(valor)
+		  				end
+
+		  				if(tipo_recompensa == 'oro') then
+		  					player:ModifyMoney(valor)
+		  				end
+
+		  				if(tipo_recompensa == 'honor') then
+		  					player:ModifyHonorPoints(valor)
+		  				end
+
+		  				if(tipo_recompensa == 'arena') then
+		  					player:ModifyArenaPoints(valor)
+		  				end
+
+		  				if(tipo_recompensa == 'titulo') then
+		  					player:SetKnownTitle(valor)
+		  				end
+
+		  				if(tipo_recompensa == 'nivel') then
+		  					player:SetLevel(valor)
+		  				end
+
+
+		  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..id.."', '"..player:GetGUID().."', '"..player:GetAccountId().."', '"..player:GetPlayerIP().."', '"..os.time().."')" )
+		  				
+
+					  until not recompensas:NextRow()
+					end
+			    player:GossipComplete()
+				end
+
+		  	contador = contador + 1
+
+		  until not promociones:NextRow()
+		end
+
 end
 
 
