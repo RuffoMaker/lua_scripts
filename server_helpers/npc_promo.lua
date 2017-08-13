@@ -16,7 +16,7 @@ CharDBQuery(charactersSQL)
 local worldSQL = [[
 	CREATE TABLE IF NOT EXISTS `promociones` ( 
 		`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT , 
-		`nombre` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' , 
+		`nombre` VARCHAR(999) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' , 
 		`unica_personaje` TINYINT(1) NOT NULL DEFAULT '0' , 
 		`unica_cuenta` TINYINT(1) NOT NULL DEFAULT '0' , 
 		`unica_ip` TINYINT(1) NOT NULL DEFAULT '0' , 
@@ -69,7 +69,23 @@ WorldDBQuery(worldSQL)
 function OnGossipHello(event, player, creature)
 	reset()
     player:GossipClearMenu() -- required for player gossip
-    player:GossipMenuAddItem(0, "Promocion 1.", 1, 1)
+    
+    local contador = 1
+    local promociones = WorldDBQuery( "SELECT `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
+		if (promociones) then
+		  repeat
+		  	local nombre = promociones:GetString(0)
+		  	local unica_personaje = promociones:GetUInt32(1)
+		  	local unica_cuenta = promociones:GetUInt32(2)
+		  	local unica_ip = promociones:GetUInt32(3)
+
+		  	player:GossipMenuAddItem(0, nombre, 1, contador)
+		  	contador = contador + 1
+
+		  until not promociones:NextRow()
+		end
+
+
     player:GossipMenuAddItem(0, "No quiero nada...", 1,0)
     player:GossipSendMenu(1, creature, MenuId) -- MenuId required for player gossip
 end
@@ -88,7 +104,6 @@ local events = WorldDBQuery( "SELECT `npc_entry`, `lua_script` FROM `npc_lua` WH
 if (events) then
   repeat
     local npc_entry = events:GetUInt32(0)
-    print(npc_entry)
 		RegisterCreatureGossipEvent(npc_entry, 1, OnGossipHello)
 		RegisterCreatureGossipEvent(npc_entry, 2, OnGossipSelect)
 	until not events:NextRow()
