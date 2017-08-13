@@ -145,7 +145,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 							end
 		  				local player_account_id = player:GetAccountId()
 		  				local player_ip = player:GetPlayerIP()
-		  				local timestamp = 0
+		  				local timestamp = os.time()
 
 		  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
 		  				
