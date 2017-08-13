@@ -77,7 +77,7 @@ end
 function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
   if (intid == 0) then
     player:GossipComplete()
-  elseif (intid == 1)
+  elseif (intid == 1) then
   	creature:SendUnitSay('Bien!', 0)
 	end
 end
