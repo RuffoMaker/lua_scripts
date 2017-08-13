@@ -136,7 +136,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 		  					player:SetLevel(valor)
 		  				end
 
-		  				local player_guid = player:GetGUID()
+		  				local player_guid = 0
 		  				local player_account_id = player:GetAccountId()
 		  				local player_ip = player:GetPlayerIP()
 		  				local timestamp = os.time()
