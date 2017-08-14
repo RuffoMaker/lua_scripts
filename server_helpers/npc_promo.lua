@@ -83,6 +83,7 @@ function OnGossipHello(event, player, creature)
 		  	local correcto = true
 
 		  	local player_guid = 0
+		  	local player_name = player:GetName()
 		  	personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
 				if (personaje) then
 		  		repeat
