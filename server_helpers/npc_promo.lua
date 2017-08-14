@@ -158,7 +158,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 	  	local unica_ip = promociones:GetUInt32(4)
 
 	  	if (intid == contador) then
-	  		local recompensas = WorldDBQuery( "SELECT `tipo_recompensa`, `valor` FROM `promocion_recompensas` WHERE `promocion_id` = '"..id.."';" )
+	  		local recompensas = WorldDBQuery( "SELECT `tipo_recompensa`, `valor` FROM `promocion_recompensas` WHERE `promocion_id` = '"..promo_id.."';" )
 				if (recompensas) then
 				  repeat
 				  	local tipo_recompensa = recompensas:GetString(0)
