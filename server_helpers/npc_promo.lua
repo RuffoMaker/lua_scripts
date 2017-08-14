@@ -274,7 +274,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 
 	  				if(tipo_recompensa == 'nivel') then
 	  					player:SetLevel(player:GetLevel() + valor)
-	  					if(player:GetLevel > maxLevelServer) then
+	  					if(player:GetLevel() > maxLevelServer) then
 	  						player:SetLevel(maxLevelServer)
 	  					end
 	  				end
