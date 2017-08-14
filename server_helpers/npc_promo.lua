@@ -127,9 +127,10 @@ function OnGossipHello(event, player, creature)
 
 		  	if(correcto == true) then
 		  		player:GossipMenuAddItem(0, nombre, 1, contador)
-		  		contador = contador + 1
 		  	end
 
+
+		  	contador = contador + 1
 
 
 
