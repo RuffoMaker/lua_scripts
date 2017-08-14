@@ -273,6 +273,10 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 	  					player:SetLevel(valor)
 	  				end
 
+	  				if(tipo_recompensa == 'spell') then
+	  					player:LearnSpell(valor)
+	  				end
+
 				  until not recompensas:NextRow()
 				end
 
