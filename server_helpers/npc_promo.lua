@@ -95,6 +95,7 @@ function OnGossipHello(event, player, creature)
 				local player_ip = player:GetPlayerIP()
 
 
+				-- Comprobamos si la promo ya ha sido entregada
 
 		  	if(unica_ip == 1) then
 		  		promocion_entregada = CharDBQuery( "SELECT * FROM `promociones_entregadas` WHERE `promocion_id` = '"..promocion_id.."' AND (`personaje_id` = '"..player_guid.."' OR `cuenta_id` = '"..player_account_id.."' OR `ip` = '"..player_ip.."');" )
@@ -124,6 +125,90 @@ function OnGossipHello(event, player, creature)
 		  	end
 
 
+
+		  	-- Comprobamos si se cumplen los requisitos para la promo
+
+		  	promocion_requerimientos = CharDBQuery( "SELECT `clase`, `raza`, `nivel`, `nivel_gm`, `oro`, `puntos_honor`, `puntos_arena`, `logro_1`, `logro_2`, `logro_3` FROM `promocion_requerimientos` WHERE `promocion_id` = '"..promocion_id.."';" )
+				if (promocion_requerimientos) then
+		  		repeat
+		  			
+		  			local req_clase = promocion_requerimientos:GetUInt32(0)
+		  			local req_raza = promocion_requerimientos:GetUInt32(1)
+		  			local req_nivel = promocion_requerimientos:GetUInt32(2)
+		  			local req_nivel_gm = promocion_requerimientos:GetUInt32(3)
+		  			local req_oro = promocion_requerimientos:GetUInt32(4)
+		  			local req_puntos_honor = promocion_requerimientos:GetUInt32(5)
+		  			local req_puntos_arena = promocion_requerimientos:GetUInt32(6)
+		  			local req_logro_1 = promocion_requerimientos:GetUInt32(7)
+		  			local req_logro_2 = promocion_requerimientos:GetUInt32(8)
+		  			local req_logro_3 = promocion_requerimientos:GetUInt32(9)
+
+		  			if(req_clase ~= 0) then
+		  				if(player:GetClass() ~= req_clase) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_raza ~= 0) then
+		  				if(player:GetRace() ~= req_raza) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_nivel ~= 0) then
+		  				if(player:GetLevel() < req_nivel) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_nivel_gm ~= 0) then
+		  				if(player:GetGMRank() < req_nivel_gm) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_oro ~= 0) then
+		  				if(player:GetCoinage() < req_oro) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_puntos_honor ~= 0) then
+		  				if(player:GetHonorPoints() < req_puntos_honor) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_puntos_arena ~= 0) then
+		  				if(player:GetArenaPoints() < req_puntos_arena) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_logro_1 ~= 0) then
+		  				if(player:HasAchieved(req_logro_1) == false) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_logro_2 ~= 0) then
+		  				if(player:HasAchieved(req_logro_2) == false) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  			if(req_logro_3 ~= 0) then
+		  				if(player:HasAchieved(req_logro_3) == false) then
+		  					correcto = false
+		  				end
+		  			end
+
+		  		until not promocion_requerimientos:NextRow()
+				end
+
+
+
+		  	-- Si es correcto añadimos la promo a la lista
 
 		  	if(correcto == true) then
 		  		player:GossipMenuAddItem(0, nombre, 1, contador)
