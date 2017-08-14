@@ -26,4 +26,4 @@ local function primerLogin(event, player)
 	end
 end
 
-RegisterPlayerEvent( 30, primerLogin )
+--RegisterPlayerEvent( 30, primerLogin )
