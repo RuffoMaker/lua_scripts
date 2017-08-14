@@ -71,16 +71,66 @@ function OnGossipHello(event, player, creature)
     player:GossipClearMenu() -- required for player gossip
     
     local contador = 1
-    local promociones = WorldDBQuery( "SELECT `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
+    local promociones = WorldDBQuery( "SELECT `id`, `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
 		if (promociones) then
 		  repeat
-		  	local nombre = promociones:GetString(0)
-		  	local unica_personaje = promociones:GetUInt32(1)
-		  	local unica_cuenta = promociones:GetUInt32(2)
-		  	local unica_ip = promociones:GetUInt32(3)
+		  	local promocion_id = promociones:GetUInt32(0)
+		  	local nombre = promociones:GetString(1)
+		  	local unica_personaje = promociones:GetUInt32(2)
+		  	local unica_cuenta = promociones:GetUInt32(3)
+		  	local unica_ip = promociones:GetUInt32(4)
 
-		  	player:GossipMenuAddItem(0, nombre, 1, contador)
-		  	contador = contador + 1
+		  	local correcto = true
+
+		  	local player_guid = 0
+		  	personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
+				if (personaje) then
+		  		repeat
+		  			player_guid = personaje:GetUInt32(0)
+		  		until not personaje:NextRow()
+				end
+
+				local player_account_id = player:GetAccountId()
+				local player_ip = player:GetPlayerIP()
+
+
+
+		  	if(unica_ip == 1) then
+		  		promocion_entregada = CharDBQuery( "SELECT * FROM `promociones_entregadas` WHERE `promocion_id` = '"..promocion_id.."' AND (`personaje_id` = '"..player_guid.."' OR `cuenta_id` = '"..player_account_id.."' OR `ip` = '"..player_ip.."');" )
+					if (promocion_entregada) then
+			  		repeat
+			  			correcto = false
+			  		until not promocion_entregada:NextRow()
+					end
+		  	end
+
+		  	if(unica_cuenta == 1) then
+		  		promocion_entregada = CharDBQuery( "SELECT * FROM `promociones_entregadas` WHERE `promocion_id` = '"..promocion_id.."' AND (`personaje_id` = '"..player_guid.."' OR `cuenta_id` = '"..player_account_id.."');" )
+					if (promocion_entregada) then
+			  		repeat
+			  			correcto = false
+			  		until not promocion_entregada:NextRow()
+					end
+		  	end
+
+		  	if(unica_personaje == 1) then
+		  		promocion_entregada = CharDBQuery( "SELECT * FROM `promociones_entregadas` WHERE `promocion_id` = '"..promocion_id.."' AND (`personaje_id` = '"..player_guid.."');" )
+					if (promocion_entregada) then
+			  		repeat
+			  			correcto = false
+			  		until not promocion_entregada:NextRow()
+					end
+		  	end
+
+
+
+		  	if(correcto == true) then
+		  		player:GossipMenuAddItem(0, nombre, 1, contador)
+		  		contador = contador + 1
+		  	end
+
+
+
 
 		  until not promociones:NextRow()
 		end
@@ -141,6 +191,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 
 					local player_name = player:GetName()
   				personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
+  				local player_guid = 0
   				if (personaje) then
 			  		repeat
 			  			player_guid = personaje:GetUInt32(0)
