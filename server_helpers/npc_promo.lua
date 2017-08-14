@@ -128,7 +128,7 @@ function OnGossipHello(event, player, creature)
 
 		  	-- Comprobamos si se cumplen los requisitos para la promo
 
-		  	promocion_requerimientos = CharDBQuery( "SELECT `clase`, `raza`, `nivel`, `nivel_gm`, `oro`, `puntos_honor`, `puntos_arena`, `logro_1`, `logro_2`, `logro_3` FROM `promocion_requerimientos` WHERE `promocion_id` = '"..promocion_id.."';" )
+		  	promocion_requerimientos = WorldDBQuery( "SELECT `clase`, `raza`, `nivel`, `nivel_gm`, `oro`, `puntos_honor`, `puntos_arena`, `logro_1`, `logro_2`, `logro_3` FROM `promocion_requerimientos` WHERE `promocion_id` = '"..promocion_id.."';" )
 				if (promocion_requerimientos) then
 		  		repeat
 		  			
