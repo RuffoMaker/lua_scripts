@@ -66,6 +66,9 @@ worldSQL = [[
 WorldDBQuery(worldSQL)
 
 
+local maxLevelServer = 80
+
+
 function OnGossipHello(event, player, creature)
 	reset()
     player:GossipClearMenu() -- required for player gossip
@@ -270,7 +273,10 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 	  				end
 
 	  				if(tipo_recompensa == 'nivel') then
-	  					player:SetLevel(valor)
+	  					player:SetLevel(player:GetLevel() + valor)
+	  					if(player:GetLevel > maxLevelServer) then
+	  						player:SetLevel(maxLevelServer)
+	  					end
 	  				end
 
 	  				if(tipo_recompensa == 'spell') then
