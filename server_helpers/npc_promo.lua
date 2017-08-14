@@ -150,7 +150,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     local promociones = WorldDBQuery( "SELECT `id`, `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
 		if (promociones) then
 		  repeat
-		  	local id = promociones:GetUInt32(0)
+		  	local promo_id = promociones:GetUInt32(0)
 		  	local nombre = promociones:GetString(1)
 		  	local unica_personaje = promociones:GetUInt32(2)
 		  	local unica_cuenta = promociones:GetUInt32(3)
@@ -202,7 +202,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
   				local player_ip = player:GetPlayerIP()
   				local timestamp = os.time()
 
-  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
+  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..promo_id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
   				
 
 			    player:GossipComplete()
