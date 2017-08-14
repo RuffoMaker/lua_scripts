@@ -148,71 +148,71 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid)
 	end
 
 	local contador = 1
-    local promociones = WorldDBQuery( "SELECT `id`, `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
-		if (promociones) then
-		  repeat
-		  	local promo_id = promociones:GetUInt32(0)
-		  	local nombre = promociones:GetString(1)
-		  	local unica_personaje = promociones:GetUInt32(2)
-		  	local unica_cuenta = promociones:GetUInt32(3)
-		  	local unica_ip = promociones:GetUInt32(4)
+  local promociones = WorldDBQuery( "SELECT `id`, `nombre`, `unica_personaje`, `unica_cuenta`, `unica_ip` FROM `promociones`;" )
+	if (promociones) then
+	  repeat
+	  	local promo_id = promociones:GetUInt32(0)
+	  	local nombre = promociones:GetString(1)
+	  	local unica_personaje = promociones:GetUInt32(2)
+	  	local unica_cuenta = promociones:GetUInt32(3)
+	  	local unica_ip = promociones:GetUInt32(4)
 
-		  	if (intid == contador) then
-		  		local recompensas = WorldDBQuery( "SELECT `tipo_recompensa`, `valor` FROM `promocion_recompensas` WHERE `promocion_id` = '"..id.."';" )
-					if (recompensas) then
-					  repeat
-					  	local tipo_recompensa = recompensas:GetString(0)
-		  				local valor = recompensas:GetUInt32(1)
+	  	if (intid == contador) then
+	  		local recompensas = WorldDBQuery( "SELECT `tipo_recompensa`, `valor` FROM `promocion_recompensas` WHERE `promocion_id` = '"..id.."';" )
+				if (recompensas) then
+				  repeat
+				  	local tipo_recompensa = recompensas:GetString(0)
+	  				local valor = recompensas:GetUInt32(1)
 
-		  				if(tipo_recompensa == 'item') then
-		  					player:AddItem(valor, 1)
-		  				end
+	  				if(tipo_recompensa == 'item') then
+	  					player:AddItem(valor, 1)
+	  				end
 
-		  				if(tipo_recompensa == 'oro') then
-		  					player:ModifyMoney(valor)
-		  				end
+	  				if(tipo_recompensa == 'oro') then
+	  					player:ModifyMoney(valor)
+	  				end
 
-		  				if(tipo_recompensa == 'honor') then
-		  					player:ModifyHonorPoints(valor)
-		  				end
+	  				if(tipo_recompensa == 'honor') then
+	  					player:ModifyHonorPoints(valor)
+	  				end
 
-		  				if(tipo_recompensa == 'arena') then
-		  					player:ModifyArenaPoints(valor)
-		  				end
+	  				if(tipo_recompensa == 'arena') then
+	  					player:ModifyArenaPoints(valor)
+	  				end
 
-		  				if(tipo_recompensa == 'titulo') then
-		  					player:SetKnownTitle(valor)
-		  				end
+	  				if(tipo_recompensa == 'titulo') then
+	  					player:SetKnownTitle(valor)
+	  				end
 
-		  				if(tipo_recompensa == 'nivel') then
-		  					player:SetLevel(valor)
-		  				end
+	  				if(tipo_recompensa == 'nivel') then
+	  					player:SetLevel(valor)
+	  				end
 
-					  until not recompensas:NextRow()
-					end
-
-					local player_name = player:GetName()
-  				personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
-  				local player_guid = 0
-  				if (personaje) then
-			  		repeat
-			  			player_guid = personaje:GetUInt32(0)
-			  		until not personaje:NextRow()
-					end
-  				local player_account_id = player:GetAccountId()
-  				local player_ip = player:GetPlayerIP()
-  				local timestamp = os.time()
-
-  				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..promo_id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
-  				
-
-			    player:GossipComplete()
+				  until not recompensas:NextRow()
 				end
 
-		  	contador = contador + 1
+				local player_name = player:GetName()
+				personaje = CharDBQuery( "SELECT `guid` FROM `characters` WHERE UPPER(`name`) = UPPER('"..player_name.."');" )
+				local player_guid = 0
+				if (personaje) then
+		  		repeat
+		  			player_guid = personaje:GetUInt32(0)
+		  		until not personaje:NextRow()
+				end
+				local player_account_id = player:GetAccountId()
+				local player_ip = player:GetPlayerIP()
+				local timestamp = os.time()
 
-		  until not promociones:NextRow()
-		end
+				CharDBQuery( "INSERT INTO `promociones_entregadas` (`promocion_id`, `personaje_id`, `cuenta_id`, `ip`, `fecha`) VALUES ('"..promo_id.."', '"..player_guid.."', '"..player_account_id.."', '"..player_ip.."', '"..timestamp.."')" )
+				
+
+		    player:GossipComplete()
+			end
+
+	  	contador = contador + 1
+
+	  until not promociones:NextRow()
+	end
 
 end
 
