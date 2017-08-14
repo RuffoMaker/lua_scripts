@@ -6,4 +6,4 @@ local function primerLogin(event, player)
 end
 
 
-RegisterPlayerEvent( 30, function )
+RegisterPlayerEvent( 30, primerLogin )
