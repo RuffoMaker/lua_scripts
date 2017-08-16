@@ -71,7 +71,7 @@ end
 
 
 function OnLeaveCombat(event, creature)
-    --creature:SendUnitSay('Sali del combate jajaja', 0)--Pruebas 1
+    creature:SendUnitSay('Sali del combate jajaja', 0)--Pruebas 1
     creature:ClearThreatList()--probando "Pruebas 1"
     creature:SetFaction(35)
     --creature:AttackStop()
