@@ -71,16 +71,16 @@ end
 
 
 function OnLeaveCombat(event, creature)
-    creature:SendUnitSay('Sali del combate jajaja', 0)--Pruebas 1
+    creature:SendUnitSay('Sali del combate jajaja', 0)
     creature:ClearThreatList()--probando "Pruebas 1"
     creature:SetFaction(35)
     --creature:AttackStop()
 end
 
 function OnReachHome(event, creature)
-    creature:SendUnitSay('He vuelto!', 0)
-    creature:SetFaction(35)
-    creature:AttackStop()
+   -- creature:SendUnitSay('He vuelto!', 0)  PRUEBA 1
+   -- creature:SetFaction(35)
+   -- creature:AttackStop()
 end
 
 --Si el Npc palma devuelve true
