@@ -72,16 +72,16 @@ end
 
 function OnLeaveCombat(event, creature)
     creature:SendUnitSay('Sali del combate jajaja', 0)
-    creature:ClearThreatList()--probando "Pruebas 1"
+    creature:ClearThreatList()--Elimina la lista de amenazas de la criatura
     creature:SetFaction(35)
     --creature:AttackStop()
 end
 
-function OnReachHome(event, creature)
-   -- creature:SendUnitSay('He vuelto!', 0)  PRUEBA 1
+--function OnReachHome(event, creature)  (No tiene utilidad llamar a esta funcion  Nº24 APARENTEMENTE)
+   -- creature:SendUnitSay('He vuelto!', 0)  
    -- creature:SetFaction(35)
    -- creature:AttackStop()
-end
+--end
 
 --Si el Npc palma devuelve true
 function SielNpcMuere(event, creature, killer) 
@@ -110,4 +110,4 @@ RegisterCreatureEvent( NpcId, 2, OnLeaveCombat)
 RegisterCreatureEvent( NpcId, 3, OnVictimDied)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
---RegisterCreatureEvent( NpcId, 24, OnReachHome)
+--RegisterCreatureEvent( NpcId, 24, OnReachHome) (No tiene Utilidad llamar a este evento ni a su funcion Nº 24 APARENTEMENTE)
