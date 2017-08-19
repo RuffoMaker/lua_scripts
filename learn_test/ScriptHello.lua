@@ -60,11 +60,17 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         creature:SendUnitSay("Te vas a enterar tu!",0)
     end
     if(intid == 4)then
-        player:GossipMenuAddItem(0,"Ventormenta.!!",1, 7)
-        player:GossipMenuAddItem(0,"Ogrimar.",1,8)
+        --Comprobar de que bando es el player para mostrar unos Telepors o otros.
+        player:GossipMenuAddItem(0,"Ventormenta.!!",1, 7) 
+        player:GossipMenuAddItem(0,"Exodar.",1,8)
         player:GossipMenuAddItem(0,"Darnassus.",1,9)
         player:GossipMenuAddItem(0,"Forjaz.",1,10)
-        player:GossipMenuAddItem(0,"y mas...",1,11)
+        player:GossipMenuAddItem(0,"Orgrimar",1,11)
+        player:GossipMenuAddItem(0,"Entrañas.",1,12)
+        player:GossipMenuAddItem(0,"Cima del Trueno.",1,13)
+        player:GossipMenuAddItem(0,"Lunargenta.",1,14)
+        player:GossipMenuAddItem(0,"Gadgetzan.",1,15)
+
         player:GossipSendMenu(1, creature, MenuId)
     end
 end
