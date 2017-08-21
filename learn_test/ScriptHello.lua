@@ -113,7 +113,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     -------------------------
 
         ---------------------------- TP a subastas Gadgetzan
-    if(intid == 15 | intid == 16)then
+    if(intid == 15)then
             creature:SendUnitSay("Vete de compras!", 0)
             player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
             player:GossipComplete()
