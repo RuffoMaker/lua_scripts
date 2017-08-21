@@ -155,7 +155,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
         elseif(quesubastador == 4)then
             player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)]]
-        end
+        
 
         player:GossipComplete()
     end
