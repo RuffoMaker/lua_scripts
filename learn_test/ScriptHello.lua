@@ -15,6 +15,7 @@
 local NpcId = 90008
 local MenuId = 123 
 local noseSiMorirme = 0
+local quesubastador = 0
 
 
 function OnGossipHi(event, player, creature)
@@ -87,44 +88,64 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
     ---------------------------- TP a subastas Ventormenta
     if(intid == 7)then
-            creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(0,-8806.485352, 667.406067, 96.201530, 3.339079)--Manda al lugar incorrecto REVISAR
-            player:GossipComplete()
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(0,-8806.485352, 667.406067, 96.201530, 3.339079)
+        player:GossipComplete()
     end
     -------------------------
 
    ---------------------------- TP a subastas Exodar
     if(intid == 8)then
-            creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(530,-4009.186768, -11727.350586, -151.669388, 3.742418)
-            player:GossipComplete()
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(530,-4009.186768, -11727.350586, -151.669388, 3.742418)
+        player:GossipComplete()
     end
-
 
    ---------------------------- TP a subastas Darnasus
     if(intid == 9)then
-            creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(1, 9861.601562, 2332.566650, 1321.589233, 1.171752)
-            player:GossipComplete()
+      creature:SendUnitSay("Vete de compras!", 0)
+      player:Teleport(1, 9861.601562, 2332.566650, 1321.589233, 1.171752)
+      player:GossipComplete()
     end
     -------------------------
 
     ---------------------------- TP a subastas Forjaz
     if(intid == 10)then
-            creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(0,-4956.250977, -913.123901, 503.837250, 2.260383)
-            player:GossipComplete()
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(0,-4956.250977, -913.123901, 503.837250, 2.260383)
+        player:GossipComplete()
     end
     -------------------------
 
         ---------------------------- TP a subastas Gadgetzan Tanto Alianza Como Horda
     if(intid == 15 or intid == 16)then
-            creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(1,-7229.063965, -3803.919189, -1.132274, 3.120378)
-            player:GossipComplete()
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(1,-7229.063965, -3803.919189, -1.132274, 3.120378)
+        player:GossipComplete()
     end
 
-  
+
+
+                                                    --**    TPs     HORDA **--
+    
+    ---------------------------- TP a subastas Orgrimar
+    if(intid == 11)then
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(1,1677.250488, -4448.273926, 19.300270, 5.236221)
+        player:GossipComplete()
+    end
+    -------------------------
+
+      ---------------------------- TP a subastas Entrañas
+    if(intid == 12)then
+
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(1,1677.250488, -4448.273926, 19.300270, 5.236221)
+        player:GossipComplete()
+    end
+    -------------------------
+
+
 end
 
 
