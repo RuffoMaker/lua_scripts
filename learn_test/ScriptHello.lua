@@ -99,7 +99,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
    ---------------------------- TP a subastas Darnasus
     if(intid == 9)then
             creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(1,-9860.616211, 2334.138672, 1321.58944, 1.120704)
+            player:Teleport(1, 9861.601562, 2332.566650, 1321.589233, 1.171752)
             player:GossipComplete()
     end
     -------------------------
