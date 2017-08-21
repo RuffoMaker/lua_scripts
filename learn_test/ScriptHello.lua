@@ -142,17 +142,21 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 12)then
         quesubastador = math.random(1,4)
         if(quesubastador == 1)then
-             creature:SendUnitSay("Vete de compras!", 0)
+             creature:SendUnitSay("Vete de compras con Leeka!", 0)
              player:Teleport(0,1546.590942, 215.702133, -57.343666, 2.005278)
              player:GossipComplete()
         elseif(quesubastador == 2)then
-            creature:SendUnitSay("No te vas de aqui!",0)
-        
+            creature:SendUnitSay("Vete de compras con Epitwee!",0)
+            player:Teleport(0,1547.365601, 264.540894, -57.232708, 4.168646)
+            player:GossipComplete()
          elseif(quesubastador == 3)then
-            creature:SendUnitSay("Donde vas tu mierda!",0)
-        
+            creature:SendUnitSay("Vete de compras con Naxxremis!",0)
+            player:Teleport(0,1646.284058, 261.979309, -57.052540, 5.178545)
+            player:GossipComplete()
          elseif(quesubastador == 4)then
-            creature:SendUnitSay("jajaj no no noo!",0)
+            creature:SendUnitSay("Vete de compras con Yarly!",0)
+            player:Teleport(0,1619.149170, 191.457413, -57.257435, 3.632101)
+            player:GossipComplete()
         end
 
     end
