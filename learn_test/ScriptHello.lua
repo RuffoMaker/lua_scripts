@@ -15,7 +15,7 @@
 local NpcId = 90008
 local MenuId = 123 
 local noseSiMorirme = 0
-local quesubastador = 0
+
 
 
 function OnGossipHi(event, player, creature)
