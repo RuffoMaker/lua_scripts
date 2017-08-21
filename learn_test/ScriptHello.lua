@@ -138,7 +138,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
       ---------------------------- TP a subastas Entrañas
     if(intid == 12)then
-        quesubastador = math.random(1,4)
+        quesubastador = math.random(1,2)
         creature:SendUnitSay("Vete de compras!", 0)
 
         if(quesubastador == 1)then
@@ -149,12 +149,12 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
         
 
-        elseif(quesubastador == 3)then
+       --[[ elseif(quesubastador == 3)then
             player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
         
 
         elseif(quesubastador == 4)then
-            player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
+            player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)]]
         end
 
         player:GossipComplete()
