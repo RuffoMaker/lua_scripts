@@ -155,12 +155,27 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipComplete()
          elseif(quesubastador == 4)then
             creature:SendUnitSay("Vete de compras con Yarly!",0)
-            player:Teleport(0,1619.149170, 191.457413, -57.257435, 3.632101)--Comprobar que tambien lleva con Yarly
+            player:Teleport(0,1619.149170, 191.457413, -57.257435, 3.632101)
             player:GossipComplete()
         end
-
     end
     -------------------------
+
+    ---------------------------- TP a subastas Cima del Trueno
+    if(intid == 13)then
+        quesubastador = math.random(1,2)
+       if(quesubastador == 1)then
+             creature:SendUnitSay("Vete de compras con Gullem!", 0)
+             player:Teleport(1,-1206.035767, 110.675369, 134.364532, 0.037546)
+             player:GossipComplete()
+        elseif(quesubastador == 2)then
+            creature:SendUnitSay("Vete de compras con Stampi!",0)
+            player:Teleport(1,-1215.408081, 95.161316, 133.384949, 6.176222)
+            player:GossipComplete()
+        end
+    end
+    -------------------------
+
 
 end
 
