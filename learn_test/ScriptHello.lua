@@ -155,7 +155,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipComplete()
          elseif(quesubastador == 4)then
             creature:SendUnitSay("Vete de compras con Yarly!",0)
-            player:Teleport(0,1619.149170, 191.457413, -57.257435, 3.632101)
+            player:Teleport(0,1619.149170, 191.457413, -57.257435, 3.632101)--Comprobar que tambien lleva con Yarly
             player:GossipComplete()
         end
 
