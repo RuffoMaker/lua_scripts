@@ -138,9 +138,25 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
       ---------------------------- TP a subastas Entrañas
     if(intid == 12)then
-
+        quesubastador = math.random(0,3)
         creature:SendUnitSay("Vete de compras!", 0)
-        player:Teleport(1,1677.250488, -4448.273926, 19.300270, 5.236221)
+
+        if(quesubastador == 0)then
+            player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
+        end
+
+        if(quesubastador == 1)then
+            player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
+        end
+
+        if(quesubastador == 2)then
+            player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
+        end
+
+        if(quesubastador == 3)then
+            player:Teleport(0,1546.590942, 215.702133, -57.34.3666, 2.005278)
+        end
+
         player:GossipComplete()
     end
     -------------------------
