@@ -197,6 +197,9 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipComplete()
         end
     end
+    ------------------------------
+    
+    --AÑADIR Bahia del Botin ****
 
 end
 
