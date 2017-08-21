@@ -88,12 +88,14 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     end
     -------------------------
 
-    --[[    ---------------------------- TP a subastas Exodar
+   ---------------------------- TP a subastas Exodar
     if(intid == 8)then
             creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
+            player:Teleport(530,-4009.186768, -11727.350586, -151.669388, 3.742418)
             player:GossipComplete()
     end
+
+    --[[
     -------------------------
 
  ---------------------------- TP a subastas Darnasus
