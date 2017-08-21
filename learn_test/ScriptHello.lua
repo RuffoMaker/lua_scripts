@@ -112,17 +112,16 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     end
     -------------------------
 
-    --[[
-    -------------------------
-
-
-  ---------------------------- TP a subastas Forjaz
-    if(intid == 10)then
+        ---------------------------- TP a subastas Gadgetzan
+    if(intid == 15 | intid == 16)then
             creature:SendUnitSay("Vete de compras!", 0)
             player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
             player:GossipComplete()
     end
+
+    --[[
     -------------------------
+
 
     ---------------------------- TP a subastas Gadgetzan
     if(intid == 15 || intid == 16)then
