@@ -80,8 +80,40 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
         player:GossipSendMenu(1, creature, MenuId)
     end
-    ----------------------------PRUEBAS TP a subastas
+    ---------------------------- TP a subastas Ventormenta
     if(intid == 7)then
+            creature:SendUnitSay("Vete de compras!", 0)
+            player:Teleport(0,-8802.480469, -668.898804, 96.201660, 3.582202)
+            player:GossipComplete()
+    end
+    -------------------------
+
+        ---------------------------- TP a subastas Exodar
+    if(intid == 8)then
+            creature:SendUnitSay("Vete de compras!", 0)
+            player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
+            player:GossipComplete()
+    end
+    -------------------------
+
+ ---------------------------- TP a subastas Darnasus
+    if(intid == 9)then
+            creature:SendUnitSay("Vete de compras!", 0)
+            player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
+            player:GossipComplete()
+    end
+    -------------------------
+
+  ---------------------------- TP a subastas Forjaz
+    if(intid == 10)then
+            creature:SendUnitSay("Vete de compras!", 0)
+            player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
+            player:GossipComplete()
+    end
+    -------------------------
+
+    ---------------------------- TP a subastas Gadgetzan
+    if(intid == 15 || intid == 16)then
             creature:SendUnitSay("Vete de compras!", 0)
             player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
             player:GossipComplete()
