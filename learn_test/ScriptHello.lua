@@ -112,24 +112,14 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     end
     -------------------------
 
-        ---------------------------- TP a subastas Gadgetzan
+        ---------------------------- TP a subastas Gadgetzan Tanto Alianza Como Horda
     if(intid == 15 or intid == 16)then
             creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
+            player:Teleport(1,-7229.063965, -3803.919189, -1.132274, 3.120378)
             player:GossipComplete()
     end
 
-    --[[
-    -------------------------
-
-
-    ---------------------------- TP a subastas Gadgetzan
-    if(intid == 15 || intid == 16)then
-            creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(0,-8949.950195, -132.492996, 83.531197, 0)
-            player:GossipComplete()
-    end
-    -------------------------]] --ESTE TROZO PETO ELUNA REVISAR
+  
 end
 
 
