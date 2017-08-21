@@ -80,6 +80,11 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
         player:GossipSendMenu(1, creature, MenuId)
     end
+
+
+                                                    --**    TPs     ALIANZA **--
+
+
     ---------------------------- TP a subastas Ventormenta
     if(intid == 7)then
             creature:SendUnitSay("Vete de compras!", 0)
