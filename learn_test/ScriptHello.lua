@@ -176,6 +176,27 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     end
     -------------------------
 
+  ---------------------------- TP a subastas Lunargenta
+    if(intid == 14)then
+        quesubastador = math.random(1,4)
+        if(quesubastador == 1)then
+             creature:SendUnitSay("Vete de compras con Feynna!", 0)
+             player:Teleport(530,9648.575195, -7149.284668, 14.327824, 1.668369)
+             player:GossipComplete()
+        elseif(quesubastador == 2)then
+            creature:SendUnitSay("Vete de compras con Vynna!",0)
+            player:Teleport(530,9641.820312, -7135.549805, 16.856600, 3.193950)
+            player:GossipComplete()
+         elseif(quesubastador == 3)then
+            creature:SendUnitSay("Vete de compras con Jenath!",0)
+            player:Teleport(530,9648.250000, -7129.259766, 16.856600, 2.007130)
+            player:GossipComplete()
+         elseif(quesubastador == 4)then
+            creature:SendUnitSay("Vete de compras con Darise!",0)
+            player:Teleport(530,9655.389648, -7135.509766, 16.856600, 0.104720)
+            player:GossipComplete()
+        end
+    end
 
 end
 
