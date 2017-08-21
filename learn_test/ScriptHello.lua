@@ -83,7 +83,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     ---------------------------- TP a subastas Ventormenta
     if(intid == 7)then
             creature:SendUnitSay("Vete de compras!", 0)
-            player:Teleport(0,-8802.480469, -668.898804, 96.201660, 3.582202)
+            player:Teleport(0,-8817.700195, -666.144958, 95.424065, 3.546073)
             player:GossipComplete()
     end
     -------------------------
