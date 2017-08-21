@@ -15,6 +15,7 @@
 local NpcId = 90008
 local MenuId = 123 
 local noseSiMorirme = 0
+local quesubastador = 0
 
 
 
@@ -139,6 +140,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
     ---------------------------- TP a subastas Entrañas
     if(intid == 12)then
+        quesubastador = math.random(1,4)
         creature:SendUnitSay("Vete de compras!", 0)
         player:Teleport(0,1546.590942, 215.702133, -57.343666, 2.005278)
         player:GossipComplete()
