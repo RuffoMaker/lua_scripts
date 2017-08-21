@@ -80,10 +80,11 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
         player:GossipSendMenu(1, creature, MenuId)
     end
-    ----------------------------
+    ----------------------------PRUEBAS TP a subastas
     if(intid == 7)then
-                player:Telepors(0,-8949.950195, -132.492996, 83.531197, 0)
-                player:GossipComplete()
+            creature:SendUnitSay("Vete de compras!", 0)
+           -- player:Telepors(0,-8949.950195, -132.492996, 83.531197, 0)
+           -- player:GossipComplete()
     end
     -------------------------
 end
