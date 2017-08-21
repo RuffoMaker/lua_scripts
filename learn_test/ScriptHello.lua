@@ -147,10 +147,10 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
              player:GossipComplete()
         elseif(quesubastador == 2)then
             creature:SendUnitSay("No te vas de aqui!",0)
-        end
+        
          elseif(quesubastador == 3)then
             creature:SendUnitSay("Donde vas tu mierda!",0)
-        end
+        
          elseif(quesubastador == 4)then
             creature:SendUnitSay("jajaj no no noo!",0)
         end
