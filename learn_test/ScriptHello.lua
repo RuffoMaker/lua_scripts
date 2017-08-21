@@ -39,6 +39,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         creature:SendUnitSay("Que te den!", 0)
         creature:Emote(14)
 
+
        creature:SendUnitSay("No se si morirme..", 0)
        noseSiMorirme = math.random(1,2)
       if(noseSiMorirme == 1)then
@@ -136,6 +137,13 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     end
     -------------------------
 
+    ---------------------------- TP a subastas Entrañas
+    if(intid == 12)then
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(0,1546.590942, 215.702133, -67.343666, 2.005278)
+        player:GossipComplete()
+    end
+    -------------------------
 
 end
 
