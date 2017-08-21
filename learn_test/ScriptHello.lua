@@ -145,7 +145,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
              creature:SendUnitSay("Vete de compras!", 0)
              player:Teleport(0,1546.590942, 215.702133, -57.343666, 2.005278)
              player:GossipComplete()
-        elseif(quesubastador > 1)
+        elseif(quesubastador > 1)then
             creature:SendUnitSay("No te vas de aqui!",0)
         end
 
