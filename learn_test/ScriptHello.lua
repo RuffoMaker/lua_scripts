@@ -181,7 +181,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         quesubastador = math.random(1,4)
         if(quesubastador == 1)then
              creature:SendUnitSay("Vete de compras con Feynna!", 0)
-             player:Teleport(530,9648.618164 -7149.251465, 14.326870, 1.608076)
+             player:Teleport(530,9648.618164, -7149.251465, 14.326870, 1.608076)
              player:GossipComplete()
         elseif(quesubastador == 2)then
             creature:SendUnitSay("Vete de compras con Vynna!",0) --revisar posicion
