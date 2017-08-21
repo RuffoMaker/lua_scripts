@@ -68,6 +68,9 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipMenuAddItem(0,"Darnassus.",1,9)
             player:GossipMenuAddItem(0,"Forjaz.",1,10)
             player:GossipMenuAddItem(0,"Gadgetzan.",1,15)
+            if(intid == 7)then
+                player:Telepors(-8949.950195, -132.492996, 83.531197, 0)
+            end
          end
 
          if(bando == 1)then
