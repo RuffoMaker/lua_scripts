@@ -70,7 +70,8 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipMenuAddItem(0,"Exodar.",1,8)
             player:GossipMenuAddItem(0,"Darnassus.",1,9)
             player:GossipMenuAddItem(0,"Forjaz.",1,10)
-            player:GossipMenuAddItem(0,"Gadgetzan.",1,15)           
+            player:GossipMenuAddItem(0,"Gadgetzan.",1,15)
+            player:GossipMenuAddItem(0,"Bahía del Botín",1,17)           
          end
 
          if(bando == 1)then
@@ -79,6 +80,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipMenuAddItem(0,"Cima del Trueno.",1,13)
             player:GossipMenuAddItem(0,"Lunargenta.",1,14)
             player:GossipMenuAddItem(0,"Gadgetzan.",1,16)
+            player:GossipMenuAddItem(0,"Bahía del Botín",1,18)
         end
 
         player:GossipSendMenu(1, creature, MenuId)
@@ -123,6 +125,13 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 15 or intid == 16)then
         creature:SendUnitSay("Vete de compras!", 0)
         player:Teleport(1,-7229.063965, -3803.919189, -1.132274, 3.120378)
+        player:GossipComplete()
+    end
+
+           ---------------------------- TP a subastas Bahia del Botin Tanto Alianza Como Horda
+    if(intid == 17 or intid == 18)then
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(0,-144118.891602, 519.901123, 5.012455, 0.456693)
         player:GossipComplete()
     end
 
