@@ -131,7 +131,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
            ---------------------------- TP a subastas Bahia del Botin Tanto Alianza Como Horda
     if(intid == 17 or intid == 18)then
         creature:SendUnitSay("Vete de compras!", 0)
-        player:Teleport(0,-144118.891602, 519.901123, 5.012455, 0.456693)
+        player:Teleport(0,-14418.891602, 519.901123, 5.012455, 0.456693) --FALLO AQUI NO TELEPORTA
         player:GossipComplete()
     end
 
