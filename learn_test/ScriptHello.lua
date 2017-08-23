@@ -93,11 +93,8 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 5)then 
         creature:SendUnitSay("mmm.. llamaré a mi primo.., pero ten cuidado con él..",0)
         creature:SendUnitSay("Capi!!!, Capi!! tienes un cliente!!,deja de tocarte y sal a atenderlo!",0)
-
-        function InvocaNpc(event, creature, summon)
-            creature:SummonPlayer(creature)
-            creature:SendUnitSay("No me llames Capi!!!!, me llamo El Mata Suegras!!.",0)
-        end
+        spawnedCreature = WorldObject:SpawnCreature( NpcSicario, 16233.423164, 16266.337891, 13.460457, 4.740612 )
+       
         creature:SendUnitSay("Que si enano..., no discutamos delante de los clientes..",0)
 
     end
@@ -262,11 +259,21 @@ function OnVictimDied(event, creature, victim)
     creature:AttackStop()
 end
 
+
+
+
 RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
 RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 RegisterCreatureEvent( NpcId, 2, OnLeaveCombat)
 RegisterCreatureEvent( NpcId, 3, OnVictimDied)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
+
 RegisterCreatureEvent(NpcSicario,19, InvocaNpc)
 --RegisterCreatureEvent( NpcId, 24, OnReachHome) (No tiene Utilidad llamar a este evento ni a su funcion Nº 24 APARENTEMENTE)
+
+--[[
+ function InvocaNpc(event, creature, summon)
+            creature:SummonPlayer(creature)
+            creature:SendUnitSay("No me llames Capi!!!!, me llamo El Mata Suegras!!.",0)
+ end]]
