@@ -93,7 +93,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 5)then 
         creature:SendUnitSay("mmm.. llamaré a mi primo.., pero ten cuidado con él..",0)
         creature:SendUnitSay("Capi!!!, Capi!! tienes un cliente!!,deja de tocarte y sal a atenderlo!",0)
-        creature:WorldObject:SpawnCreature( NpcSicario, 16233.423164, 16266.337891, 13.460457, 4.740612 )      
+        spawnedCreature = WorldObject:SpawnCreature( NpcSicario, 16233.423164, 16266.337891, 13.460457, 4.740612 )      
         creature:SendUnitSay("Que si enano..., no discutamos delante de los clientes..",0) --POR AQUI
 
     end
