@@ -16,7 +16,7 @@ local NpcId = 90008
 local MenuId = 123 
 local noseSiMorirme = 0
 local quesubastador = 0
-
+local bando = 0
 
 
 function OnGossipHi(event, player, creature)
@@ -64,7 +64,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     end
     if(intid == 4)then
         --Comprobar de que bando es el player para mostrar unos Telepors o otros.
-        local bando = player:GetTeam()
+         bando = player:GetTeam()
         if(bando == 0)then
             player:GossipMenuAddItem(0,"Ventormenta.",1, 7) 
             player:GossipMenuAddItem(0,"Exodar.",1,8)
