@@ -9,10 +9,12 @@
     * Zona: 
     * Descripcion:
     * Npc: <MJ> Rasky <90008>
+    * Npc: <Sicario> El Mata Suegras <90014>
 ]]--
 
     --Variables:
 local NpcId = 90008
+local NpcSicario = 90014 
 local MenuId = 123 
 local noseSiMorirme = 0
 local quesubastador = 0
@@ -35,6 +37,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         creature:SendUnitSay("Aloha", 0)
         
     end
+
     if(intid == 2) then
         player:GossipComplete()
         creature:SendUnitSay("Que te den!", 0)
@@ -85,6 +88,20 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
 
         player:GossipSendMenu(1, creature, MenuId)
     end
+
+                --     ** PROBANDO SICARIO (**En proceso**)**
+    if(intid == 5)then 
+        creature:SendUnitSay("mmm.. llamaré a mi primo.., pero ten cuidado con él..",0)
+        creature:SendUnitSay("Capi!!!, Capi!! tienes un cliente!!,deja de tocarte y sal a atenderlo!",0)
+        function InvocaNpc(event, creature, summon)
+            creature:SummonPlayer(creature)
+            creature:SendUnitSay("No me llames Capi!!!!, me llamo El Mata Suegras!!.",0)
+        end
+        creature:SendUnitSay("Que si enano..., no discutamos delante de los clientes..",0)
+
+    end
+
+    ---             Fin SIcario--
 
 
                                                     --**    TPs     ALIANZA **--
@@ -250,4 +267,5 @@ RegisterCreatureEvent( NpcId, 2, OnLeaveCombat)
 RegisterCreatureEvent( NpcId, 3, OnVictimDied)
 RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
 RegisterCreatureEvent( NpcId, 23, OnReset)
+RegisterCreatureEvent(NpcSicario,19, InvocaNpc)
 --RegisterCreatureEvent( NpcId, 24, OnReachHome) (No tiene Utilidad llamar a este evento ni a su funcion Nº 24 APARENTEMENTE)
