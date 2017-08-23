@@ -93,10 +93,14 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
     if(intid == 5)then 
         creature:SendUnitSay("mmm.. llamaré a mi primo.., pero ten cuidado con él..",0)
         creature:SendUnitSay("Capi!!!, Capi!! tienes un cliente!!,deja de tocarte y sal a atenderlo!",0)
-        function InvocaNpc(event, creature, summon)
+        creature = NpcSicario
+        creature:SummonPlayer(creature)
+        creature:SendUnitSay("No me llames Capi!!!!, me llamo El Mata Suegras!!.",0)
+        creature = NpcId
+        --[[function InvocaNpc(event, creature, summon)
             creature:SummonPlayer(creature)
             creature:SendUnitSay("No me llames Capi!!!!, me llamo El Mata Suegras!!.",0)
-        end
+        end]]
         creature:SendUnitSay("Que si enano..., no discutamos delante de los clientes..",0)
 
     end
