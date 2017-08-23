@@ -24,7 +24,7 @@ function OnGossipHi(event, player, creature)
     player:GossipMenuAddItem(0,"No te quiero ni ver!",1,2)
     player:GossipMenuAddItem(0,"A que te meto!!",1,3)
     player:GossipMenuAddItem(0,"Ir a la casa de subastas de...",1,4)
-    player:GossipMenuAddItem(0,"Pagar un Sicario.",1,5)
+    player:GossipMenuAddItem(0,"Pagar un Sicario.",1,5) -- Invocara un NPC llamado Jhony este  hablara con el player , el cual le pagara dinero opcionalmente , tras el cual se decidira si matar a el o al player indicado
     player:GossipMenuAddItem(0,"Creame un rival digno!.",1,6)--Hara como el que bebe una pocion y se convertira en algun otro bicho distintas spells
     player:GossipSendMenu(1, creature, MenuId)
 end
@@ -70,7 +70,8 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipMenuAddItem(0,"Exodar.",1,8)
             player:GossipMenuAddItem(0,"Darnassus.",1,9)
             player:GossipMenuAddItem(0,"Forjaz.",1,10)
-            player:GossipMenuAddItem(0,"Gadgetzan.",1,15)           
+            player:GossipMenuAddItem(0,"Gadgetzan.",1,15)
+            player:GossipMenuAddItem(0,"Bahía del Botín",1,17)           
          end
 
          if(bando == 1)then
@@ -79,6 +80,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
             player:GossipMenuAddItem(0,"Cima del Trueno.",1,13)
             player:GossipMenuAddItem(0,"Lunargenta.",1,14)
             player:GossipMenuAddItem(0,"Gadgetzan.",1,16)
+            player:GossipMenuAddItem(0,"Bahía del Botín",1,18)
         end
 
         player:GossipSendMenu(1, creature, MenuId)
@@ -118,6 +120,7 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         player:GossipComplete()
     end
     -------------------------
+                                                    --** TPs NEUTRALES **--
 
         ---------------------------- TP a subastas Gadgetzan Tanto Alianza Como Horda
     if(intid == 15 or intid == 16)then
@@ -126,8 +129,13 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         player:GossipComplete()
     end
 
-
-
+           ---------------------------- TP a subastas Bahia del Botin Tanto Alianza Como Horda
+    if(intid == 17 or intid == 18)then
+        creature:SendUnitSay("Vete de compras!", 0)
+        player:Teleport(0,-14418.891602, 519.901123, 5.012455, 0.456693) --FALLO AQUI NO TELEPORTA
+        player:GossipComplete()
+    end
+    ---------
                                                     --**    TPs     HORDA **--
     
     ---------------------------- TP a subastas Orgrimar
@@ -198,8 +206,6 @@ function OnGossipSelect(event, player, creature, sender, intid, code, menuid) --
         end
     end
     ------------------------------
-    
-    --AÑADIR Bahia del Botin ****
 
 end
 
