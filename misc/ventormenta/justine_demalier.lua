@@ -5,7 +5,7 @@ local justine = {
 	entry = 12481
 };
 
- function justine.ReceiveEmote(event, creature, player, emoteid)
+ function justine.OnReceiveEmote(event, creature, player, emoteid)
 	if(emoteid == justineDemalier.recibe_hola) then
 		creature:SendUnitSay("Hola cosita linda...",0)
 	elseif(emoteid == justineDemalier.recibe_saludo) then
@@ -13,7 +13,7 @@ local justine = {
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
-
+	creature:SendUnitSay(emoteid,0)
 	-- Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
 end
 
@@ -35,6 +35,6 @@ function justine.onAiUpdate(event, creature, diff)
 	
 end
 
-RegisterCreatureEvent(justine.entry, 8, justine.ReceiveEmote)
+RegisterCreatureEvent(justine.entry, 8, justine.OnReceiveEmote)
 RegisterCreatureEvent(justine.entry, 4, justine.OnDied)
 -- RegisterCreatureEvent(justine.entry, 7, justine.MoveTo)
