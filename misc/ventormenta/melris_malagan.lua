@@ -24,7 +24,8 @@ local function OnUpdate(event, creature, diff)
 					end
 
 					if(v[1] < 0) then
-						blackList = table.remove(blackList, k)
+						v[0] = ""
+		    		v[1] = 10000
 					end
 				end
 				if(done == true) then
