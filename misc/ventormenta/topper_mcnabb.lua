@@ -18,7 +18,7 @@ function TopperMcNabb.OnEmote(event, creature, player, emoteid)
 	if(emoteid == TopperMcNabb.emoteRasp) then
 		TopperMcNabb.StartCombat(creature, player)
 	else
-		creature:SendUnitSay(TopperMcNabb.frases[random(0, 6)], 0)
+		creature:SendUnitSay(TopperMcNabb.frases[math.random(0, 6)], 0)
 	end
 end
 
