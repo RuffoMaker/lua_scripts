@@ -1,18 +1,27 @@
 local function OnDied(event, creature, killer)
   if(killer:GetObjectType() == "Player") then
-    killer:SendBroadcastMessage("You killed " ..creature:GetName().."!")
+    creature:SendUnitSay("Hijo de orca...", 0)
   end
 end
 
 local contador = 0
-local contadorMax = 10000
+local contadorMax = 1000
 
 local function OnUpdate(event, creature, diff)
 	contador = contador + diff
 	if(contador > contadorMax) then
-  	creature:SendUnitSay("14 años en el mismo sitio y por fin aprendo a hablar...", 0)
+		Saludar(creature)
   	contador = 0
   end
+end
+
+local Saludar(creature)
+	friendyUnits = creature:GetFriendlyUnitsInRange(10)
+	for key,value in friendyUnits do
+		if(value:GetObjectType() == "Player") then
+	    creature:SendUnitSay("Hola!!", 0)
+	  end
+	end
 end
 
 RegisterCreatureEvent(12480, 4, OnDied)
