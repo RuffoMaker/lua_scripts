@@ -9,7 +9,7 @@ function melrisMalagan.OnDied(event, creature, killer)
   if(killer:GetObjectType() == "Player") then
     creature:SendUnitSay("Hijo de orca...", 0)
   end
-  creature.RemoveEvents()
+  creature:RemoveEvents()
 end
 
 

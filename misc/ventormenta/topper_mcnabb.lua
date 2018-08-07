@@ -18,7 +18,23 @@ function TopperMcNabb.OnEmote(event, creature, player, emoteid)
 		creature:Emote(TopperMcNabb.emoteRasp)
 		creature:SendUnitSay('¿Como? ¡¡TE VAS A ENTERAR!!', 0)
 		creature:SetLevel(255)
+		creature:SetFaction(14)
+		creature:AttackStart(player)
 	end
 end
 
-RegisterCreatureEvent(TopperMcNabb.entry, 8, TopperMcNabb.OnEmote) -- on emote
+function TopperMcNabb.OnLeaveCombat(event, creature)
+	TopperMcNabb.Reset(creature)
+end
+
+function TopperMcNabb.OnDie(event, creature, killer)
+	TopperMcNabb.Reset(creature)
+end
+
+function TopperMcNabb.Reset(creature)
+	creature:RemoveEvents()
+end
+
+RegisterCreatureEvent(TopperMcNabb.entry, 8, TopperMcNabb.OnEmote)
+RegisterCreatureEvent(TopperMcNabb.entry, 2, TopperMcNabb.OnLeaveCombat)
+RegisterCreatureEvent(TopperMcNabb.entry, 4, TopperMcNabb.OnDie)
