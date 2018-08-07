@@ -27,6 +27,8 @@ end
 function TopperMcNabb.OnEmote(event, creature, player, emoteid)
 	if(emoteid == TopperMcNabb.emoteRasp) then
 		TopperMcNabb.StartCombat(creature, player)
+	elseif(emoteid == TopperMcNabb.emoteRude) then
+		TopperMcNabb.StartCombat(creature, player)
 	end
 end
 
