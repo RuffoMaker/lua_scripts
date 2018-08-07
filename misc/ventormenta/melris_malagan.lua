@@ -15,7 +15,7 @@ local function OnUpdate(event, creature, diff)
   end
 end
 
-local Saludar(creature)
+local function Saludar(creature)
 	friendyUnits = creature:GetFriendlyUnitsInRange(10)
 	for key,value in friendyUnits do
 		if(value:GetObjectType() == "Player") then
