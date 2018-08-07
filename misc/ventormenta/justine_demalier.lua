@@ -5,7 +5,7 @@ local justine = {
 	entry = 12481
 };
 
-function justine.saludar(event, creature, player, emoteid)
+ function justine.hello(event, creature, player, emoteid)
 	if(emoteid == justineDemalier.recibe_hola) then
 		creature:SendUnitSay("Aloooo",0)
 	elseif(emoteid == justineDemalier.recibe_saludo) then
