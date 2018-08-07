@@ -1,11 +1,11 @@
-local justineDemalier = {
+local justine = {
 	recibe_hola = 101,
 	recibe_saludo = 78,
 	envia_saludo = 66,
 	entry = 12481
 };
 
-function justineDemalier.saludar(event, creature, player, emoteid)
+function justine.saludar(event, creature, player, emoteid)
 	if(emoteid == justineDemalier.recibe_hola) then
 		creature:SendUnitSay("Aloooo",0)
 	elseif(emoteid == justineDemalier.recibe_saludo) then
@@ -17,9 +17,16 @@ end
 
 --RegisterCreatureEvent(justineDemalier.entry, 8, justineDemalier.saludar)
 
-function justineDemalier.saludar(event, creature, player, emoteid)
+function justine.saludar(event, creature, player, emoteid)
 	creature:SendUnitSay( 'Juan donde esta mi maldicho Chorizo portuano para mi ano!.', 0 )
 	creature:Emote(14)
 end
 
-RegisterCreatureEvent(justineDemalier.entry, 8, justineDemalier.saludar)
+
+function justine.morir( event, creature, killer)
+	creature:Emote(18)
+	creature:SendUnitSay('Por favor...Que me entierren con el vibrador entre las piernas!',0)	
+end
+
+RegisterCreatureEvent(justine.entry, 8, justine.saludar)
+RegisterCreatureEvent(justine.entry, 4, justine.morir)
