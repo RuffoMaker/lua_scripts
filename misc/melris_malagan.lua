@@ -9,4 +9,4 @@ function moveClose(event, creature, diff)
 	end
 end
 
-RegisterCreatureEvent(12480, 7, moveClose)
+RegisterCreatureEvent(6174, 7, moveClose)
