@@ -14,10 +14,10 @@ local justine = {
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
 
-	 Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
+	-- Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
 end
 
---RegisterCreatureEvent(justineDemalier.entry, 8, justineDemalier.saludar)
+-- RegisterCreatureEvent(justineDemalier.entry, 8, justineDemalier.saludar)
 
 function justine.hello(event, creature, player, emoteid)
 	creature:SendUnitSay( 'Juan donde esta mi maldicho Chorizo portuano para mi ano!.', 0 )
@@ -37,4 +37,4 @@ end
 
 RegisterCreatureEvent(justine.entry, 8, justine.ReceiveEmote)
 RegisterCreatureEvent(justine.entry, 4, justine.OnDied)
---RegisterCreatureEvent(justine.entry, 7, justine.MoveTo)
+-- RegisterCreatureEvent(justine.entry, 7, justine.MoveTo)
