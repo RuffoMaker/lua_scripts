@@ -1,13 +1,13 @@
 local TopperMcNabb = {
 	entry = 1402,
 	frases = {
-		'Te prometo que el martes te pago lo que me des hoy para una hamburguesa.',
-		'¿Te sobra algo de morralla para un pobre ciego?... ¿Qué quieres decir con que no soy ciego?... ¡YA NO SOY CIEGO! ¡¡PUEDO VER!! ¡ES UN MILAGRO!',
-		'Lustro vuestra armadura por una monedita de cobre.',
-		'¿Me podrías dar alguna moneda?',
-		'Todo es culpa del maldito ejército de la Alianza... Tenían que construir sus torres justo detrás de mi granja.',
-		'Todo es culpa de los estúpidos orcos. Tenían que quemar mi granja hasta los cimientos.',
-		'¿Una limosna para los pobres?'
+		[0] = 'Te prometo que el martes te pago lo que me des hoy para una hamburguesa.',
+		[1] = '¿Te sobra algo de morralla para un pobre ciego?... ¿Qué quieres decir con que no soy ciego?... ¡YA NO SOY CIEGO! ¡¡PUEDO VER!! ¡ES UN MILAGRO!',
+		[2] = 'Lustro vuestra armadura por una monedita de cobre.',
+		[3] = '¿Me podrías dar alguna moneda?',
+		[4] = 'Todo es culpa del maldito ejército de la Alianza... Tenían que construir sus torres justo detrás de mi granja.',
+		[5] = 'Todo es culpa de los estúpidos orcos. Tenían que quemar mi granja hasta los cimientos.',
+		[6] = '¿Una limosna para los pobres?'
 	},
 	tiempoFrase = 180000,
 	emoteRasp = 183,
@@ -18,7 +18,7 @@ function TopperMcNabb.OnEmote(event, creature, player, emoteid)
 	if(emoteid == TopperMcNabb.emoteRasp) then
 		TopperMcNabb.StartCombat(creature, player)
 	else
-		creature:SendUnitSay(TopperMcNabb.frases, 0)
+		creature:SendUnitSay(TopperMcNabb.frases[0], 0)
 	end
 end
 
