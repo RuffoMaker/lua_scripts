@@ -1,22 +1,27 @@
-local function OnDied(event, creature, killer)
+local melrisMalagan = {
+	contador = 0
+	contadorMax = 1000
+	contadorSaludos = 0
+	blackList = {}
+}
+
+local function melrisMalagan.OnDied(event, creature, killer)
   if(killer:GetObjectType() == "Player") then
     creature:SendUnitSay("Hijo de orca...", 0)
   end
+  creature.RemoveEvents()
 end
 
-local contador = 0
-local contadorMax = 1000
-local contadorSaludos = 0
-local blackList = {}
 
-local function OnUpdate(event, creature, diff)
-	contador = contador + diff
-	if(contador > contadorMax) then
+
+local function melrisMalagan.OnUpdate(event, creature, diff)
+	melrisMalagan.contador = melrisMalagan.contador + diff
+	if(melrisMalagan.contador > melrisMalagan.contadorMax) then
 		friendyUnits = creature:GetFriendlyUnitsInRange(10)
 		for key,value in pairs(friendyUnits) do
 			if(value:GetObjectType() == "Player") then
 				local done = true
-				for k,v in pairs(blackList) do
+				for k,v in pairs(melrisMalagan.blackList) do
 					v[1] = v[1] - diff
 
 					if(v[0] == value:GetName()) then
@@ -29,18 +34,18 @@ local function OnUpdate(event, creature, diff)
 					end
 				end
 				if(done == true) then
-		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
+		    	creature:SendUnitSay("¡Saludos " .. value:GetName() .. "!", 0)
 		    	creature:Emote(66)
-		    	blackList[contadorSaludos] = {}
-		    	blackList[contadorSaludos][0] = value:GetName()
-		    	blackList[contadorSaludos][1] = 100000
-		    	contadorSaludos = contadorSaludos + 1
+		    	melrisMalagan.blackList[melrisMalagan.contadorSaludos] = {}
+		    	melrisMalagan.blackList[melrisMalagan.contadorSaludos][0] = value:GetName()
+		    	melrisMalagan.blackList[melrisMalagan.contadorSaludos][1] = 100000
+		    	melrisMalagan.contadorSaludos = melrisMalagan.contadorSaludos + 1
 		    end
 		  end
 		end
-  	contador = 0
+  	melrisMalagan.contador = 0
   end
 end
 
-RegisterCreatureEvent(12480, 4, OnDied)
-RegisterCreatureEvent(12480, 7, OnUpdate)
+RegisterCreatureEvent(12480, 4, melrisMalagan.OnDied)
+RegisterCreatureEvent(12480, 7, melrisMalagan.OnUpdate)
