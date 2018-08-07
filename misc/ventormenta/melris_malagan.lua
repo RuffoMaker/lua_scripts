@@ -17,7 +17,7 @@ local function OnUpdate(event, creature, diff)
 			if(value:GetObjectType() == "Player") then
 				local done = true
 				for k,v in pairs(blackList) do
-					if(v:GetName() == value:GetName()) then
+					if(v == value:GetName()) then
 						done = false
 					end
 				end
