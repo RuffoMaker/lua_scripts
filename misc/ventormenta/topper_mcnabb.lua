@@ -14,6 +14,7 @@ local TopperMcNabb = {
 };
 
 function TopperMcNabb.OnEmote(event, creature, player, emoteid)
+	creature:SendUnitSay(emoteid, 0)
 	if(emoteid == TopperMcNabb.emoteRasp) then -- emote rasp
 		creature:Emote(TopperMcNabb.emoteRasp)
 		creature:SendUnitSay('¿Como? ¡¡TE VAS A ENTERAR!!', 0)
