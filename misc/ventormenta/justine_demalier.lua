@@ -26,6 +26,6 @@ end
 
 
 
-RegisterCreatureEvent(entry, 1, saludar)
+RegisterCreatureEvent(entry, 8, saludar)
 
 --RegisterCreatureEvent(entry, 7, aiUpdate)
