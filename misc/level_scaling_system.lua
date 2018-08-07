@@ -2,7 +2,7 @@ local levelScalingSystem = {};
 
 function levelScalingSystem.CreatureSetLevel(event, player, enemy)
 	--if(enemy:GetObjectType() == "Creature") then
-		enemy:SetLevel(player:GetLevel())
+		enemy:SetLevel(80)
 	--end
 end
 
