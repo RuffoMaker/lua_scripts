@@ -32,6 +32,7 @@ local function OnUpdate(event, creature, diff)
 		    	blackList[contadorSaludos] = {}
 		    	blackList[contadorSaludos][0] = value:GetName()
 		    	blackList[contadorSaludos][1] = 10000
+		    	contadorSaludos = contadorSaludos + 1
 		    end
 		  end
 		end
