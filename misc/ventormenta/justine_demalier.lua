@@ -3,7 +3,7 @@ local justineDemalier = {
 	recibe_saludo = 78,
 	envia_saludo = 66,
 	entry = 12481
-}
+};
 
 function justineDemalier.saludar(event, creature, player, emoteid)
 	if(emoteid == justineDemalier.recibe_hola) then

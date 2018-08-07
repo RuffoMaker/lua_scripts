@@ -3,7 +3,7 @@ local melrisMalagan = {
 	contadorMax = 1000,
 	contadorSaludos = 0,
 	blackList = {}
-}
+};
 
 local function melrisMalagan.OnDied(event, creature, killer)
   if(killer:GetObjectType() == "Player") then
