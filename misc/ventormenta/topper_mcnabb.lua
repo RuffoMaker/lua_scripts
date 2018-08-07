@@ -24,11 +24,11 @@ function TopperMcNabb.OnEmote(event, creature, player, emoteid)
 end
 
 function TopperMcNabb.OnLeaveCombat(event, creature)
-	TopperMcNabb.Reset(creature)
+	--TopperMcNabb.Reset(creature)
 end
 
 function TopperMcNabb.OnDie(event, creature, killer)
-	TopperMcNabb.Reset(creature)
+	--TopperMcNabb.Reset(creature)
 end
 
 function TopperMcNabb.Reset(creature)
