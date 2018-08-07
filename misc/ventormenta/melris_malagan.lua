@@ -6,6 +6,8 @@ end
 
 local contador = 0
 local contadorMax = 1000
+local contadorSaludos = 0
+local blackList = {}
 
 local function OnUpdate(event, creature, diff)
 	contador = contador + diff
@@ -13,7 +15,16 @@ local function OnUpdate(event, creature, diff)
 		friendyUnits = creature:GetFriendlyUnitsInRange(10)
 		for key,value in pairs(friendyUnits) do
 			if(value:GetObjectType() == "Player") then
-		    creature:SendUnitSay("Hola " .. value:GetName(), 0)
+				local done = true
+				for k,v in blackList do
+					if(v:GetName() == value:GetName()) then
+						done = false
+					end
+				end
+				if(done == true) then
+		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
+		    	blackList[contadorSaludos] = value:GetName()
+		    end
 		  end
 		end
   	contador = 0
