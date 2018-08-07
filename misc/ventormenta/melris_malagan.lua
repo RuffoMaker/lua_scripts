@@ -5,7 +5,7 @@ local melrisMalagan = {
 	blackList = {}
 };
 
-local function melrisMalagan.OnDied(event, creature, killer)
+function melrisMalagan.OnDied(event, creature, killer)
   if(killer:GetObjectType() == "Player") then
     creature:SendUnitSay("Hijo de orca...", 0)
   end
@@ -14,7 +14,7 @@ end
 
 
 
-local function melrisMalagan.OnUpdate(event, creature, diff)
+function melrisMalagan.OnUpdate(event, creature, diff)
 	melrisMalagan.contador = melrisMalagan.contador + diff
 	if(melrisMalagan.contador > melrisMalagan.contadorMax) then
 		friendyUnits = creature:GetFriendlyUnitsInRange(10)
