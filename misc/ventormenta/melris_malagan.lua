@@ -1,5 +1,11 @@
-function moveClose(event, creature, unit)
-	creature.SendUnitSay('Hola!', 1)
+local contador = 0
+local contadorMax = 10000
+
+function moveClose(event, creature, diff)
+	contador = contador + diff
+	if(contador > contadorMax) then
+		creature.SendUnitSay('Hola!', 1)
+	end
 end
 
-RegisterCreatureEvent(12480, 27, moveClose)
+RegisterCreatureEvent(12480, 7, moveClose)
