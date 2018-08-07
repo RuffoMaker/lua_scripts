@@ -3,8 +3,9 @@ local contadorMax = 10000
 
 function moveClose(event, creature, diff)
 	contador = contador + diff
+	creature.SendUnitSay('Hola!', 1)
 	if(contador > contadorMax) then
-		creature.SendUnitSay('Hola!', 1)
+		
 		contador = 0
 	end
 end
