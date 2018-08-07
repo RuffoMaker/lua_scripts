@@ -15,12 +15,10 @@ local TopperMcNabb = {
 };
 
 function TopperMcNabb.OnEmote(event, creature, player, emoteid)
-	if(emoteid == TopperMcNabb.emoteRasp or emoteid == TopperMcNabb.emoteRude) then -- emote rasp
-		creature:Emote(TopperMcNabb.emoteRasp)
-		creature:SendUnitSay('¿Como? ¡¡TE VAS A ENTERAR!!', 0)
-		creature:SetLevel(255)
-		creature:SetFaction(14)
-		creature:AttackStart(player)
+	if(emoteid == TopperMcNabb.emoteRasp) then
+		TopperMcNabb.StartCombat(creature, player)
+	elseif(emoteid == TopperMcNabb.emoteRude) then -- emote rasp
+		TopperMcNabb.StartCombat(creature, player)
 	end
 end
 
@@ -36,6 +34,14 @@ function TopperMcNabb.Reset(creature)
 	creature:RemoveEvents()
 	creature:SetLevel(1)
 	creature:SetFaction(35)
+end
+
+function TopperMcNabb.StartCombat(creature, player)
+	creature:Emote(TopperMcNabb.emoteRasp)
+	creature:SendUnitSay('¿Como? ¡¡TE VAS A ENTERAR!!', 0)
+	creature:SetLevel(255)
+	creature:SetFaction(14)
+	creature:AttackStart(player)
 end
 
 RegisterCreatureEvent(TopperMcNabb.entry, 8, TopperMcNabb.OnEmote)
