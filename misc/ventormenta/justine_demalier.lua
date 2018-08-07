@@ -13,11 +13,9 @@ local justine = {
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
-	creature:SendUnitSay(emoteid,0)
+	--creature:SendUnitSay(emoteid,0)
 	-- Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
 end
-
--- RegisterCreatureEvent(justineDemalier.entry, 8, justineDemalier.saludar)
 
 function justine.hello(event, creature, player, emoteid)
 	creature:SendUnitSay( 'Juan donde esta mi maldicho Chorizo portuano para mi ano!.', 0 )
