@@ -7,6 +7,5 @@ function justine.saludar(event, creature, player, emoteid)
 	creature:Emote(14);
 end
 
-
 -- RegisterCreatureEvent(entry, 8, saludar)
 
