@@ -16,7 +16,7 @@ local function OnUpdate(event, creature, diff)
 		for key,value in pairs(friendyUnits) do
 			if(value:GetObjectType() == "Player") then
 				local done = true
-				for k,v in blackList do
+				for k,v in pairs(blackList) do
 					if(v:GetName() == value:GetName()) then
 						done = false
 					end
