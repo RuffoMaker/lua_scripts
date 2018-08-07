@@ -17,14 +17,14 @@ local function OnUpdate(event, creature, diff)
 			if(value:GetObjectType() == "Player") then
 				local done = true
 				for k,v in pairs(blackList) do
-					if(v['name'] == value:GetName()) then
+					if(v[0] == value:GetName()) then
 						done = false
 					end
 				end
 				if(done == true) then
 		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
-		    	blackList[contadorSaludos]['name'] = value:GetName()
-		    	blackList[contadorSaludos]['time'] = value:GetName()
+		    	blackList[contadorSaludos][0] = value:GetName()
+		    	blackList[contadorSaludos][1] = value:GetName()
 		    end
 		  end
 		end
