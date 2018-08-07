@@ -9,7 +9,7 @@ local TopperMcNabb = {
 		[5] = 'Todo es culpa de los estúpidos orcos. Tenían que quemar mi granja hasta los cimientos.',
 		[6] = '¿Una limosna para los pobres?'
 	},
-	tiempoFrase = 180000,
+	tiempoFrase = 100000,
 	tiempoFraseInit = 180000,
 	emoteRasp = 183,
 	emoteRude = 77
