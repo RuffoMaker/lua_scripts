@@ -33,6 +33,8 @@ end
 
 function TopperMcNabb.Reset(creature)
 	creature:RemoveEvents()
+	creature:SetLevel(1)
+	creature:SetFaction(35)
 end
 
 RegisterCreatureEvent(TopperMcNabb.entry, 8, TopperMcNabb.OnEmote)
