@@ -17,15 +17,21 @@ local function OnUpdate(event, creature, diff)
 			if(value:GetObjectType() == "Player") then
 				local done = true
 				for k,v in pairs(blackList) do
+					v[1] = v[1] - diff
+
 					if(v[0] == value:GetName()) then
 						done = false
+					end
+
+					if(v[1] < 0) then
+						blackList = table.remove(blackList, k)
 					end
 				end
 				if(done == true) then
 		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
 		    	blackList[contadorSaludos] = {}
 		    	blackList[contadorSaludos][0] = value:GetName()
-		    	blackList[contadorSaludos][1] = value:GetName()
+		    	blackList[contadorSaludos][1] = 10000
 		    end
 		  end
 		end
