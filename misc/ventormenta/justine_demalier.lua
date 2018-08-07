@@ -1,10 +1,11 @@
-local entry = 12481
+local justineDemalier = {
+	entry = 12481
+}
 
-function saludar(event, creature, player, emoteid)
+function justineDemalier.saludar(event, creature, player, emoteid)
 	creature:SendUnitSay( 'Juan donde esta mi maldicho Chorizo portuano para mi ano!.', 0 )
 	creature:Emote(14)
-
 end
 
-RegisterCreatureEvent(entry, 1, saludar)
+RegisterCreatureEvent(justineDemalier.entry, 8, justineDemalier.saludar)
 

@@ -1,7 +1,7 @@
 local melrisMalagan = {
-	contador = 0
-	contadorMax = 1000
-	contadorSaludos = 0
+	contador = 0,
+	contadorMax = 1000,
+	contadorSaludos = 0,
 	blackList = {}
 }
 
