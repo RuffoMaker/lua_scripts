@@ -23,6 +23,7 @@ local function OnUpdate(event, creature, diff)
 				end
 				if(done == true) then
 		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
+		    	blackList[contadorSaludos] = {}
 		    	blackList[contadorSaludos][0] = value:GetName()
 		    	blackList[contadorSaludos][1] = value:GetName()
 		    end
