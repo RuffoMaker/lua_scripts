@@ -15,9 +15,10 @@ local TopperMcNabb = {
 };
 
 function TopperMcNabb.OnEmote(event, creature, player, emoteid)
+	creature:SendUnitSay(frases[0], 0)
 	if(emoteid == TopperMcNabb.emoteRasp) then
 		TopperMcNabb.StartCombat(creature, player)
-	elseif(emoteid == TopperMcNabb.emoteRude) then -- emote rasp
+	elseif(emoteid == TopperMcNabb.emoteRude) then
 		TopperMcNabb.StartCombat(creature, player)
 	end
 end
