@@ -25,14 +25,14 @@ local function OnUpdate(event, creature, diff)
 
 					if(v[1] < 0) then
 						v[0] = ""
-		    		v[1] = 10000
+		    		v[1] = 100000
 					end
 				end
 				if(done == true) then
 		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
 		    	blackList[contadorSaludos] = {}
 		    	blackList[contadorSaludos][0] = value:GetName()
-		    	blackList[contadorSaludos][1] = 10000
+		    	blackList[contadorSaludos][1] = 100000
 		    	contadorSaludos = contadorSaludos + 1
 		    end
 		  end
