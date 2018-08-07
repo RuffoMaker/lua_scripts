@@ -11,11 +11,12 @@ local function OnUpdate(event, creature, diff)
 	contador = contador + diff
 	if(contador > contadorMax) then
 		friendyUnits = creature:GetFriendlyUnitsInRange(10)
-		for key,value in friendyUnits do
-			if(value:GetObjectType() == "Player") then
-		    creature:SendUnitSay("Hola!!", 0)
-		  end
-		end
+		print(friendyUnits)
+		--for key,value in friendyUnits do
+			--if(value:GetObjectType() == "Player") then
+		    --creature:SendUnitSay("Hola!!", 0)
+		  --end
+		--end
   	contador = 0
   end
 end
