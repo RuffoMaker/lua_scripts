@@ -1,13 +1,5 @@
-local contador = 0
-local contadorMax = 10000
-
-function moveClose(event, creature, diff)
-	contador = contador + diff
-	creature.SendUnitSay('Hola!', 1)
-	if(contador > contadorMax) then
-		
-		contador = 0
-	end
+local function OnDied(event, creature, killer)
+    creature.SendUnitSay('Hijo de puta...', 1)
 end
 
-RegisterCreatureEvent(1395, 7, moveClose)
+RegisterCreatureEvent(12480, 4, OnDied)
