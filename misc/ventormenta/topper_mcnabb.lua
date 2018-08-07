@@ -10,7 +10,7 @@ local TopperMcNabb = {
 		[6] = '¿Una limosna para los pobres?'
 	},
 	tiempoFrase = 180000,
-	tiempoFraseInit = tiempoFrase,
+	tiempoFraseInit = 180000,
 	emoteRasp = 183,
 	emoteRude = 77
 };
