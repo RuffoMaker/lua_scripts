@@ -9,4 +9,3 @@ local function OnUpdate(event, creature, diff)
 end
 
 RegisterCreatureEvent(12480, 4, OnDied)
-RegisterCreatureEvent(12480, 7, OnUpdate)
