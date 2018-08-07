@@ -11,7 +11,7 @@ local function OnUpdate(event, creature, diff)
 	contador = contador + diff
 	if(contador > contadorMax) then
 		friendyUnits = creature:GetFriendlyUnitsInRange(10)
-		print(friendyUnits)
+		print(friendyUnits[0])
 		--for key,value in friendyUnits do
 			--if(value:GetObjectType() == "Player") then
 		    --creature:SendUnitSay("Hola!!", 0)
