@@ -10,15 +10,23 @@ local TopperMcNabb = {
 		[6] = '¿Una limosna para los pobres?'
 	},
 	tiempoFrase = 180000,
+	tiempoFraseInit = tiempoFrase,
 	emoteRasp = 183,
 	emoteRude = 77
 };
 
+function TopperMcNabb.OnUpdateAI(event, creature, diff)
+	TopperMcNabb.tiempoFrase = TopperMcNabb.tiempoFrase - diff
+
+	if(TopperMcNabb.tiempoFrase < 0) then
+		creature:SendUnitSay(TopperMcNabb.frases[math.random(0, 6)], 0)
+		TopperMcNabb.tiempoFrase = TopperMcNabb.tiempoFraseInit
+	end
+end
+
 function TopperMcNabb.OnEmote(event, creature, player, emoteid)
 	if(emoteid == TopperMcNabb.emoteRasp) then
 		TopperMcNabb.StartCombat(creature, player)
-	else
-		creature:SendUnitSay(TopperMcNabb.frases[math.random(0, 6)], 0)
 	end
 end
 
@@ -47,5 +55,6 @@ end
 RegisterCreatureEvent(TopperMcNabb.entry, 8, TopperMcNabb.OnEmote)
 RegisterCreatureEvent(TopperMcNabb.entry, 2, TopperMcNabb.OnLeaveCombat)
 RegisterCreatureEvent(TopperMcNabb.entry, 4, TopperMcNabb.OnDie)
+RegisterCreatureEvent(TopperMcNabb.entry, 7, TopperMcNabb.OnUpdateAI)
 
 
