@@ -15,20 +15,19 @@ local TopperMcNabb = {
 };
 
 function TopperMcNabb.OnEmote(event, creature, player, emoteid)
-	creature:SendUnitSay(frases[0], 0)
 	if(emoteid == TopperMcNabb.emoteRasp) then
 		TopperMcNabb.StartCombat(creature, player)
-	elseif(emoteid == TopperMcNabb.emoteRude) then
-		TopperMcNabb.StartCombat(creature, player)
+	else
+		creature:SendUnitSay(frases[0], 0)
 	end
 end
 
 function TopperMcNabb.OnLeaveCombat(event, creature)
-	--TopperMcNabb.Reset(creature)
+	TopperMcNabb.Reset(creature)
 end
 
 function TopperMcNabb.OnDie(event, creature, killer)
-	--TopperMcNabb.Reset(creature)
+	TopperMcNabb.Reset(creature)
 end
 
 function TopperMcNabb.Reset(creature)
@@ -48,3 +47,5 @@ end
 RegisterCreatureEvent(TopperMcNabb.entry, 8, TopperMcNabb.OnEmote)
 RegisterCreatureEvent(TopperMcNabb.entry, 2, TopperMcNabb.OnLeaveCombat)
 RegisterCreatureEvent(TopperMcNabb.entry, 4, TopperMcNabb.OnDie)
+
+
