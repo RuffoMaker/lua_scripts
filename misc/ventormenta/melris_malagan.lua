@@ -13,7 +13,7 @@ local function OnUpdate(event, creature, diff)
 		friendyUnits = creature:GetFriendlyUnitsInRange(10)
 		for key,value in pairs(friendyUnits) do
 			if(value:GetObjectType() == "Player") then
-		    creature:SendUnitSay("Hola!!", 0)
+		    creature:SendUnitSay("Hola " + value:GetName(), 0)
 		  end
 		end
   	contador = 0
