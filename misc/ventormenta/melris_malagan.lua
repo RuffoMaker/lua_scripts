@@ -30,6 +30,7 @@ local function OnUpdate(event, creature, diff)
 				end
 				if(done == true) then
 		    	creature:SendUnitSay("Saludos " .. value:GetName() .. "!", 0)
+		    	creature:Emote(66)
 		    	blackList[contadorSaludos] = {}
 		    	blackList[contadorSaludos][0] = value:GetName()
 		    	blackList[contadorSaludos][1] = 100000
