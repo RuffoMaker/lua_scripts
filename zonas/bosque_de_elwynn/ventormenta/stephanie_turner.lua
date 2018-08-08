@@ -25,4 +25,4 @@ function setphanie.OnUpdate(event, creature)
 	
 end
 
-RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate2)
+RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate)
