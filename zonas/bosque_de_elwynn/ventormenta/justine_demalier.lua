@@ -32,7 +32,7 @@ function justine.OnUpdate(event, creature, diff)
 
 	contador = contador + diff
 	if(contador > contadorMax) then
-		friendyUnits = creature:GetFriendlyUnitsInRange(7)
+		friendyUnits = creature:GetFriendlyUnitsInRange(10)
 		for key,value in pairs(friendyUnits) do
 			if(value:GetObjectType() == "Player") then
 				local done = true
@@ -68,7 +68,9 @@ function justine.prueba(event, creature, diff)
  
 	
 	for i,v in pairs (friendyUnits) do
-		creature:SendUnitSay("numero: "..i.." es:"..v)
+		if(i==0)
+			creature:SendUnitSay("Es:"..v)
+		end
 	end
 end
 
