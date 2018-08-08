@@ -6,10 +6,9 @@ local setphanie = {
 }
 
 function setphanie.OnUpdate(event, creature, diff)
-
-	friendyUnits = nil
-	friendyUnits = creature:GetFriendlyUnitsInRange(7)
-	if(friendyUnits ~= nil)
+	local list = {}	
+	friendyUnits = creature:GetFriendlyUnitsInRange(10)
+	if(friendyUnits ~= list)
 		creature:Emote(emoteBailar) 
 		creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
 		creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!",0)

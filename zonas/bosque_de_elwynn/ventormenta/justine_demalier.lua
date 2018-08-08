@@ -63,12 +63,11 @@ function justine.OnUpdate(event, creature, diff)
 end
 
 
-function justine.prueba(event, creature, diff)
-	local list = {}
+function justine.prueba(event, creature, diff)	
 	friendyUnits = creature:GetFriendlyUnitsInRange(10)
-	list = friendyUnits
+ 
 	
-	for i,v in pairs (list) do
+	for i,v in pairs (friendyUnits) do
 		creature:SendUnitSay("numero: "..i.." es:"..v)
 	end
 end
