@@ -2,7 +2,7 @@ local justine = {
 	recibe_hola = 101,
 	recibe_hola2 = 55,
 	recibe_saludo = 78,
-	envia_saludo = 78,
+	envia_saludo = 66,
 	entry = 12481
 };
 
