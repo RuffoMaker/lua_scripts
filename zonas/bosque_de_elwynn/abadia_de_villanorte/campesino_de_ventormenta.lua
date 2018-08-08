@@ -13,7 +13,12 @@ local campesinoDeVentormenta = {
 };
 
 function campesinoDeVentormenta.OnUpdate(event, creature, diff)
+	campesinoDeVentormenta.tiempoFrase = campesinoDeVentormenta.tiempoFrase - diff
 
+	if(campesinoDeVentormenta.tiempoFrase < 0) then
+		creature:SendUnitSay(campesinoDeVentormenta.frases[math.random(0, 6)], 0)
+		campesinoDeVentormenta.tiempoFrase = campesinoDeVentormenta.tiempoFraseInit
+	end
 end
 
 RegisterCreatureEvent(campesinoDeVentormenta.entry, 7, campesinoDeVentormenta.OnUpdate)
