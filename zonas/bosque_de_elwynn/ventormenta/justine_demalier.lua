@@ -30,50 +30,42 @@ function justine.OnUpdate(event, creature, diff)
 	local contadorSaludos = 0
 	local blackList = {}
 
-	contador = contador + diff
-	if(contador > contadorMax) then
-		friendyUnits = creature:GetFriendlyUnitsInRange(10)
-		for key,value in pairs(friendyUnits) do
-			if(value:GetObjectType() == "Player") then
-				local done = true
-				for k,v in pairs(blackList) do
-					v[1] = v[1] - diff
+	contador = contador + diff -- este contado lo uso para el check cada segundo
+	if(contador > contadorMax) then -- si ha pasado el segundo
+		friendyUnits = creature:GetFriendlyUnitsInRange(10) -- obtengo los objetivos amistosos a 10m
+		for key,value in pairs(friendyUnits) do -- recorro los objetivos amistos
+			if(value:GetObjectType() == "Player") then --compruebo que el objetivo sea un player
+				local done = true -- pongo un flag a true
+				for k,v in pairs(blackList) do -- recorro la blacklist
+					v[1] = v[1] - diff -- le resto a esta entrada el tiempo restante para sacarlo (tiempo - diff)
 
-					if(v[0] == value:GetName()) then
-						done = false
+					if(v[0] == value:GetName()) then -- si esta entrada de la blacklist es igual al nombre del objetivo
+						done = false -- pongo el flag a false
 					end
 
-					if(v[1] < 0) then
-						v[0] = ""
-		    		v[1] = 100000
-					end
+					if(v[1] < 0) then -- si el tiempo restante es menor a 0
+						v[0] = "" -- borro el nombre de la blacklist
+		    		v[1] = 100000 -- y le reseteo el tiempo restante a la entrada vacia
+					end -- esto no es lo mejor porque puedo sobrecargar la memoria, pero por el momento sirve
 				end
-				if(done == true) then
-		    	creature:SendUnitSay("¡Oiga!" .. value:GetName() .. "¿,desea usted alistarse?", 0)
-		    	creature:Emote(66)
-		    	blackList[contadorSaludos] = {}
-		    	blackList[contadorSaludos][0] = value:GetName()
-		    	blackList[contadorSaludos][1] = 100000
-		    	contadorSaludos = contadorSaludos + 1
+				if(done == true) then -- si el flag esta en true
+		    	creature:SendUnitSay("¡Saludos " .. value:GetName() .. "!", 0) -- saludo al objetivo
+		    	creature:Emote(66) -- hago el emote
+		    	blackList[melrisMalagan.contadorSaludos] = {} -- creo una entrada en la blacklist
+		    	blackList[melrisMalagan.contadorSaludos][0] = value:GetName() -- le pongo el nombre
+		    	blackList[melrisMalagan.contadorSaludos][1] = 100000 -- le pongo el tiempo restante
+		    	contadorSaludos = contadorSaludos + 1 -- subo uno al contador
 		    end
 		  end
 		end
-  	contador = 0
+  	contador = 0 -- pongo el contador de los segundos a 0
   end
+  
 end
 
 
-function justine.prueba(event, creature, diff)	
-	friendyUnits = creature:GetFriendlyUnitsInRange(10)
- 
-	
-	for i,v in pairs (friendyUnits) do
-		if(i==0)
-			creature:SendUnitSay("Es:"..v)
-		end
-	end
-end
+
 
 RegisterCreatureEvent(justine.entry, 8, justine.OnReceiveEmote)
 RegisterCreatureEvent(justine.entry, 4, justine.OnDied)
-RegisterCreatureEvent(justine.entry, 7, justine.prueba)
+RegisterCreatureEvent(justine.entry, 7, justine.OnUpdate)
