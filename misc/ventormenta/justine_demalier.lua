@@ -1,20 +1,21 @@
 local justine = {
-	recibe_hola = 70,
-	recibe_saludo = 17,
-	envia_saludo = 400,
+	recibe_hola = 101,
+	recibe_hola2 = 55,
+	recibe_saludo = 78,
+	envia_saludo = 78,
 	entry = 12481
 };
 
  function justine.OnReceiveEmote(event, creature, player, emoteid)
-	if(emoteid == justine.recibe_hola) then
+	if(emoteid == justine.recibe_hola or emoteid == justine.recibe_hola2) then
 		creature:SendUnitSay("Hola cosita linda...",0)
 	elseif(emoteid == justine.recibe_saludo) then
 		creature:Emote(justine.envia_saludo)
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
-	 creature:SendUnitSay(emoteid,0)
-	-- Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
+	-- creature:SendUnitSay(emoteid,0)
+	 Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
 end
 
 function justine.hello(event, creature, player, emoteid)
