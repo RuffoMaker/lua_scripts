@@ -25,6 +25,7 @@ function setphanie.OnUpdate(event, creature)
 	
 end
 
+--probando esto
 function setphanie.OnUpdate2(event, creature)	
 		creature:Emote(setphanie.emoteBailar) 
 					
