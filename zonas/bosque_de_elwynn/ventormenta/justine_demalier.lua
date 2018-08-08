@@ -51,20 +51,17 @@ function justine.OnUpdate(event, creature, diff)
 				if(done == true) then -- si el flag esta en true
 		    	creature:SendUnitSay("¡Saludos " .. value:GetName() .. "!", 0) -- saludo al objetivo
 		    	creature:Emote(66) -- hago el emote
-		    	blackList[melrisMalagan.contadorSaludos] = {} -- creo una entrada en la blacklist
-		    	blackList[melrisMalagan.contadorSaludos][0] = value:GetName() -- le pongo el nombre
-		    	blackList[melrisMalagan.contadorSaludos][1] = 100000 -- le pongo el tiempo restante
+		    	blackList[contadorSaludos] = {} -- creo una entrada en la blacklist
+		    	blackList[contadorSaludos][0] = value:GetName() -- le pongo el nombre
+		    	blackList[contadorSaludos][1] = 100000 -- le pongo el tiempo restante
 		    	contadorSaludos = contadorSaludos + 1 -- subo uno al contador
 		    end
 		  end
 		end
   	contador = 0 -- pongo el contador de los segundos a 0
   end
-  
+
 end
-
-
-
 
 RegisterCreatureEvent(justine.entry, 8, justine.OnReceiveEmote)
 RegisterCreatureEvent(justine.entry, 4, justine.OnDied)
