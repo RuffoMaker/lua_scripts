@@ -30,4 +30,10 @@ function setphanie.OnUpdate2(event, creature)
 					
 end
 
+
+function justine.OnReceiveEmote(event, creature, player, emoteid)
+	 creature:SendUnitSay(emoteid,0)
+end
+
 RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate2)
+RegisterCreatureEvent(setphanie.entry, 8, setphanie.OnReceiveEmote)
