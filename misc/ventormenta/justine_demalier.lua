@@ -25,7 +25,7 @@ end
 
 
 function justine.OnUpdate(event, creature, diff)
-	local contador = 10
+	local contador = 0
 	local contadorMax = 1000
 	local contadorSaludos = 0
 	local blackList = {}
@@ -49,7 +49,7 @@ function justine.OnUpdate(event, creature, diff)
 					end
 				end
 				if(done == true) then
-		    	creature:SendUnitSay("¡Oiga! " .. value:GetName() .. "¿,desea usted alistarse?", 0)
+		    	creature:SendUnitSay("¡Oiga!" .. value:GetName() .. "¿,desea usted alistarse?", 0)
 		    	creature:Emote(66)
 		    	blackList[contadorSaludos] = {}
 		    	blackList[contadorSaludos][0] = value:GetName()
@@ -62,6 +62,15 @@ function justine.OnUpdate(event, creature, diff)
   end
 end
 
+
+function justine.prueba(event, creature, diff)
+	local list = {n=0}
+	friendyUnits = creature:GetFriendlyUnitsInRange(10)
+	for i,v in pairs (friendyUnits) do
+		creature:SendUnitSay("numero: "..i.." es:"..v)
+	end
+end
+
 RegisterCreatureEvent(justine.entry, 8, justine.OnReceiveEmote)
 RegisterCreatureEvent(justine.entry, 4, justine.OnDied)
-RegisterCreatureEvent(justine.entry, 7, justine.OnUpdate)
+RegisterCreatureEvent(justine.entry, 7, justine.prueba)
