@@ -33,6 +33,8 @@ end
 
 function setphanie.OnReceiveEmote(event, creature, player, emoteid)
 	 creature:SendUnitSay(emoteid,0)
+	 creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
+	 creature:Emote(setphanie.emoteBailar) 
 end
 
 RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate2)
