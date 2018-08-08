@@ -9,7 +9,7 @@ local campesinoDeVentormenta = {
 		[5] = 'Uy, mosquis...',
 	},
 	tiempoFrase = 10000,
-	tiempoFraseInit = 10000,
+	tiempoFraseInit = 10000 
 };
 
 function campesinoDeVentormenta.OnUpdate(event, creature, diff)
