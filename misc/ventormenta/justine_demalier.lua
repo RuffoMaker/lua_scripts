@@ -1,26 +1,21 @@
 local justine = {
-	recibe_hola = 101,
-	recibe_hola2 = 55,
-	recibe_saludo = 78,
-	envia_saludo = 66,
 	entry = 12481
 };
 
  function justine.OnReceiveEmote(event, creature, player, emoteid)
-	if(emoteid == justine.recibe_hola or emoteid == justine.recibe_hola2) then
+ 	local recibe_hola = 101
+	local recibe_hola2 = 55
+	local recibe_saludo = 78
+	local envia_saludo = 66
+	
+	if(emoteid == recibe_hola or emoteid == recibe_hola2) then
 		creature:SendUnitSay("Hola cosita linda...",0)
-	elseif(emoteid == justine.recibe_saludo) then
-		creature:Emote(justine.envia_saludo)
+	elseif(emoteid == recibe_saludo) then
+		creature:Emote(envia_saludo)
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
 	-- creature:SendUnitSay(emoteid,0)
-	 Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
-end
-
-function justine.hello(event, creature, player, emoteid)
-	creature:SendUnitSay( 'Juan donde esta mi maldicho Chorizo portuano para mi ano!.', 0 )
-	creature:Emote(14)
 end
 
 
@@ -28,12 +23,45 @@ function justine.OnDied( event, creature, killer)
 	creature:SendUnitSay('Por favor...Que me entierren con el vibrador entre las piernas!',0)	
 end
 
-function justine.onAiUpdate(event, creature, diff)
 
- Unit:MoveTo(0, -8824.790039, 631.929016,94.226898, true)
-	
+function justine.OnUpdate(event, creature, diff)
+	contador = 10
+	contadorMax = 1000
+	contadorSaludos = 0
+	blackList = {}
+
+	contador = contador + diff
+	if(contador > contadorMax) then
+		friendyUnits = creature:GetFriendlyUnitsInRange(7)
+		for key,value in pairs(friendyUnits) do
+			if(value:GetObjectType() == "Player") then
+				local done = true
+				for k,v in pairs(blackList) do
+					v[1] = v[1] - diff
+
+					if(v[0] == value:GetName()) then
+						done = false
+					end
+
+					if(v[1] < 0) then
+						v[0] = ""
+		    		v[1] = 100000
+					end
+				end
+				if(done == true) then
+		    	creature:SendUnitSay("¡Oiga! " .. value:GetName() .. "¿,desea usted alistarse?", 0)
+		    	creature:Emote(66)
+		    	blackList[contadorSaludos] = {}
+		    	blackList[contadorSaludos][0] = value:GetName()
+		    	blackList[contadorSaludos][1] = 100000
+		    	contadorSaludos = contadorSaludos + 1
+		    end
+		  end
+		end
+  	contador = 0
+  end
 end
 
 RegisterCreatureEvent(justine.entry, 8, justine.OnReceiveEmote)
 RegisterCreatureEvent(justine.entry, 4, justine.OnDied)
--- RegisterCreatureEvent(justine.entry, 7, justine.MoveTo)
+RegisterCreatureEvent(justine.entry, 7, justine.OnUpdate)
