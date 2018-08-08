@@ -31,7 +31,7 @@ function setphanie.OnUpdate2(event, creature)
 end
 
 
-function justine.OnReceiveEmote(event, creature, player, emoteid)
+function setphanie.OnReceiveEmote(event, creature, player, emoteid)
 	 creature:SendUnitSay(emoteid,0)
 end
 
