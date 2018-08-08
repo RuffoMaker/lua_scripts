@@ -25,18 +25,10 @@ function setphanie.OnUpdate(event, creature)
 	
 end
 
---probando esto
-function setphanie.OnUpdate2(event, creature)	
-		creature:Emote(setphanie.emoteBailar) 
-					
-end
-
-
 function setphanie.OnReceiveEmote(event, creature, player, emoteid)
 	 creature:SendUnitSay(emoteid,0)
 	 creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
 	 creature:Emote(setphanie.emoteBailar) 
 end
 
-RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate2)
-RegisterCreatureEvent(setphanie.entry, 8, setphanie.OnReceiveEmote)
+RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate)
