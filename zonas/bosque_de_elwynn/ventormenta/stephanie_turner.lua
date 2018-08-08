@@ -25,4 +25,9 @@ function setphanie.OnUpdate(event, creature)
 	
 end
 
-RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate)
+function setphanie.OnUpdate2(event, creature)	
+		creature:Emote(setphanie.emoteBailar) 
+					
+end
+
+RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate2)
