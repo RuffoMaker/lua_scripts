@@ -25,10 +25,10 @@ end
 
 
 function justine.OnUpdate(event, creature, diff)
-	contador = 10
-	contadorMax = 1000
-	contadorSaludos = 0
-	blackList = {}
+	local contador = 10
+	local contadorMax = 1000
+	local contadorSaludos = 0
+	local blackList = {}
 
 	contador = contador + diff
 	if(contador > contadorMax) then
