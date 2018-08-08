@@ -1,8 +1,7 @@
 local setphanie = {	
 	entry = 6174,
 	emoteSalto = 4,
-	emoteBailar = 10,
-	emoteParada = 0
+	emoteBailar = 10
 }
 
 function setphanie.OnUpdate(event, creature)	
@@ -21,14 +20,22 @@ function setphanie.OnUpdate(event, creature)
 		creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
 		creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!",0)
 		creature:Emote(setphanie.emoteSalto) 
-		creature:Emote(setphanie.emoteParada)
+		
 	
 end
 
+--probando esto
+function setphanie.OnUpdate2(event, creature)	
+		creature:Emote(setphanie.emoteBailar) 
+					
+end
+
+
 function setphanie.OnReceiveEmote(event, creature, player, emoteid)
 	 creature:SendUnitSay(emoteid,0)
-	 creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
-	 creature:Emote(setphanie.emoteBailar) 
+	 creature:SendUnitSay(creature:GetCurrTime(),0)
+	 
 end
 
 RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnUpdate)
+RegisterCreatureEvent(setphanie.entry, 8, setphanie.OnReceiveEmote)

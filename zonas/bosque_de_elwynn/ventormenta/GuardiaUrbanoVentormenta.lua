@@ -2,11 +2,9 @@ local guardiaUrbano = {
 	entry = 1976
 }
 
-function guardiaUrbano.OnUpdate(event, creature)	
-		currTime = GetCurrTime()
-
-		if(currTime % 2== 0)
-			creature:SendUnitSay("Un poco más... pronto terminaré el turno de una vez..",0)
+function guardiaUrbano.OnUpdate(event, creature)			
+		if(creature:isStopped() ==true)
+			creature:SendUnitSay("Uf..ya queda poco... pronto terminaré el turno de una vez..",0)
 		end				
 end
 
