@@ -49,3 +49,6 @@ end
 
 RegisterCreatureEvent(12480, 4, melrisMalagan.OnDied)
 RegisterCreatureEvent(12480, 7, melrisMalagan.OnUpdate)
+
+
+
