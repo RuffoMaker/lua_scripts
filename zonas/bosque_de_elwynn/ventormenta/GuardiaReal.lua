@@ -21,7 +21,7 @@ end
 
 
  function guardiaReal.OnReceiveEmote(event, creature, player, emoteid)
-	local envia_saludo = 66	
+	local recibe_saludo = 66	
 
 	if(emoteid == recibe_saludo) then
 		if(player:GetGender()==0) then
