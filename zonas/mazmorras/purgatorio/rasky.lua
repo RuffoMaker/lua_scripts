@@ -21,6 +21,9 @@ local raskyPurgatorio = {
             y = 436.463135,
             z = 3.328583
         }
+    },
+    gobjects = {
+        puerta = 181240
     }
 };
 
@@ -53,6 +56,8 @@ function raskyPurgatorio.castear(eventid, delay, repeats, creature)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
+    local nearestGameObject = creature:GetNearestGameObject( 20, raskyPurgatorio.gobjects.puerta )
+    nearestGameObject:UseDoorOrButton(0)
     creature:SendUnitSay('Ya podéis pasar.', 0)
     creature:RegisterEvent(raskyPurgatorio.Volver, 2000, 1)
 end
