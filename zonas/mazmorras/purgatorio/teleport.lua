@@ -20,5 +20,5 @@ function teleporterPurgatorio.OnGossipSelect(event, player, creature, sender, in
 	end
 end
 
-RegisterCreatureGossipEvent(NpcId, 1, teleporterPurgatorio.OnGossipHello)
-RegisterCreatureGossipEvent(NpcId, 2, teleporterPurgatorio.OnGossipSelect)
+RegisterCreatureGossipEvent(teleporterPurgatorio.NpcId, 1, teleporterPurgatorio.OnGossipHello)
+RegisterCreatureGossipEvent(teleporterPurgatorio.NpcId, 2, teleporterPurgatorio.OnGossipSelect)
