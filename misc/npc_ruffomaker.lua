@@ -29,5 +29,5 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 	end
 end
 
-RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
-RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+--RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
+--RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
