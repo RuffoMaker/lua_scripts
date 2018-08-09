@@ -35,10 +35,12 @@ end
 function raskyPurgatorio.moverAPuerta(eventid, delay, repeats, creature)
     local coords = raskyPurgatorio.coordenadas.puerta
     creature:MoveTo( coords.id, coords.x, coords.y, coords.z )
-    creature:RegisterEvent(raskyPurgatorio.castear, 1000, 1)
+    creature:RegisterEvent(raskyPurgatorio.castear, 3000, 1)
 end
 
 function raskyPurgatorio.castear(eventid, delay, repeats, creature)
+    creature:Emote(50)
+    creature:SendUnitYell('TORCUATO EUSTAQUIA BIENVENITUM NOMINE MENSUALE', 0)
     creature:CastSpell(creature, raskyPurgatorio.spells.fireColumn, true)
     creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
 end
