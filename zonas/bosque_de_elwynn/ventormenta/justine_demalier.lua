@@ -8,6 +8,8 @@ local justine = {
 	local recibe_saludo = 78
 	local envia_saludo = 66
 	
+	creature:SendUnitSay(emoteid,0)
+
 	if(emoteid == recibe_hola or emoteid == recibe_hola2) then
 		creature:SendUnitSay("Hola cosita linda...",0)
 	elseif(emoteid == recibe_saludo) then
@@ -15,7 +17,7 @@ local justine = {
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
-	  creature:SendUnitSay(emoteid,0)
+	  
 end
 
 
