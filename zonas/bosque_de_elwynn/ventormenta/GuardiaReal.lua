@@ -1,6 +1,6 @@
 local guardiaReal = {
 	contador = 0,
-	contadorMax = 1000,
+	contadorMax = 10000,
 	contadorSaludos = 0,
 	blackList = {}
 };
