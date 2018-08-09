@@ -6,7 +6,7 @@ local guardiaUrbano = {
 
 function guardiaUrbano.OnUpdate(event, creature, diff)	
 	guardiaUrbano.contador = guardiaUrbano.contador +diff
-	if(guardiaUrbano.contador ==15000) then
+	if(guardiaUrbano.contador >15000 and guardiaUrbano.contador <15010) then
 		creature:SendUnitSay("Uf..ya queda poco... pronto terminaré el turno de una vez..",0)
 		guardiaUrbano.contador = 0
 	end
