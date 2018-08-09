@@ -9,11 +9,11 @@ function bonusExp.PlayerReceiveExp(event, player, amount, victim)
 	if(math.random(0, 100) < bonusExp.chance) then
 		local rand = tonumber(math.random(bonusExp.rateMin, bonusExp.rateMax))
 		player:SendBroadcastMessage('Has recibido un bonus de experiencia de un x'..rand)
-		--cantidad = amount * rand
+		cantidad = amount * rand
 	else
 		cantidad = amount
 	end
-	--return cantidad
+	return cantidad
 end
 
 RegisterPlayerEvent(12, bonusExp.PlayerReceiveExp)
