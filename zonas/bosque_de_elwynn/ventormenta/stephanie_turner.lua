@@ -45,7 +45,7 @@ function Stephanie.prueba(event, creature, diff)
 		Stephanie.contadorFrase = Stephanie.contadorFrase + 1			
 	end	
 
-	if(Stephanie.contador == 15000) then
+	if(Stephanie.contador == 30000) then
 			creature:SendUnitSay('¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!',0)
 			Stephanie.contador = 0
 	end	
