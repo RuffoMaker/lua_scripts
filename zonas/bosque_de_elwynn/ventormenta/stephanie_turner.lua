@@ -20,7 +20,7 @@ function Stephanie.OnUpdate(event, creature, diff)
 	Stephanie.contador = Stephanie.contador + diff
 
 	if(Stephanie.contador > Stephanie.fraseContador) then
-		creature:SendUnitSay(Stephanie.frases[contadorFrase], 0)
+		creature:SendUnitSay(Stephanie.frases[Stephanie.contadorFrase], 0)
 		Stephanie.contadorFrase = Stephanie.contadorFrase + 1
 
 		Stephanie.contador = 0
