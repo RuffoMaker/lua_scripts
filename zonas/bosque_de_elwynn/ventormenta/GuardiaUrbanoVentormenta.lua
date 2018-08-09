@@ -16,9 +16,9 @@ guardiaUrbano.tiempoFrase = guardiaUrbano.tiempoFrase - diff
 
 	if(guardiaUrbano.tiempoFrase < 0) then		
 		guardiaUrbano.fraseadecir = math.random(0, 1)
-		if(fraseadecir ~= frasedicha) then
-			creature:SendUnitSay(guardiaUrbano.frases[fraseadecir], 0)
-			frasedicha = fraseadecir
+		if(guardiaUrbano.fraseadecir ~= guardiaUrbano.frasedicha) then
+			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.fraseadecir], 0)
+			guardiaUrbano.frasedicha = guardiaUrbano.fraseadecir
 			guardiaUrbano.Reset(creature)
 		end
 	end
