@@ -14,15 +14,16 @@ function guardiaUrbano.OnUpdate(event, creature, diff)
 
 	guardiaUrbano.contador = guardiaUrbano.contador +diff
 
-	if(guardiaUrbano.contador > guardiaUrbano.maxcontador and guardiaUrbano.contadorfrases == 0) then
-		creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
-		guardiaUrbano.contadorfrases = guardiaUrbano.contadorfrases + 1
-		guardiaUrbano.maxcontador = 4000
-	elseif(guardiaUrbano.contadorfrases > guardiaUrbano.maxcontador and guardiaUrbano.contadorfrases == 1) then
-		creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
-		guardiaUrbano.Reset(creature)
-	end
+	if(guardiaUrbano.contador > guardiaUrbano.maxcontador) then
 
+		if(guardiaUrbano.contadorfrases < 1)then
+			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
+			guardiaUrbano.contadorfrases = guardiaUrbano.contadorfrases + 1
+			guardiaUrbano.maxcontador = 4000
+		elseif(guardiaUrbano.contadorfrases > 0)
+			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
+			guardiaUrbano.Reset(creature)
+		end	
 
 end
 
