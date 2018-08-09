@@ -37,4 +37,4 @@ function guardiaReal.OnUpdate(event, creature, diff)
   end
 end
 
-RegisterCreatureEvent(12480, 7, guardiaReal.OnUpdate)
+RegisterCreatureEvent(1756, 7, guardiaReal.OnUpdate)
