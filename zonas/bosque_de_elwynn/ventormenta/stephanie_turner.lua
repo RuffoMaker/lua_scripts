@@ -41,12 +41,5 @@ function retraso(diff)
 end
 
 
-function setphanie.OnReceiveEmote(event, creature, player, emoteid)
-	 creature:SendUnitSay(emoteid,0)
-	 creature:SendUnitSay(Global:GetCurrTime(),0)
-	 
-end
-
 -- RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnSpawn)
 RegisterCreatureEvent(setphanie.entry, 7, setphanie.OnUpdate)
-RegisterCreatureEvent(setphanie.entry, 8, setphanie.OnReceiveEmote)
