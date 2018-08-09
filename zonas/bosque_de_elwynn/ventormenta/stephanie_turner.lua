@@ -11,30 +11,31 @@ local Stephanie = {
 	}
 };
 
-function Stephanie.OnSpawn(event, creature)	
-		creature:Emote(Stephanie.emoteBailar) 		
-end
-
 --probando esto
 function Stephanie.OnUpdate(event, creature, diff)	
 	Stephanie.contador = Stephanie.contador + diff
 
 	if(Stephanie.contador > Stephanie.fraseContador) then
+		creature:Emote(Stephanie.emoteBailar)
 		creature:SendUnitSay(Stephanie.frases[Stephanie.contadorFrase], 0)
 		Stephanie.contadorFrase = Stephanie.contadorFrase + 1
 
 		Stephanie.contador = 0
-		Stephanie.fraseContador = 8000
+		Stephanie.fraseContador = 4000
 
 		if(Stephanie.contadorFrase > 1) then
-			Stephanie.contadorFrase = 0
-			Stephanie.fraseContador = 10000
+			Stephanie.Reset(creature)
 		end
 
 	end		
 
 end
 
+function Stephanie.Reset(creature)
+	Stephanie.contadorFrase = 0
+	Stephanie.fraseContador = 10000
+	creature:Emote(0)
+end
 
 RegisterCreatureEvent(Stephanie.entry, 5, Stephanie.OnSpawn)
 RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
