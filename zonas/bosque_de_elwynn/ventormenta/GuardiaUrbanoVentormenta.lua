@@ -1,10 +1,7 @@
 local guardiaUrbano = {
-	entry = 1976
+	entry = 1976,
+	contador = 0
 }
-
-function guardiaUrbano.OnSpawn(event, creature)
-	creature:RegisterEvent(guardiaUrbano.Hablar, {0, 10000}, 0)
-end
 
 function guardiaUrbano.Hablar(eventid, delay, repeats, creature)
 	if(creature:IsStopped() == true) then
@@ -12,4 +9,15 @@ function guardiaUrbano.Hablar(eventid, delay, repeats, creature)
 	end
 end
 
-RegisterCreatureEvent(guardiaUrbano.entry, 5, guardiaUrbano.OnSpawn)
+
+function guardiaUrbano.OnUpdate(event, creature, diff)	
+	guardiaUrbano.contador = guardiaUrbano.contador +diff
+	if(guardiaUrbano.contador ==15000) then
+		creature:SendUnitSay("Uf..ya queda poco... pronto terminaré el turno de una vez..",0)
+		guardiaUrbano.contador = 0
+	end
+
+end
+
+-- RegisterCreatureEvent(guardiaUrbano.entry, 5, guardiaUrbano.OnSpawn)
+RegisterCreatureEvent(guardiaUrbano.entry, 7, guardiaUrbano.OnUpdate)

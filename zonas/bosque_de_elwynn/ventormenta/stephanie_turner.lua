@@ -20,13 +20,15 @@ function Stephanie.OnUpdate(event, creature, diff)
 	Stephanie.contador = Stephanie.contador + diff
 
 	if(Stephanie.contador > Stephanie.fraseContador) then
-		creature:SendUnitSay(Stephanie.frases[Stephanie.contadorFrase], 0)
+		creature:SendUnitSay('¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa darle alegría y cosa buena!', 0)
 		Stephanie.contadorFrase = Stephanie.contadorFrase + 1
 
 		Stephanie.contador = 0
 		Stephanie.fraseContador = 4000
 
-		if(Stephanie.contadorFrase > 1) then
+		if(Stephanie.contadorFrase == 1) then
+			creature:SendUnitSay('¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!',0)
+		elseif(Stephanie.contadorFrase >1)then
 			Stephanie.contadorFrase = 0
 			Stephanie.fraseContador = 10000
 		end
