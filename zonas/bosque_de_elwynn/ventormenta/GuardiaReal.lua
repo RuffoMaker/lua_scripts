@@ -24,7 +24,8 @@ function guardiaReal.OnUpdate(event, creature, diff)
 		    		v[1] = 100000 -- y le reseteo el tiempo restante a la entrada vacia
 					end -- esto no es lo mejor porque puedo sobrecargar la memoria, pero por el momento sirve
 				end
-				if(done == true) then -- si el flag esta en true		    	
+				if(done == true) then -- si el flag esta en true
+		    	creature:SendUnitSay("¡Saludos " .. value:GetName() .. "!", 0) -- saludo al objetivo
 		    	creature:Emote(66) -- hago el emote
 		    	guardiaReal.blackList[guardiaReal.contadorSaludos] = {} -- creo una entrada en la blacklist
 		    	guardiaReal.blackList[guardiaReal.contadorSaludos][0] = value:GetName() -- le pongo el nombre
