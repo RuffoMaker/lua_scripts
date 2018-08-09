@@ -14,7 +14,7 @@ local Stephanie = {
 
 function Stephanie.OnEmote(event, creature, player, emoteid)
 	if(emoteid == Stephanie.emoteDance) then
-		Stephanie.SendUnitSay('¡¡Mirad todos a ' .. player:GetName() .. '!! ¡¡Qué estilazo tiene bailando!! ¡¡Vamos allá!!', 0)
+		creature.SendUnitSay('¡¡Mirad todos a ' .. player:GetName() .. '!! ¡¡Qué estilazo tiene bailando!! ¡¡Vamos allá!!', 0)
 		Stephanie.fraseContador = 5000
 	end
 end
