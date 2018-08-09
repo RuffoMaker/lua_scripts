@@ -12,3 +12,4 @@ local function hablar.start(event, creature, diff)
 end
 
 hablar.config(0, 5406, 1000)
+hablar.config(0, 5403, 1000)
