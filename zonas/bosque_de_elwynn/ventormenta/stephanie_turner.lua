@@ -1,32 +1,41 @@
-local setphanie = {	
+local Stephanie = {	
 	entry = 6174,
 	emoteSalto = 4,
-	emoteBailar = 10
-}
+	emoteBailar = 10,
+	contador = 0,
+	fraseContador = 10000,
+	contadorFrase = 0,
+	frases = {
+		[0] = '¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa darle alegría y cosa buena!',
+		[1] = '¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!'
+	}
+};
 
-function setphanie.OnSpawn(event, creature)	
-		creature:Emote(setphanie.emoteBailar) 		
+function Stephanie.OnSpawn(event, creature)	
+		creature:Emote(Stephanie.emoteBailar) 		
 end
 
 --probando esto
-function setphanie.OnUpdate(event, creature, diff)	
-	local contador = 0
-	local maxcontador = 15000
-	contador = contador+diff
-	for i=contador,maxcontador do
-		if(contador == 10000) then
-			creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
-		elseif(contador==14000)
-			creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!",0)
-			creature:Emote(setphanie.emoteSalto) 
+function Stephanie.OnUpdate(event, creature, diff)	
+	Stephanie.contador = Stephanie.contador + diff
+
+	if(Stephanie.contador > Stephanie.fraseContador) then
+		creature:SendUnitSay(Stephanie.frases[contadorFrase], 0)
+		Stephanie.contadorFrase = Stephanie.contadorFrase + 1
+
+		Stephanie.contador = 0
+		Stephanie.fraseContador = 4000
+
+		if(Stephanie.contadorFrase > 1) then
+			Stephanie.contadorFrase = 0
+			Stephanie.fraseContador = 10000
 		end
-		contador = contador +diff
-	end
-		contador = 0
-		creature:Emote(setphanie.emoteBailar)			
+
+	end		
+
 end
 
 
 
--- RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnSpawn)
--- RegisterCreatureEvent(setphanie.entry, 7, setphanie.OnUpdate)
+RegisterCreatureEvent(Stephanie.entry, 5, Stephanie.OnSpawn)
+RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
