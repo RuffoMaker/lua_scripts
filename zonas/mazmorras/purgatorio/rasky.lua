@@ -47,8 +47,8 @@ end
 
 function raskyPurgatorio.castear(eventid, delay, repeats, creature)
     creature:Emote(50)
-    creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
-    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 12)
+    creature:RegisterEvent(raskyPurgatorio.Hablar, 10000, 1)
+    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 10)
     creature:RegisterEvent(raskyPurgatorio.CastFireColumn, 2000, 1)
 end
 
