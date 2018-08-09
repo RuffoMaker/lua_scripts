@@ -12,4 +12,3 @@ local function hablar.start(event, creature, diff)
 end
 
 hablar.config(0, 5406, 1000)
-RegisterCreatureEvent(5406, 7, hablar.start)
