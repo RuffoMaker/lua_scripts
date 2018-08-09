@@ -29,4 +29,4 @@ end
 
 
 -- RegisterCreatureEvent(setphanie.entry, 5, setphanie.OnSpawn)
-RegisterCreatureEvent(setphanie.entry, 7, setphanie.OnUpdate)
+-- RegisterCreatureEvent(setphanie.entry, 7, setphanie.OnUpdate)
