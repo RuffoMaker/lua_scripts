@@ -15,7 +15,7 @@ local justine = {
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
-	-- creature:SendUnitSay(emoteid,0)
+	  creature:SendUnitSay(emoteid,0)
 end
 
 
