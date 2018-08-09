@@ -41,7 +41,7 @@ function Stephanie.prueba(event, creature, diff)
 	Stephanie.contador = Stephanie.contador + diff
 
 	if(Stephanie.contador == 100 ) then
-		creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa darle alegría y cosa buena", 0)
+		creature:SendUnitSay(Stephanie.contador, 0)
 				
 	end	
 
