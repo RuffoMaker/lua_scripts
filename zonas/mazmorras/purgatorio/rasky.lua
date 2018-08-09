@@ -28,19 +28,19 @@ function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, 
     if (intid == 1) then
         player:GossipComplete()
         creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!', 0)
-        creature:RegisterEvent(raskyPurgatorio.moverAPuerta, 5000, 1)
+        creature:RegisterEvent(raskyPurgatorio.moverAPuerta, 3000, 1)
     end
 end
 
 function raskyPurgatorio.moverAPuerta(eventid, delay, repeats, creature)
     local coords = raskyPurgatorio.coordenadas.puerta
     creature:MoveTo( coords.id, coords.x, coords.y, coords.z )
-    creature:RegisterEvent(raskyPurgatorio.castear, 3000, 1)
+    creature:RegisterEvent(raskyPurgatorio.castear, 1000, 1)
 end
 
 function raskyPurgatorio.castear(eventid, delay, repeats, creature)
     creature:CastSpell(creature, raskyPurgatorio.spells.fireColumn, true)
-    creature:RegisterEvent(raskyPurgatorio.Hablar, 10000, 1)
+    creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
