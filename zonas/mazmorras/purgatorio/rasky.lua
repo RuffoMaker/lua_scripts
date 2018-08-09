@@ -6,7 +6,7 @@ local raskyPurgatorio = {
     fase = 2,
     spells = {
         fireColumn = 76006,
-        fire = 62300
+        cast = 32826
     },
     coordenadas = {
         inicio = {
@@ -49,8 +49,8 @@ function raskyPurgatorio.castear(eventid, delay, repeats, creature)
     creature:Emote(50)
     creature:SendUnitYell('TORCUATO EUSTAQUIA BIENVENITUM NOMINE MENSUALE', 0)
     creature:CastSpell(creature, raskyPurgatorio.spells.fireColumn, true)
-    creature:CastSpell(creature, raskyPurgatorio.spells.fire, true)
     creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
+    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 10)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
@@ -61,6 +61,10 @@ end
 function raskyPurgatorio.Volver(eventid, delay, repeats, creature)
     local coords = raskyPurgatorio.coordenadas.inicio
     creature:MoveTo( coords.id, coords.x, coords.y, coords.z )
+end
+
+function raskyPurgatorio.CastVisualSpell(eventid, delay, repeats, creature)
+    creature:CastSpell(creature, raskyPurgatorio.spells.cast, true)
 end
 
 RegisterCreatureGossipEvent(raskyPurgatorio.entry, 1, raskyPurgatorio.OnGossipHello)
