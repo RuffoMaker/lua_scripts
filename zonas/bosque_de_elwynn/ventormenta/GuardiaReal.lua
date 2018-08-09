@@ -9,7 +9,7 @@ local guardiaReal = {
 function guardiaReal.OnUpdate(event, creature, diff)
 	guardiaReal.contador = guardiaReal.contador + diff -- este contado lo uso para el check cada segundo
 	if(guardiaReal.contador > guardiaReal.contadorMax) then -- si ha pasado el segundo
-		friendyUnits = creature:GetFriendlyUnitsInRange(10) -- obtengo los objetivos amistosos a 10m
+		friendyUnits = creature:GetFriendlyUnitsInRange(5) -- obtengo los objetivos amistosos a 10m
 		for key,value in pairs(friendyUnits) do -- recorro los objetivos amistos
 			if(value:GetObjectType() == "Player") then --compruebo que el objetivo sea un player
 				local done = true -- pongo un flag a true
