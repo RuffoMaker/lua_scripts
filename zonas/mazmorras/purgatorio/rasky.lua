@@ -27,12 +27,9 @@ local raskyPurgatorio = {
 
 
 function raskyPurgatorio.OnGossipHello(event, player, object)
-    if(raskyPurgatorio.flag == true) then
-        player:GossipClearMenu() -- required for player gossip
-        player:GossipMenuAddItem(0, raskyPurgatorio.frases[0], 1, 1)
-        player:GossipSendMenu(1, object, raskyPurgatorio.MenuId) -- MenuId required for player gossip
-        raskyPurgatorio.flag = false
-    end
+    player:GossipClearMenu() -- required for player gossip
+    player:GossipMenuAddItem(0, raskyPurgatorio.frases[0], 1, 1)
+    player:GossipSendMenu(1, object, raskyPurgatorio.MenuId) -- MenuId required for player gossip
 end
 
 function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, code, menuid)
@@ -64,7 +61,6 @@ end
 function raskyPurgatorio.Volver(eventid, delay, repeats, creature)
     local coords = raskyPurgatorio.coordenadas.inicio
     creature:MoveTo( coords.id, coords.x, coords.y, coords.z )
-    raskyPurgatorio.flag = true
 end
 
 function raskyPurgatorio.CastVisualSpell(eventid, delay, repeats, creature)
