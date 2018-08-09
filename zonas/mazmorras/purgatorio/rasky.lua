@@ -6,7 +6,7 @@ local raskyPurgatorio = {
     fase = 2,
     spells = {
         fireColumn = 76006,
-        cast = 32826
+        cast = 72099
     },
     coordenadas = {
         inicio = {
@@ -50,7 +50,7 @@ function raskyPurgatorio.castear(eventid, delay, repeats, creature)
     creature:SendUnitYell('TORCUATO EUSTAQUIA BIENVENITUM NOMINE MENSUALE', 0)
     creature:CastSpell(creature, raskyPurgatorio.spells.fireColumn, true)
     creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
-    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 8)
+    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 4)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
