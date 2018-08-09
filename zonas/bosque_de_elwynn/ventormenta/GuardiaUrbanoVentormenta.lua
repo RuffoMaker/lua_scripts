@@ -3,12 +3,6 @@ local guardiaUrbano = {
 	contador = 0
 }
 
-function guardiaUrbano.Hablar(eventid, delay, repeats, creature)
-	if(creature:IsStopped() == true) then
-		creature:SendUnitSay("Uf..ya queda poco... pronto terminaré el turno de una vez..",0)
-	end
-end
-
 
 function guardiaUrbano.OnUpdate(event, creature, diff)	
 	guardiaUrbano.contador = guardiaUrbano.contador +diff

@@ -37,7 +37,21 @@ function Stephanie.OnUpdate(event, creature, diff)
 
 end
 
+function Stephanie.prueba(event, creature, diff)	
+	Stephanie.contador = Stephanie.contador + diff
+
+	if(Stephanie.contador == 10000) then
+		creature:SendUnitSay('¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa darle alegría y cosa buena!', 0)
+		Stephanie.contadorFrase = Stephanie.contadorFrase + 1			
+	end	
+
+	if(Stephanie.contador == 15000) then
+			creature:SendUnitSay('¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!',0)
+			Stephanie.contador = 0
+	end	
+
+end
 
 
-RegisterCreatureEvent(Stephanie.entry, 5, Stephanie.OnSpawn)
-RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
+-- RegisterCreatureEvent(Stephanie.entry, 5, Stephanie.OnSpawn)
+RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.prueba)
