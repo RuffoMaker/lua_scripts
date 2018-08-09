@@ -24,11 +24,12 @@ end
 	local recibe_saludo = 66	
 
 	if(emoteid == recibe_saludo) then
-		if(player:GetGender()==0) then
+		local gender = player:GetGender()
+		if(gender == 0) then
 		     creature:SendUnitSay(" Sr comandante "..player:GetName().."...", 0)
 		end
 
-		if(player:GetGender()==1) then
+		if(gender == 1) then
 		    creature:SendUnitSay(" Sra comandante "..player:GetName().."...", 0) 
 		end
 		 	
