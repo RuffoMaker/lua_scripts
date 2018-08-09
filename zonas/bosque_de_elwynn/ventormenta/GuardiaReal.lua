@@ -1,8 +1,6 @@
 local guardiaReal = {
 	contador = 0,
-	contadorMax = 5000,
-	contadorSaludos = 0,
-	recibe_saludo = 66	
+	contadorMax = 5000		
 };
 
 
@@ -41,10 +39,20 @@ end
  function guardiaReal.OnReceiveEmote2(event, creature, player, emoteid)
 	 	
 
-	if(emoteid == guardiaReal.recibe_saludo) then		
-		
-		     creature:SendUnitSay(" Sr comandante "..player:GetName().."...", 0)
-		
+	
+	local recibe_hola = 101
+	local recibe_hola2 = 55
+	local recibe_saludo = 78
+	local envia_saludo = 66	
+
+	if(emoteid == recibe_hola or emoteid == recibe_hola2) then
+		creature:SendUnitSay("Hola cosita linda...",0)
+	elseif(emoteid == recibe_saludo) then
+		creature:Emote(envia_saludo)
+		creature:SendUnitSay("¡"..player:GetName().." alistaté en la marina!.", 0) -- saludo al objetivo
+	else
+		creature:SendUnitSay('Y tu que miras... camina!', 0)
+	end
 		   
 		
 		 	
