@@ -49,5 +49,11 @@ function Stephanie.Reset(creature)
 	creature:Emote(0)
 end
 
+
+function Stephanie.OnEmote2(event, creature, player, emoteid)
+	creature:SendUnitSay(emoteid,0)
+end
+
+
 RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
-RegisterCreatureEvent(Stephanie.entry, 8, Stephanie.OnEmote)
+RegisterCreatureEvent(Stephanie.entry, 8, Stephanie.OnEmote2)
