@@ -9,7 +9,7 @@ local Stephanie = {
 		[0] = '¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa darle alegría y cosa buena!',
 		[1] = '¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!'
 	},
-	emoteDance = 10
+	emoteDance = 34
 };
 
 function Stephanie.OnEmote(event, creature, player, emoteid)
@@ -49,11 +49,5 @@ function Stephanie.Reset(creature)
 	creature:Emote(0)
 end
 
-
-function Stephanie.OnEmote2(event, creature, player, emoteid)
-	creature:SendUnitSay(emoteid,0)
-end
-
-
 RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
-RegisterCreatureEvent(Stephanie.entry, 8, Stephanie.OnEmote2)
+RegisterCreatureEvent(Stephanie.entry, 8, Stephanie.OnEmote)
