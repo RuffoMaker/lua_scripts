@@ -20,7 +20,7 @@ end
 function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-        creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!')
+        creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!', 0)
         raskyPurgatorio.trigger = creature:GetNearObject(10, 0, 80000)
         creature:Cast(raskyPurgatorio.trigger, raskyPurgatorio.spells.fireColumn, true)
     end
