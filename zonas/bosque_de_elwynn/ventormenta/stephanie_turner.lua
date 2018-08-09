@@ -8,10 +8,17 @@ local Stephanie = {
 	frases = {
 		[0] = '¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa darle alegría y cosa buena!',
 		[1] = '¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!'
-	}
+	},
+	emoteDance = 10
 };
 
---probando esto
+function Stephanie.OnEmote(event, creature, player, emoteid)
+	if(emoteid == Stephanie.emoteDance) then
+		Stephanie.SendUnitSay('¡¡Mirad todos a ' .. player:GetName() .. '!! ¡¡Qué estilazo tiene bailando!! ¡¡Vamos allá!!', 0)
+		Stephanie.fraseContador = 5000
+	end
+end
+
 function Stephanie.OnUpdate(event, creature, diff)	
 	Stephanie.contador = Stephanie.contador + diff
 
@@ -42,3 +49,4 @@ function Stephanie.Reset(creature)
 end
 
 RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
+RegisterCreatureEvent(Stephanie.entry, 8, Stephanie.OnEmote)
