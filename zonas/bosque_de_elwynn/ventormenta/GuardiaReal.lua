@@ -13,7 +13,15 @@ function guardiaReal.OnUpdate(event, creature, diff)
 		for key,value in pairs(friendyUnits) do -- recorro los objetivos amistos
 			if(value:GetObjectType() == "Player") then --compruebo que el objetivo sea un player
 		    	creature:Emote(66) -- hago el emote
-		    	
+		    	if(math.random(0, 1) == 1) then
+		    		if(value:GetGender()==0) then
+		    			creature:SendUnitSay("Sr!",0)
+		    		end
+		    		
+		    		if(value:GetGender()==1) then
+		    			creature:SendUnitSay("Sra!",0)
+		    		end
+		    	end
 		    end
 		 
 		end
