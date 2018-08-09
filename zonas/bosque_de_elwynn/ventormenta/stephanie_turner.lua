@@ -41,7 +41,7 @@ function Stephanie.prueba(event, creature, diff)
 	Stephanie.contador = Stephanie.contador + diff
 
 	if(Stephanie.contador == 100 ) then
-		creature:SendUnitSay(Stephanie.contador, 0)
+		creature:SendUnitSay("hola", 0)
 				
 	end	
 
