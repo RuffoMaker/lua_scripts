@@ -10,3 +10,4 @@ function comienzaHablar(event, creature, diff)
 end
 
 hablar({}, 5406, 1000)
+RegisterCreatureEvent(entry, 7, comienzaHablar)
