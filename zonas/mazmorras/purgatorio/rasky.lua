@@ -59,7 +59,7 @@ end
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
     local nearestGameObject = creature:GetNearestGameObject( 20, raskyPurgatorio.gobjects.puerta )
     nearestGameObject:UseDoorOrButton(0)
-    creature:SendUnitSay('Ya podéis pasar.', 0)
+    creature:SendUnitSay('¡¡Corred!! ¡¡La puerta durará muy pocos segundos abierta!!', 0)
     creature:RegisterEvent(raskyPurgatorio.Volver, 2000, 1)
 end
 
