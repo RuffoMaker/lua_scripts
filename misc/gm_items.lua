@@ -15,7 +15,7 @@ local function primerLogin(event, player)
 	-- c1 es igual a c2										==
 	-- c1 es desigual a c2								~=
 	if( player:GetGMRank() < 1 ) then -- Si el player no es GM
-		player:AddItem( bolsa, 4 )
+		-- player:AddItem( bolsa, 4 )
 	else	-- Si el player si es GM
 		player:AddItem( capuchaGM, 1 )
 		player:AddItem( togaGM, 1 )
