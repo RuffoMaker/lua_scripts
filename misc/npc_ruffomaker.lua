@@ -10,7 +10,7 @@
 --]]
 
 
-local NpcId = 90000
+local NpcId = 90002
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 local mensaje = "Si quieres aprender a ser GM puedes unirte a nuestra escuela de GM totalmente gratis en http:://www.ruffoschool.com :)"
 
@@ -29,5 +29,5 @@ local function OnGossipSelect(event, player, creature, sender, intid, code, menu
 	end
 end
 
---RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
---RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
