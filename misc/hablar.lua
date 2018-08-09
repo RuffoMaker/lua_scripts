@@ -9,5 +9,5 @@ function comienzaHablar(event, creature, diff)
 	creature:SendUnitSay('hola', 0)
 end
 
-hablar({}, 5406, 1000)
+hablar(0, 5406, 1000)
 RegisterCreatureEvent(entry, 7, comienzaHablar)
