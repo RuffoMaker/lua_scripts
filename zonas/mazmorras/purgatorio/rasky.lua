@@ -31,13 +31,13 @@ function raskyPurgatorio.OnGossipHello(event, player, object)
         player:GossipClearMenu() -- required for player gossip
         player:GossipMenuAddItem(0, raskyPurgatorio.frases[0], 1, 1)
         player:GossipSendMenu(1, object, raskyPurgatorio.MenuId) -- MenuId required for player gossip
+        raskyPurgatorio.flag = false
     end
 end
 
 function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
-        player:GossipComplete()
-        raskyPurgatorio.flag = false
+        player:GossipComplete()     
         creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!', 0)
         creature:RegisterEvent(raskyPurgatorio.moverAPuerta, 3000, 1)
     end
