@@ -20,7 +20,7 @@ function guardiaUrbano.OnUpdate(event, creature, diff)
 			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
 			guardiaUrbano.contadorfrases = guardiaUrbano.contadorfrases + 1
 			guardiaUrbano.maxcontador = 4000
-		elseif(guardiaUrbano.contadorfrases > 0)
+		elseif(guardiaUrbano.contadorfrases > 0) then
 			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
 			guardiaUrbano.Reset(creature)
 		end	
