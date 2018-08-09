@@ -10,7 +10,7 @@
 --]]
 
 
-local NpcId = 50000
+local NpcId = 90001
 local MenuId = 123 -- Unique ID to recognice player gossip menu among others
 local entryMax = 99999
 local entryMin = 90000
@@ -305,7 +305,7 @@ function lanzarError(creature, mensaje)
 	reset()
 end
 
---RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
---RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 
---RegisterCreatureEvent(NpcId, 7, creatureAI)
+RegisterCreatureEvent(NpcId, 7, creatureAI)
