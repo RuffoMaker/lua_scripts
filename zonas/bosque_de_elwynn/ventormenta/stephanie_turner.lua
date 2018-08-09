@@ -17,13 +17,17 @@ function Stephanie.OnUpdate(event, creature, diff)
 
 	if(Stephanie.contador > Stephanie.fraseContador) then
 		creature:Emote(Stephanie.emoteBailar)
-		creature:SendUnitSay(Stephanie.frases[Stephanie.contadorFrase], 0)
+
+		if(Stephanie.contadorFrase < 2) then
+			creature:SendUnitSay(Stephanie.frases[Stephanie.contadorFrase], 0)
+		end
+		
 		Stephanie.contadorFrase = Stephanie.contadorFrase + 1
 
 		Stephanie.contador = 0
 		Stephanie.fraseContador = 4000
 
-		if(Stephanie.contadorFrase > 1) then
+		if(Stephanie.contadorFrase > 2) then
 			Stephanie.Reset(creature)
 		end
 
