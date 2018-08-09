@@ -37,5 +37,4 @@ function Stephanie.Reset(creature)
 	creature:Emote(0)
 end
 
-RegisterCreatureEvent(Stephanie.entry, 5, Stephanie.OnSpawn)
 RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
