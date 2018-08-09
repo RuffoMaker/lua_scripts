@@ -23,13 +23,12 @@ end
  function guardiaReal.OnReceiveEmote(event, creature, player, emoteid)
 	local recibe_saludo = 66	
 
-	if(emoteid == recibe_saludo) then
-		local gender = player:GetGender()
-		if(gender == 0) then
+	if(emoteid == recibe_saludo) then		
+		if(player:GetGender() == 0) then
 		     creature:SendUnitSay(" Sr comandante "..player:GetName().."...", 0)
 		end
 
-		if(gender == 1) then
+		if(player:GetGender() == 1) then
 		    creature:SendUnitSay(" Sra comandante "..player:GetName().."...", 0) 
 		end
 		 	
@@ -39,4 +38,4 @@ end
 
 
 RegisterCreatureEvent(1756, 7, guardiaReal.OnUpdate)
--- RegisterCreatureEvent(1756, 8, guardiaReal.OnReceiveEmote)
+RegisterCreatureEvent(1756, 8, guardiaReal.OnReceiveEmote)
