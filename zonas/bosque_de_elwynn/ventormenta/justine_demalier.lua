@@ -32,7 +32,7 @@ function justine.OnUpdate(event, creature, diff)
 
 	contador = contador + diff -- este contado lo uso para el check cada segundo
 	if(contador > contadorMax) then -- si ha pasado el segundo
-		friendyUnits = creature:GetFriendlyUnitsInRange(5) -- obtengo los objetivos amistosos a 10m
+		friendyUnits = creature:GetFriendlyUnitsInRange(10) -- obtengo los objetivos amistosos a 10m
 		for key,value in pairs(friendyUnits) do -- recorro los objetivos amistos
 			if(value:GetObjectType() == "Player") then --compruebo que el objetivo sea un player
 				local done = true -- pongo un flag a true
@@ -49,7 +49,7 @@ function justine.OnUpdate(event, creature, diff)
 					end -- esto no es lo mejor porque puedo sobrecargar la memoria, pero por el momento sirve
 				end
 				if(done == true) then -- si el flag esta en true
-		    	creature:SendUnitSay(value:GetName() .. "¿Desea alistarse?.", 0) -- saludo al objetivo
+		    	creature:SendUnitSay("¡"..value:GetName().."alistaté en la marina!.", 0) -- saludo al objetivo
 		    	creature:Emote(66) -- hago el emote
 		    	blackList[contadorSaludos] = {} -- creo una entrada en la blacklist
 		    	blackList[contadorSaludos][0] = value:GetName() -- le pongo el nombre
