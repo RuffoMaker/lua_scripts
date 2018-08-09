@@ -36,5 +36,5 @@ function morph_select(event, player, creature, sender, intid)
     end
 end
  
-RegisterCreatureGossipEvent(npcid, 1, morph_gossip)
-RegisterCreatureGossipEvent(npcid, 2, morph_select)
+--RegisterCreatureGossipEvent(npcid, 1, morph_gossip)
+--RegisterCreatureGossipEvent(npcid, 2, morph_select)

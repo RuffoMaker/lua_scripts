@@ -305,7 +305,7 @@ function lanzarError(creature, mensaje)
 	reset()
 end
 
-RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
-RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+--RegisterCreatureGossipEvent(NpcId, 1, OnGossipHello)
+--RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
 
-RegisterCreatureEvent(NpcId, 7, creatureAI)
+--RegisterCreatureEvent(NpcId, 7, creatureAI)

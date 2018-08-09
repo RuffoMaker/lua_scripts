@@ -261,12 +261,12 @@ end
 
 
 
-RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
-RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
-RegisterCreatureEvent( NpcId, 2, OnLeaveCombat)
-RegisterCreatureEvent( NpcId, 3, OnVictimDied)
-RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
-RegisterCreatureEvent( NpcId, 23, OnReset)
+--RegisterCreatureGossipEvent(NpcId, 1, OnGossipHi)
+--RegisterCreatureGossipEvent(NpcId, 2, OnGossipSelect)
+--RegisterCreatureEvent( NpcId, 2, OnLeaveCombat)
+--RegisterCreatureEvent( NpcId, 3, OnVictimDied)
+--RegisterCreatureEvent( NpcId, 4, SielNpcMuere)
+--RegisterCreatureEvent( NpcId, 23, OnReset)
 
 --RegisterCreatureEvent(NpcSicario,19, InvocaNpc)
 --RegisterCreatureEvent( NpcId, 24, OnReachHome) (No tiene Utilidad llamar a este evento ni a su funcion Nº 24 APARENTEMENTE)

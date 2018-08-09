@@ -48,5 +48,5 @@ function On_Select(event, player, unit, sender, intid, code)
   player:GossipComplete()
 end
 
-RegisterCreatureGossipEvent(NPCID, 1, On_Gossip)
-RegisterCreatureGossipEvent(NPCID, 2, On_Select)
+--RegisterCreatureGossipEvent(NPCID, 1, On_Gossip)
+--RegisterCreatureGossipEvent(NPCID, 2, On_Select)

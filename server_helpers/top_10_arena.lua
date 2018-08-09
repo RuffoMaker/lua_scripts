@@ -27,5 +27,5 @@ function onGossipSelect(event, plr, unit, arg2, intid)
         end
     end
 end
-RegisterCreatureGossipEvent(NPC_ID, 1, onGossipHello)
-RegisterCreatureGossipEvent(NPC_ID, 2, onGossipSelect)
+--RegisterCreatureGossipEvent(NPC_ID, 1, onGossipHello)
+--RegisterCreatureGossipEvent(NPC_ID, 2, onGossipSelect)
