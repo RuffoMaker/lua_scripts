@@ -4,9 +4,16 @@ local raskyPurgatorio = {
         [0] = '¡¡Déjame entrar Rasky!!'
     },
     fase = 2,
-    trigger = {},
     spells = {
         fireColumn = 76006
+    },
+    coordenadas = {
+        puerta = {
+            id = 100000,
+            x = -1241.779663,
+            y = 436.463135,
+            z = 3.328583
+        }
     }
 };
 
@@ -21,10 +28,19 @@ function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, 
     if (intid == 1) then
         player:GossipComplete()
         creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!', 0)
-        raskyPurgatorio.trigger = creature:GetNearObject(10, 0, 80000)
-        creature:CastSpell(raskyPurgatorio.trigger, raskyPurgatorio.spells.fireColumn, true)
-        creature:RegisterEvent(raskyPurgatorio.Hablar, 5000, 1)
+        creature:RegisterEvent(raskyPurgatorio.moverAPuerta, 5000, 1)
     end
+end
+
+function raskyPurgatorio.moverAPuerta(eventid, delay, repeats, creature)
+    local coords = raskyPurgatorio.coordenadas.puerta
+    creature:MoveTo( coords.id, coords.x, coords.y, coords.z )
+    creature:RegisterEvent(raskyPurgatorio.castear, 3000, 1)
+end
+
+function raskyPurgatorio.castear(eventid, delay, repeats, creature)
+    creature:CastSpell(creature, raskyPurgatorio.spells.fireColumn, true)
+    creature:RegisterEvent(raskyPurgatorio.Hablar, 10000, 1)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
