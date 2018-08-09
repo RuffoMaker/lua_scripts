@@ -1,8 +1,7 @@
 local guardiaUrbano = {
 	entry = 1976,
-	contador = 0,	-- inicio de contador
-	maxcontador = 10000, -- tiempo maximo
-	contadorfrases = 0, -- indice o numero de frase que toca
+	tiempoFraseInit = 10000,
+	tiempoFrase = 10000,
 	frases = {
 		[0] = 'Que dolor de pies..',
 		[1] = 'Uff.. ya queda poco.. pronto terminaré mi turno de una vez..'
@@ -11,26 +10,17 @@ local guardiaUrbano = {
 
 
 function guardiaUrbano.OnUpdate(event, creature, diff)	
+guardiaUrbano.tiempoFrase = guardiaUrbano.tiempoFrase - diff
 
-	guardiaUrbano.contador = guardiaUrbano.contador +diff
-
-	if(guardiaUrbano.contador > guardiaUrbano.maxcontador) then
-
-		if(guardiaUrbano.contadorfrases < 1)then
-			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
-			guardiaUrbano.contadorfrases = guardiaUrbano.contadorfrases + 1
-			guardiaUrbano.maxcontador = 4000
-		elseif(guardiaUrbano.contadorfrases > 0) then
-			creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
-			guardiaUrbano.Reset(creature)
-		end	
-
+	if(guardiaUrbano.tiempoFrase < 0) then
+		creature:SendUnitSay(guardiaUrbano.frases[math.random(0, 1)], 0)
+		guardiaUrbano.Reset(creature)
+	end
 end
 
 
 function guardiaUrbano.Reset(creature)
-	guardiaUrbano.contadorfrases = 0
-	guardiaUrbano.maxcontador = 300000
+	guardiaUrbano.tiempoFrase = guardiaUrbano.tiempoFraseInit
 end
 
 RegisterCreatureEvent(guardiaUrbano.entry, 7, guardiaUrbano.OnUpdate)
