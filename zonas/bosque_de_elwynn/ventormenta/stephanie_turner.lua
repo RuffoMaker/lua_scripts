@@ -20,7 +20,7 @@ function setphanie.OnUpdate(event, creature, diff)
 			creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!",0)
 			creature:Emote(setphanie.emoteSalto) 
 		end
-
+		contador = contador +diff
 	end
 		contador = 0
 		creature:Emote(setphanie.emoteBailar)			
