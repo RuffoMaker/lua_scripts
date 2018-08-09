@@ -50,7 +50,7 @@ function raskyPurgatorio.castear(eventid, delay, repeats, creature)
     creature:SendUnitYell('TORCUATO EUSTAQUIA BIENVENITUM NOMINE MENSUALE', 0)
     creature:CastSpell(creature, raskyPurgatorio.spells.fireColumn, true)
     creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
-    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 4)
+    creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 0, 12)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
