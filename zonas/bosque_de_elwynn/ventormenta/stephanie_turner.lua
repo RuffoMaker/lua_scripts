@@ -14,9 +14,9 @@ function setphanie.OnUpdate(event, creature, diff)
 	local maxcontador = 15000
 	contador = contador+diff
 	for i=contador,maxcontador do
-		if(contador <5 or contador %2 ==0) then
+		if(contador == 10000) then
 			creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena, que tu cuerpo es pa'darle alegría y cosa buena!",0)
-		else
+		elseif(contador==14000)
 			creature:SendUnitSay("¡Dale a tu cuerpo alegría macarena.¡Eh macarena Ay!",0)
 			creature:Emote(setphanie.emoteSalto) 
 		end
