@@ -21,7 +21,7 @@ function Stephanie.OnUpdate(event, creature, diff)
 		if(Stephanie.contadorFrase < 2) then
 			creature:SendUnitSay(Stephanie.frases[Stephanie.contadorFrase], 0)
 		end
-		
+
 		Stephanie.contadorFrase = Stephanie.contadorFrase + 1
 
 		Stephanie.contador = 0
@@ -37,7 +37,7 @@ end
 
 function Stephanie.Reset(creature)
 	Stephanie.contadorFrase = 0
-	Stephanie.fraseContador = 10000
+	Stephanie.fraseContador = 300000
 	creature:Emote(0)
 end
 
