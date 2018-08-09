@@ -1,5 +1,6 @@
 local raskyPurgatorio = {
     entry = 90003,
+    flag = true,
     frases = {
         [0] = '¡¡Déjame entrar Rasky!!'
     },
@@ -36,7 +37,7 @@ end
 
 function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
-        player:GossipComplete()
+        player:GossipComplete()     
         creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!', 0)
         creature:RegisterEvent(raskyPurgatorio.moverAPuerta, 3000, 1)
     end
