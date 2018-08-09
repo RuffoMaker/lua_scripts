@@ -1,6 +1,6 @@
 local guardiaReal = {
 	contador = 0,
-	contadorMax = 3000		
+	contadorMax = 5000		
 };
 
 function guardiaReal.OnUpdate(event, creature, diff)
