@@ -1,28 +1,17 @@
 local guardiaReal = {
 	contador = 0,
 	contadorMax = 5000,
-	contadorSaludos = 0,
-	blackList = {}
+	contadorSaludos = 0,	
 };
 
 
 function guardiaReal.OnUpdate(event, creature, diff)
 	guardiaReal.contador = guardiaReal.contador + diff -- este contado lo uso para el check cada segundo
 	if(guardiaReal.contador > guardiaReal.contadorMax) then -- si ha pasado el segundo
-		friendyUnits = creature:GetFriendlyUnitsInRange(8) -- obtengo los objetivos amistosos a 10m
+		friendyUnits = creature:GetFriendlyUnitsInRange(10) -- obtengo los objetivos amistosos a 10m
 		for key,value in pairs(friendyUnits) do -- recorro los objetivos amistos
 			if(value:GetObjectType() == "Player") then --compruebo que el objetivo sea un player
-		    	creature:Emote(66) -- hago el emote
-		    	local rnd = math.random(0, 1)
-		    	if(rnd == 1) then
-		    		if(value:GetGender()==0) then
-		    			creature:SendUnitSay("Sr!",0)
-		    		end
-
-		    		if(value:GetGender()==1) then
-		    			creature:SendUnitSay("Sra!",0)
-		    		end
-		    	end
+		    	creature:Emote(66) -- hago el emote	    	
 		    end
 		 
 		end
@@ -35,13 +24,14 @@ end
 	local envia_saludo = 66	
 
 	if(emoteid == recibe_saludo) then
-		
+		if(player:GetGender()==0) then
+		     creature:SendUnitSay(" Sr comandante "..player:GetName().."...", 0)
+		end
 
-
-
-
-
-		creature:SendUnitSay("¡"..player:GetName().." alistaté en la marina!.", 0) 	
+		if(player:GetGender()==1) then
+		    creature:SendUnitSay(" Sra comandante "..player:GetName().."...", 0) 
+		end
+		 	
 	end
 	  
 end
