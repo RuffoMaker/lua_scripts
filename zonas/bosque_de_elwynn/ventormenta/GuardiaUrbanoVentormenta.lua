@@ -12,4 +12,4 @@ function guardiaUrbano.Hablar(eventid, delay, repeats, creature)
 	end
 end
 
-RegisterCreatureEvent(guardiaUrbano.entry, 5, guardiaUrbano.OnUpdate)
+RegisterCreatureEvent(guardiaUrbano.entry, 5, guardiaUrbano.OnSpawn)
