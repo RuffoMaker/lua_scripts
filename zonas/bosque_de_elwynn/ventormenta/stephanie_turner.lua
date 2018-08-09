@@ -40,12 +40,12 @@ end
 function Stephanie.prueba(event, creature, diff)	
 	Stephanie.contador = Stephanie.contador + diff
 
-	if(Stephanie.contador == 100) then
+	if(Stephanie.contador > 100 and Stephanie.contador < 1000) then
 		creature:SendUnitSay(Stephanie.contador, 0)
 				
 	end	
 
-	if(Stephanie.contador == 30000) then
+	if(Stephanie.contador > 1000 and Stephanie.contador < 2000) then
 			creature:SendUnitSay(Stephanie.contador,0)
 			Stephanie.contador = 0
 	end	
