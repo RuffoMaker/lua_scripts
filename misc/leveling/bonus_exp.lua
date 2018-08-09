@@ -1,7 +1,7 @@
 local bonusExp = {
 	rateMin = 2,
 	rateMax = 50,
-	chance = 80
+	chance = 20
 };
 
 function bonusExp.PlayerReceiveExp(event, player, amount, victim)
