@@ -26,7 +26,7 @@ function Stephanie.OnUpdate(event, creature, diff)
 		Stephanie.contador = 0
 		Stephanie.fraseContador = 4000
 
-		if((Stephanie.contadorFrase > 1)then
+		if(Stephanie.contadorFrase > 1) then
 			Stephanie.contadorFrase = 0
 			Stephanie.fraseContador = 10000
 		end
