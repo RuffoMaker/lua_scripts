@@ -47,14 +47,14 @@ end
 
 function raskyPurgatorio.castear(eventid, delay, repeats, creature)
     creature:Emote(50)
-    creature:RegisterEvent(raskyPurgatorio.Hablar, 12000, 1)
+    creature:RegisterEvent(raskyPurgatorio.Hablar, 13000, 1)
     creature:RegisterEvent(raskyPurgatorio.CastVisualSpell, 1000, 10)
     creature:RegisterEvent(raskyPurgatorio.CastFireColumn, 2000, 1)
 end
 
 function raskyPurgatorio.Hablar(eventid, delay, repeats, creature)
     creature:SendUnitSay('Ya podéis pasar.', 0)
-    creature:RegisterEvent(raskyPurgatorio.Volver, 3000, 1)
+    creature:RegisterEvent(raskyPurgatorio.Volver, 2000, 1)
 end
 
 function raskyPurgatorio.Volver(eventid, delay, repeats, creature)
