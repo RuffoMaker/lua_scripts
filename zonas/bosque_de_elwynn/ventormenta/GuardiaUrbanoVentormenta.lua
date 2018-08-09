@@ -1,6 +1,6 @@
 local guardiaUrbano = {
 	entry = 1976,
-	tiempoFraseInit = 10000,
+	tiempoFraseInit = 200000,
 	tiempoFrase = 10000,
 	fraseadecir = -1,
 	frasedicha = -1,
