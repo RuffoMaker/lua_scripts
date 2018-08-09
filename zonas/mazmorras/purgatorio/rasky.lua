@@ -23,7 +23,7 @@ function raskyPurgatorio.OnGossipSelect(event, player, creature, sender, intid, 
         creature:SendUnitSay('¡¡Estáis locos!! Quizás estéis a punto de morir... pero... ¡¡Teneis un par bien puestos!!', 0)
         raskyPurgatorio.trigger = creature:GetNearObject(10, 0, 80000)
         creature:CastSpell(raskyPurgatorio.trigger, raskyPurgatorio.spells.fireColumn, true)
-        creature:RegisterEvent(raskyPurgatorio.Hablar, 5000)
+        creature:RegisterEvent(raskyPurgatorio.Hablar, 5000, 1)
     end
 end
 
