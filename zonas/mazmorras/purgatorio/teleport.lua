@@ -23,7 +23,7 @@ end
 function teleporterPurgatorio.OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-		player:SendBroadcastMessage('funciona')
+		player:Teleport(teleporterPurgatorio.coordenadas.map, teleporterPurgatorio.coordenadas.x, teleporterPurgatorio.coordenadas.y, teleporterPurgatorio.coordenadas.z, teleporterPurgatorio.coordenadas.o)
 	end
 end
 
