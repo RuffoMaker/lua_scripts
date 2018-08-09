@@ -12,7 +12,7 @@ local justine = {
 		creature:SendUnitSay("Hola cosita linda...",0)
 	elseif(emoteid == recibe_saludo) then
 		creature:Emote(envia_saludo)
-		creature:SendUnitSay("¡"..value:GetName().."alistaté en la marina!.", 0) -- saludo al objetivo
+		creature:SendUnitSay("¡"..player:GetName().."alistaté en la marina!.", 0) -- saludo al objetivo
 	else
 		creature:SendUnitSay('Y tu que miras... camina!', 0)
 	end
