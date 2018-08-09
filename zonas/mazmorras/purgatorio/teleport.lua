@@ -10,7 +10,8 @@ local teleporterPurgatorio = {
         z = 2.621628,
         o = 0.666364,
         map = 0
-    }
+    },
+    fase = 2
 };
 
 
@@ -23,6 +24,7 @@ end
 function teleporterPurgatorio.OnGossipSelect(event, player, creature, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
+        player:SetPhaseMask(teleporterPurgatorio.fase)
 		player:Teleport(teleporterPurgatorio.coordenadas.map, teleporterPurgatorio.coordenadas.x, teleporterPurgatorio.coordenadas.y, teleporterPurgatorio.coordenadas.z, teleporterPurgatorio.coordenadas.o)
 	end
 end
