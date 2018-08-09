@@ -15,7 +15,7 @@ function guardiaUrbano.OnUpdate(event, creature, diff)
 guardiaUrbano.tiempoFrase = guardiaUrbano.tiempoFrase - diff
 
 	if(guardiaUrbano.tiempoFrase < 0) then		
-		guardiaUrbano.fraseadecir = [math.random(0, 1)
+		guardiaUrbano.fraseadecir = math.random(0, 1)
 		if(fraseadecir ~= frasedicha) then
 			creature:SendUnitSay(guardiaUrbano.frases[fraseadecir], 0)
 			frasedicha = fraseadecir
