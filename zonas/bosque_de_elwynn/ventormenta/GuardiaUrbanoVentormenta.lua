@@ -3,7 +3,7 @@ local guardiaUrbano = {
 }
 
 function guardiaUrbano.OnUpdate(event, creature)			
-		if(creature:isStopped() ==true)
+		if(creature:isStopped() ==true) then
 			creature:SendUnitSay("Uf..ya queda poco... pronto terminaré el turno de una vez..",0)
 		end				
 end
