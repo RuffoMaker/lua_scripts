@@ -3,7 +3,14 @@ local teleporterPurgatorio = {
     frases = {
         [0] = '¡¡Quiero ir al Purgatorio!!'
     },
-    MenuId = 123
+    MenuId = 123,
+    coordenadas = {
+        x = -1237.772461,
+        y = 405.990845,
+        z = 2.621628,
+        o = 0.666364,
+        map = 0
+    }
 };
 
 
