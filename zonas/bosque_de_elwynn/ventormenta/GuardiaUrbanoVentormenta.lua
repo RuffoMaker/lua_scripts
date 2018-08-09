@@ -1,17 +1,33 @@
 local guardiaUrbano = {
 	entry = 1976,
-	contador = 0
+	contador = 0,
+	maxcontador = 10000,
+	contadorfrases = 0,
+	frases ={
+		[0] = 'Que dolor de pies..',
+		[1] = 'Uff.. ya queda poco.. pronto terminaré mi turno de una vez..'
+	}
 }
 
 
 function guardiaUrbano.OnUpdate(event, creature, diff)	
 	guardiaUrbano.contador = guardiaUrbano.contador +diff
-	if(guardiaUrbano.contador >15000 and guardiaUrbano.contador <15010) then
-		creature:SendUnitSay("Uf..ya queda poco... pronto terminaré el turno de una vez..",0)
-		guardiaUrbano.contador = 0
+	if(guardiaUrbano.contador > guardiaUrbano.maxcontador and guardiaUrbano.contadorfrases>0) then
+		creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
+		guardiaUrbano.contadorfrases = guardiaUrbano.contadorfrases + 1
+		guardiaUrbano.maxcontador = 4000
+	elseif(guardiaUrbano.contadorfrases > guardiaUrbano.maxcontador and guardiaUrbano.contadorfrases == 1)
+		creature:SendUnitSay(guardiaUrbano.frases[guardiaUrbano.contadorfrases],0)
+		guardiaUrbano.Reset(creature)
 	end
+
 
 end
 
--- RegisterCreatureEvent(guardiaUrbano.entry, 5, guardiaUrbano.OnSpawn)
+
+function guardiaUrbano.Reset(creature)
+	guardiaUrbano.contadorfrases = 0
+	guardiaUrbano.maxcontador = 300000
+end
+
 RegisterCreatureEvent(guardiaUrbano.entry, 7, guardiaUrbano.OnUpdate)
