@@ -30,11 +30,11 @@ local frases = {
 	}
 };
 
-local function RegistrarInicioDeHistoria(event, player)
+function RegistrarInicioDeHistoria(event, player)
 	player:RegisterEvent(IniciarAtaqueDeGmMalvado, 10000)
 end
 
-local function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
+function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.paralisis, true)
 	local creature = player:SpawnCreature(
 		creatures.torcuato, 
@@ -55,25 +55,25 @@ local function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:RegisterEvent(DarElTransformador, 30000, 1)
 end
 
-local function fraseTorcuato0(eventid, delay, repeats, creature)
+function fraseTorcuato0(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.torcuato[0], 0)
 end
 
-local function fraseTorcuato1(eventid, delay, repeats, creature)
+function fraseTorcuato1(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.torcuato[1], 0)
 end
 
-local function matarAlPlayer(eventid, delay, repeats, player)
+function matarAlPlayer(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.muerte, true)
 end
 
-local function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
+function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
 	creature:CastSpell(creaturesObj, spells.dedoDeLaMuerte, false)
 end
 
 
 
-local function DarElTransformador(eventid, delay, repeats, player)
+function DarElTransformador(eventid, delay, repeats, player)
 	player:AddItem(items.transformador, 1)
 end
 
