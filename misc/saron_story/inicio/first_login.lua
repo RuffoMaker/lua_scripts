@@ -17,7 +17,8 @@ local spells = {
 local frases = {
 	torcuato = {
 		[0] = 'Vaya, vaya, vaya... ¿Qué tenemos aquí?...',
-		[1] = '¿Otro jugador nuevo? ¡¡Ahora verás!!'
+		[1] = '¿Otro jugador nuevo? ¡¡Ahora verás!!',
+		[1] = 'JAJAJAJA'
 	}
 };
 
@@ -39,6 +40,10 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	torcuato:RegisterEvent(fraseTorcuato0, 1000, 1)
 	torcuato:RegisterEvent(fraseTorcuato1, 4000, 1)
 	torcuato:RegisterEvent(CastDedoDeLaMuerte, 6000, 1)
+	torcuato:RegisterEvent(fraseTorcuato2, 8000, 1)
+
+	torcuato:RegisterEvent(apareceRuffo, 8500, 1)
+	torcuato:RegisterEvent(apareceRasky, 9000, 1)
 
 	player:RegisterEvent(matarAlPlayer, 6500, 1)
 	player:RegisterEvent(DarElTransformador, 30000, 1)
@@ -52,6 +57,10 @@ function fraseTorcuato1(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.torcuato[1], 0)
 end
 
+function fraseTorcuato2(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.torcuato[2], 0)
+end
+
 function matarAlPlayer(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.muerte, true)
 end
@@ -59,6 +68,30 @@ end
 function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
 	nearestPlayer = creature:GetNearestPlayer( 20 )
 	creature:CastSpell(nearestPlayer, spells.dedoDeLaMuerte, false)
+end
+
+
+
+function apareceRuffo(eventid, delay, repeats, creature)
+	local ruffomaker = creature:SpawnCreature(
+		creatures.ruffomaker, 
+		creature:GetX() + 1,
+		creature:GetY(),
+		creature:GetZ(),
+		creature:GetO(),
+		8
+	) -- despawn on UnSummon()
+end
+
+function apareceRasky(eventid, delay, repeats, creature)
+	local rasky = creature:SpawnCreature(
+		creatures.ruffomaker, 
+		creature:GetX() - 1,
+		creature:GetY(),
+		creature:GetZ(),
+		creature:GetO(),
+		8
+	) -- despawn on UnSummon()
 end
 
 
