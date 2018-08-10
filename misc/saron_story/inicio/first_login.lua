@@ -16,7 +16,8 @@ local spells = {
 	muerte = 64165,
 	paralisis = 38132,
 	dedoDeLaMuerte = 47848,
-	teleport = 64446
+	teleport = 64446,
+	visualRes = 70571
 }
 
 local frases = {
@@ -66,7 +67,18 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	torcuato:RegisterEvent(apareceRasky, 9500, 1)
 
 	player:RegisterEvent(matarAlPlayer, 6500, 1)
-	player:RegisterEvent(DarElTransformador, 30000, 1)
+	player:RegisterEvent(PonerVisualRes, 30000, 1)
+	player:RegisterEvent(QuitarVisualRes, 33000, 1)
+	player:RegisterEvent(DarElTransformador, 35000, 1)
+end
+
+function PonerVisualRes(eventid, delay, repeats, player)
+	player:CastSpell(player, spells.visualRes, true)
+end
+
+function QuitarVisualRes(eventid, delay, repeats, player)
+	player:RemoveAura(spells.visualRes)
+	player:RemoveAura(spells.muerte)
 end
 
 function fraseTorcuato0(eventid, delay, repeats, creature)
