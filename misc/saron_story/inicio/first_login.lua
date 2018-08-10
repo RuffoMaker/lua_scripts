@@ -2,8 +2,8 @@ local items = {
 	transformador = 8939
 };
 
-local distancia = 5
-local angulo = 1.25
+local distancia = 10
+local angulo = 0.25
 
 local creatures = {
 	ruffomaker = 90004,
@@ -36,7 +36,7 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 		player:GetX() + (math.cos(player:GetO()) * distancia),
 		player:GetY() + (math.sin(player:GetO()) * distancia),
 		player:GetZ(),
-		player:GetO(),
+		OrientacionContraria(player:GetO()),
 		8
 	) -- despawn on UnSummon()
 
@@ -81,7 +81,7 @@ function apareceRuffo(eventid, delay, repeats, creature)
 		creature:GetX() + (math.cos(creature:GetO() + angulo) * distancia),
 		creature:GetY() + (math.sin(creature:GetO() + angulo) * distancia),
 		creature:GetZ(),
-		creature:GetO(),
+		OrientacionContraria(creature:GetO()),
 		8
 	) -- despawn on UnSummon()
 end
@@ -92,7 +92,7 @@ function apareceRasky(eventid, delay, repeats, creature)
 		creature:GetX() + (math.cos(creature:GetO() - angulo) * 3),
 		creature:GetY() + (math.sin(creature:GetO() - angulo) * 3),
 		creature:GetZ(),
-		creature:GetO(),
+		OrientacionContraria(creature:GetO()),
 		8
 	) -- despawn on UnSummon()
 end
@@ -101,6 +101,14 @@ end
 
 function DarElTransformador(eventid, delay, repeats, player)
 	player:AddItem(items.transformador, 1)
+end
+
+function OrientacionContraria(orientacion)
+	orientacion = orientacion - (6.25 / 2)
+	if(orientacion < 0) then
+		orientacion = orientacion + 6.25
+	end
+	return orientacion
 end
 
 RegisterPlayerEvent( 30, RegistrarInicioDeHistoria )
