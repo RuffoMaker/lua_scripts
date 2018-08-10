@@ -75,8 +75,8 @@ end
 function apareceRuffo(eventid, delay, repeats, creature)
 	local ruffomaker = creature:SpawnCreature(
 		creatures.ruffomaker, 
-		creature:GetX() + (math.cos(creature:GetO()) * 3),
-		creature:GetY() + (math.sin(creature:GetO()) * 3),
+		creature:GetX() + (math.cos(creature:GetO() + 1) * 3),
+		creature:GetY() + (math.sin(creature:GetO() + 1) * 3),
 		creature:GetZ(),
 		creature:GetO(),
 		8
@@ -86,8 +86,8 @@ end
 function apareceRasky(eventid, delay, repeats, creature)
 	local rasky = creature:SpawnCreature(
 		creatures.rasky, 
-		creature:GetX() - (math.cos(creature:GetO()) * 3),
-		creature:GetY() - (math.sin(creature:GetO()) * 3),
+		creature:GetX() + (math.cos(creature:GetO() - 1) * 3),
+		creature:GetY() + (math.sin(creature:GetO() - 1) * 3),
 		creature:GetZ(),
 		creature:GetO(),
 		8
