@@ -4,7 +4,7 @@ local items = {
 
 local distancia = 10
 local angulo = 0.25
-local altura = 1
+local altura = 2
 
 local creatures = {
 	ruffomaker = 90004,
@@ -23,7 +23,8 @@ local frases = {
 	torcuato = {
 		[0] = 'Vaya, vaya, vaya... ¿Qué tenemos aquí?...',
 		[1] = '¿Otro jugador nuevo? ¡¡Ahora verás!!',
-		[2] = 'JAJAJAJA'
+		[2] = 'JAJAJAJA',
+		[3] = 'JAJAJAJA ¡¡Primero tendréis que capturarme!!',
 	},
 	rasky = {
 		[0] = '¡¡Torcuato!! ¡¡Maldito seas!!'
@@ -48,10 +49,14 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 		8
 	) -- despawn on UnSummon()
 
+	torcuato:CastSpell(creature, spells.teleport, true)
+
 	torcuato:RegisterEvent(fraseTorcuato0, 1000, 1)
 	torcuato:RegisterEvent(fraseTorcuato1, 4000, 1)
 	torcuato:RegisterEvent(CastDedoDeLaMuerte, 6000, 1)
 	torcuato:RegisterEvent(fraseTorcuato2, 8000, 1)
+	torcuato:RegisterEvent(fraseTorcuato3, 16000, 1)
+	torcuato:RegisterEvent(torcuatoDesaparece, 19000, 1)
 
 	torcuato:RegisterEvent(apareceRuffo, 8500, 1)
 	torcuato:RegisterEvent(apareceRasky, 9500, 1)
@@ -72,6 +77,10 @@ function fraseTorcuato2(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.torcuato[2], 0)
 end
 
+function fraseTorcuato3(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.torcuato[3], 0)
+end
+
 function matarAlPlayer(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.muerte, true)
 end
@@ -79,6 +88,11 @@ end
 function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
 	nearestPlayer = creature:GetNearestPlayer( 20 )
 	creature:CastSpell(nearestPlayer, spells.dedoDeLaMuerte, false)
+end
+
+function torcuatoDesaparece(eventid, delay, repeats, creature)
+	creature:CastSpell(creature, spells.teleport, true)
+	creature:UnSummon()
 end
 
 
