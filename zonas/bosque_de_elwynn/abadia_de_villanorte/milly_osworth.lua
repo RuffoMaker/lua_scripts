@@ -6,7 +6,7 @@ local milly = {
 	frasedicha = -1,
 	frases = {
 		[0] = '¡Trabajad más rapido panda de vagos!',
-		[1] = 'Malditos trabajadores perezosos... así no hay quien cumpla encargos...'
+		[1] = 'Malditos trabajadores perezosos... así no hay quien cumpla encargos...',
 		[2] = 'Dios.. que harta estoy de estos catetos...'
 	}
 }
