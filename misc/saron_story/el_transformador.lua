@@ -10,7 +10,7 @@ end
 local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-        player:SendUnitSay('Hola puto', 0)
+        player:Morph(123)
 	end
 end
 
