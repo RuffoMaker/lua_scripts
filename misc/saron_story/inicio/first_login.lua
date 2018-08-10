@@ -137,7 +137,7 @@ function apareceRuffo(eventid, delay, repeats, creature)
 	ruffomaker:RegisterEvent(fraseRuffomaker3, 20000)
 	ruffomaker:RegisterEvent(fraseRuffomaker4, 26000)
 	ruffomaker:RegisterEvent(fraseRuffomaker5, 30000)
-	ruffomaker:RegisterEvent(fraseRuffomaker6, 34000)
+	ruffomaker:RegisterEvent(fraseRuffomaker6, 35000)
 	ruffomaker:RegisterEvent(RuffoSeVa, 37000)
 end
 
@@ -158,7 +158,7 @@ function apareceRasky(eventid, delay, repeats, creature)
 	rasky:RegisterEvent(fraseRasky2, 27000)
 	rasky:RegisterEvent(fraseRasky3, 31000)
 	rasky:RegisterEvent(fraseRasky4, 35000)
-	rasky:RegisterEvent(RaskySeVa, 38000)
+	rasky:RegisterEvent(RaskySeVa, 37000)
 end
 
 function fraseRasky0(eventid, delay, repeats, creature)
