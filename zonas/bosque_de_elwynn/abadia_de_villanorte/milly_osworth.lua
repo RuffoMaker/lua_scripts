@@ -1,13 +1,13 @@
 local milly = {
 	entry = 9296,
-	tiempoFraseInit = 20000000,
+	tiempoFraseInit = 120000,
 	tiempoFrase = 10000,
 	fraseadecir = -1,
 	frasedicha = -1,
 	frases = {
-		[0] = '¡TTTTrabajad más rapido panda de vagos!',
-		[1] = 'TTTMalditos trabajadores perezosos... así no hay quien cumpla encargos...',
-		[2] = 'TTTDios.. que harta estoy de estos catetos...'
+		[0] = '¡Trabajad más rapido panda de vagos!',
+		[1] = 'Malditos trabajadores perezosos... así no hay quien cumpla encargos...',
+		[2] = 'Dios.. que harta estoy de estos catetos...'
 	}
 }
 
