@@ -1,10 +1,10 @@
 local levelScalingSystem = {};
 
 function levelScalingSystem.CreatureSetLevel(event, player, enemy)
-	enemy:SendUnitSay('Hola puto', 0)
-	player:SendUnitSay('Hola puto', 0)
+	--enemy:SendUnitSay('Hola puto', 0)
+	--player:SendUnitSay('Hola puto', 0)
 	--if(enemy:GetObjectType() == "Creature") then
-		--enemy:SetLevel(80)
+		enemy:SetLevel(player:GetLevel())
 	--end
 end
 
