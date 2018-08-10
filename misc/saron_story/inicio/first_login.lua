@@ -89,8 +89,8 @@ end
 function apareceRasky(eventid, delay, repeats, creature)
 	local rasky = creature:SpawnCreature(
 		creatures.rasky, 
-		creature:GetX() + (math.cos(RestarOrientacion(creature:GetO(), -angulo)) * 3),
-		creature:GetY() + (math.sin(RestarOrientacion(creature:GetO(), -angulo)) * 3),
+		creature:GetX() + (math.cos(RestarOrientacion(creature:GetO(), -angulo)) * distancia),
+		creature:GetY() + (math.sin(RestarOrientacion(creature:GetO(), -angulo)) * distancia),
 		creature:GetZ(),
 		OrientacionContraria(creature:GetO()),
 		8
