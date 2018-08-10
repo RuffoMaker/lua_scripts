@@ -155,8 +155,8 @@ function apareceRasky(eventid, delay, repeats, creature)
 
 	rasky:RegisterEvent(fraseRasky0, 3000)
 	rasky:RegisterEvent(fraseRasky1, 16500)
-	rasky:RegisterEvent(fraseRasky2, 26000)
-	rasky:RegisterEvent(fraseRasky3, 30000)
+	rasky:RegisterEvent(fraseRasky2, 27000)
+	rasky:RegisterEvent(fraseRasky3, 31000)
 	rasky:RegisterEvent(fraseRasky4, 35000)
 	rasky:RegisterEvent(RaskySeVa, 38000)
 end
