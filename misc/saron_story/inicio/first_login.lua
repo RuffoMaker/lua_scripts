@@ -58,6 +58,7 @@ end
 
 function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
 	nearestPlayer = creature:GetNearestPlayer( 20 )
+	creature:MoveChase(nearestPlayer, 1)
 	creature:CastSpell(nearestPlayer, spells.dedoDeLaMuerte, false)
 end
 
