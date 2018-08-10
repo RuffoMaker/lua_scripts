@@ -10,6 +10,13 @@ local creatures = {
 	rasky = 90006
 };
 
+local creaturesObj = {
+	ruffomaker = {},
+	torcuato = {},
+	rasky = {},
+	player = {}
+}
+
 local spells = {
 	muerte = 64165,
 	paralisis = 38132,
@@ -38,8 +45,8 @@ local function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 		8
 	) -- despawn on UnSummon()
 
-	creatures.torcuato = creature
-	player = player
+	creaturesObj.torcuato = creature
+	creaturesObj.player = player
 
 	creature:RegisterEvent(fraseTorcuato0, 1000, 1)
 	creature:RegisterEvent(fraseTorcuato1, 4000, 1)
@@ -61,7 +68,7 @@ local function matarAlPlayer(eventid, delay, repeats, player)
 end
 
 local function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
-	creature:CastSpell(player, spells.dedoDeLaMuerte, false)
+	creature:CastSpell(creaturesObj, spells.dedoDeLaMuerte, false)
 end
 
 
