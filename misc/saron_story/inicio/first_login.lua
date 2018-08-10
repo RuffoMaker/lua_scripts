@@ -114,9 +114,9 @@ function apareceRuffo(eventid, delay, repeats, creature)
 	ruffomaker:CastSpell(ruffomaker, spells.teleport, false)
 
 	ruffomaker:RegisterEvent(fraseRuffomaker0, 6000)
-	ruffomaker:RegisterEvent(fraseRuffomaker1, 11000)
-	ruffomaker:RegisterEvent(fraseRuffomaker2, 13000)
-	ruffomaker:RegisterEvent(fraseRuffomaker3, 17000)
+	ruffomaker:RegisterEvent(fraseRuffomaker1, 13000)
+	ruffomaker:RegisterEvent(fraseRuffomaker2, 15000)
+	ruffomaker:RegisterEvent(fraseRuffomaker3, 20000)
 end
 
 function apareceRasky(eventid, delay, repeats, creature)
@@ -132,7 +132,7 @@ function apareceRasky(eventid, delay, repeats, creature)
 	rasky:CastSpell(ruffomaker, spells.teleport, false)
 
 	rasky:RegisterEvent(fraseRasky0, 3000)
-	rasky:RegisterEvent(fraseRasky1, 15000)
+	rasky:RegisterEvent(fraseRasky1, 18000)
 end
 
 function fraseRasky0(eventid, delay, repeats, creature)
