@@ -4,6 +4,7 @@ local items = {
 
 local distancia = 10
 local angulo = 0.25
+local altura = 1
 
 local creatures = {
 	ruffomaker = 90004,
@@ -42,7 +43,7 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 		creatures.torcuato, 
 		player:GetX() + (math.cos(player:GetO()) * distancia),
 		player:GetY() + (math.sin(player:GetO()) * distancia),
-		player:GetZ(),
+		player:GetZ() + altura,
 		OrientacionContraria(player:GetO()),
 		8
 	) -- despawn on UnSummon()
@@ -87,7 +88,7 @@ function apareceRuffo(eventid, delay, repeats, creature)
 		creatures.ruffomaker, 
 		creature:GetX() + (math.cos(RestarOrientacion(creature:GetO(), angulo)) * distancia),
 		creature:GetY() + (math.sin(RestarOrientacion(creature:GetO(), angulo)) * distancia),
-		creature:GetZ(),
+		creature:GetZ() + altura,
 		OrientacionContraria(creature:GetO()),
 		8
 	) -- despawn on UnSummon()
@@ -102,7 +103,7 @@ function apareceRasky(eventid, delay, repeats, creature)
 		creatures.rasky, 
 		creature:GetX() + (math.cos(RestarOrientacion(creature:GetO(), -angulo)) * distancia),
 		creature:GetY() + (math.sin(RestarOrientacion(creature:GetO(), -angulo)) * distancia),
-		creature:GetZ(),
+		creature:GetZ() + altura,
 		OrientacionContraria(creature:GetO()),
 		8
 	) -- despawn on UnSummon()
