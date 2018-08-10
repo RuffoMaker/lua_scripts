@@ -30,8 +30,8 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.paralisis, true)
 	local torcuato = player:SpawnCreature(
 		creatures.torcuato, 
-		player:GetX(),
-		player:GetY(),
+		player:GetX() + 4,
+		player:GetY() + 4,
 		player:GetZ(),
 		player:GetO(),
 		8
