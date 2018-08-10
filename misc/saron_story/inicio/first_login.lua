@@ -10,7 +10,8 @@ local firstLogin = {
 	},
 	spells = {
 		muerte = 64165,
-		paralisis = 38132
+		paralisis = 38132,
+		dedoDeLaMuerte = 31984
 	},
 	frases = {
 		torcuato = {
@@ -36,24 +37,29 @@ function firstLogin.IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	) -- despawn on UnSummon()
 
 	firstLogin.creatures.torcuato = creature
-	firstLogin.player = creature
+	firstLogin.player = player
 
 	creature:RegisterEvent(firstLogin.fraseTorcuato0, 1000, 1)
 	creature:RegisterEvent(firstLogin.fraseTorcuato1, 4000, 1)
-	creature:RegisterEvent(firstLogin.matarAlPlayer, 6000, 1)
+	player:RegisterEvent(firstLogin.CastDedoDeLaMuerte, 6000, 1)
+	player:RegisterEvent(firstLogin.matarAlPlayer, 6500, 1)
 	player:RegisterEvent(firstLogin.DarElTransformador, 30000, 1)
 end
 
 function firstLogin.fraseTorcuato0(eventid, delay, repeats, creature)
-	creature:SendUnitSay(firstLogin.frases.torcuato[0])
+	creature:SendUnitSay(firstLogin.frases.torcuato[0], 0)
 end
 
 function firstLogin.fraseTorcuato1(eventid, delay, repeats, creature)
-	creature:SendUnitSay(firstLogin.frases.torcuato[1])
+	creature:SendUnitSay(firstLogin.frases.torcuato[1], 0)
 end
 
-function firstLogin.matarAlPlayer(eventid, delay, repeats, creature)
-	creature:CastSpell(firstLogin.player, firstLogin.spells.muerte, true)
+function firstLogin.matarAlPlayer(eventid, delay, repeats, player)
+	player:CastSpell(player, firstLogin.spells.muerte, true)
+end
+
+function firstLogin.CastDedoDeLaMuerte(eventid, delay, repeats, creature)
+	creature:CastSpell(firstLogin.player, firstLogin.spells.dedoDeLaMuerte, true)
 end
 
 
