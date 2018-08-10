@@ -117,6 +117,7 @@ function apareceRuffo(eventid, delay, repeats, creature)
 	ruffomaker:RegisterEvent(fraseRuffomaker1, 13000)
 	ruffomaker:RegisterEvent(fraseRuffomaker2, 15000)
 	ruffomaker:RegisterEvent(fraseRuffomaker3, 20000)
+	ruffomaker:RegisterEvent(RuffoSeVa, 28000)
 end
 
 function apareceRasky(eventid, delay, repeats, creature)
@@ -132,7 +133,8 @@ function apareceRasky(eventid, delay, repeats, creature)
 	rasky:CastSpell(ruffomaker, spells.teleport, false)
 
 	rasky:RegisterEvent(fraseRasky0, 3000)
-	rasky:RegisterEvent(fraseRasky1, 18000)
+	rasky:RegisterEvent(fraseRasky1, 16500)
+	rasky:RegisterEvent(RaskySeVa, 28000)
 end
 
 function fraseRasky0(eventid, delay, repeats, creature)
@@ -141,6 +143,11 @@ end
 
 function fraseRasky1(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.rasky[1], 0)
+end
+
+function RaskySeVa(eventid, delay, repeats, creature)
+	creature:CastSpell(creature, spells.teleport, true)
+	creature:DespawnOrUnsummon(1000)
 end
 
 
@@ -160,6 +167,12 @@ end
 function fraseRuffomaker3(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.ruffomaker[3], 0)
 end
+
+function RuffoSeVa(eventid, delay, repeats, creature)
+	creature:CastSpell(creature, spells.teleport, true)
+	creature:DespawnOrUnsummon(1000)
+end
+
 
 
 function DarElTransformador(eventid, delay, repeats, player)
