@@ -57,7 +57,7 @@ function matarAlPlayer(eventid, delay, repeats, player)
 end
 
 function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
-	nearestPlayer = WorldObject:GetNearestPlayer( 20 )
+	nearestPlayer = creature:GetNearestPlayer( 20 )
 	creature:CastSpell(nearestPlayer, spells.dedoDeLaMuerte, false)
 end
 
