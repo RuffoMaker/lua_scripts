@@ -11,7 +11,7 @@ local creatures = {
 local spells = {
 	muerte = 64165,
 	paralisis = 38132,
-	dedoDeLaMuerte = 32111
+	dedoDeLaMuerte = 47848
 }
 
 local frases = {
@@ -58,7 +58,6 @@ end
 
 function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
 	nearestPlayer = creature:GetNearestPlayer( 20 )
-	creature:MoveChase(nearestPlayer, 1)
 	creature:CastSpell(nearestPlayer, spells.dedoDeLaMuerte, false)
 end
 
