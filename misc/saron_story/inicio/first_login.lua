@@ -78,8 +78,8 @@ end
 function apareceRuffo(eventid, delay, repeats, creature)
 	local ruffomaker = creature:SpawnCreature(
 		creatures.ruffomaker, 
-		creature:GetX() + (math.cos(creature:GetO() + angulo) * distancia),
-		creature:GetY() + (math.sin(creature:GetO() + angulo) * distancia),
+		creature:GetX() + (math.cos(RestarOrientacion(creature:GetO(), angulo)) * distancia),
+		creature:GetY() + (math.sin(RestarOrientacion(creature:GetO(), angulo)) * distancia),
 		creature:GetZ(),
 		OrientacionContraria(creature:GetO()),
 		8
@@ -89,8 +89,8 @@ end
 function apareceRasky(eventid, delay, repeats, creature)
 	local rasky = creature:SpawnCreature(
 		creatures.rasky, 
-		creature:GetX() + (math.cos(creature:GetO() - angulo) * 3),
-		creature:GetY() + (math.sin(creature:GetO() - angulo) * 3),
+		creature:GetX() + (math.cos(RestarOrientacion(creature:GetO(), -angulo)) * 3),
+		creature:GetY() + (math.sin(RestarOrientacion(creature:GetO(), -angulo)) * 3),
 		creature:GetZ(),
 		OrientacionContraria(creature:GetO()),
 		8
@@ -105,6 +105,14 @@ end
 
 function OrientacionContraria(orientacion)
 	orientacion = orientacion - (6.25 / 2)
+	if(orientacion < 0) then
+		orientacion = orientacion + 6.25
+	end
+	return orientacion
+end
+
+function RestarOrientacion(orientacion, resta)
+	orientacion = orientacion - resta
 	if(orientacion < 0) then
 		orientacion = orientacion + 6.25
 	end
