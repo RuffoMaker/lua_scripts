@@ -1,6 +1,6 @@
 local milly = {
 	entry = 9296,
-	tiempoFraseInit = 200000,
+	tiempoFraseInit = 1000,
 	tiempoFrase = 10000,
 	fraseadecir = -1,
 	frasedicha = -1,
