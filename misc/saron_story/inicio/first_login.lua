@@ -14,7 +14,8 @@ local creatures = {
 local spells = {
 	muerte = 64165,
 	paralisis = 38132,
-	dedoDeLaMuerte = 47848
+	dedoDeLaMuerte = 47848,
+	teleport = 64446
 }
 
 local frases = {
@@ -22,6 +23,12 @@ local frases = {
 		[0] = 'Vaya, vaya, vaya... ¿Qué tenemos aquí?...',
 		[1] = '¿Otro jugador nuevo? ¡¡Ahora verás!!',
 		[2] = 'JAJAJAJA'
+	},
+	rasky = {
+		[0] = '¡¡Torcuato!! ¡¡Maldito seas!!'
+	},
+	ruffomaker = {
+		[0] = '¡¡Vas a pagar por todo esto!!'
 	}
 };
 
@@ -84,6 +91,10 @@ function apareceRuffo(eventid, delay, repeats, creature)
 		OrientacionContraria(creature:GetO()),
 		8
 	) -- despawn on UnSummon()
+
+	ruffomaker:CastSpell(ruffomaker, spells.teleport, false)
+
+	ruffomaker:RegisterEvent(fraseRuffomaker0, 6000)
 end
 
 function apareceRasky(eventid, delay, repeats, creature)
@@ -95,8 +106,19 @@ function apareceRasky(eventid, delay, repeats, creature)
 		OrientacionContraria(creature:GetO()),
 		8
 	) -- despawn on UnSummon()
+
+	rasky:CastSpell(ruffomaker, spells.teleport, false)
+
+	rasky:RegisterEvent(fraseRasky0, 3000)
 end
 
+function fraseRasky0(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.rasky[0], 0)
+end
+
+function fraseRuffomaker0(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.ruffomaker[0], 0)
+end
 
 
 function DarElTransformador(eventid, delay, repeats, player)
