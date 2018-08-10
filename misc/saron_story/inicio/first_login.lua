@@ -30,8 +30,8 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.paralisis, true)
 	local torcuato = player:SpawnCreature(
 		creatures.torcuato, 
-		player:GetX() + 4,
-		player:GetY() + 4,
+		player:GetX() + (math.cos(player:GetO) * 3),
+		player:GetY() + (math.sin(player:GetO) * 3),
 		player:GetZ(),
 		player:GetO(),
 		8
@@ -75,8 +75,8 @@ end
 function apareceRuffo(eventid, delay, repeats, creature)
 	local ruffomaker = creature:SpawnCreature(
 		creatures.ruffomaker, 
-		creature:GetX() + 3,
-		creature:GetY() - 3,
+		creature:GetX() + (math.cos(creature:GetO) * 3),
+		creature:GetY() + (math.sin(creature:GetO) * 3),
 		creature:GetZ(),
 		creature:GetO(),
 		8
@@ -86,8 +86,8 @@ end
 function apareceRasky(eventid, delay, repeats, creature)
 	local rasky = creature:SpawnCreature(
 		creatures.rasky, 
-		creature:GetX() - 3,
-		creature:GetY() - 3,
+		creature:GetX() - (math.cos(creature:GetO) * 3),
+		creature:GetY() - (math.sin(creature:GetO) * 3),
 		creature:GetZ(),
 		creature:GetO(),
 		8
