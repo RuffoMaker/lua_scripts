@@ -18,7 +18,7 @@ local frases = {
 	torcuato = {
 		[0] = 'Vaya, vaya, vaya... ¿Qué tenemos aquí?...',
 		[1] = '¿Otro jugador nuevo? ¡¡Ahora verás!!',
-		[1] = 'JAJAJAJA'
+		[2] = 'JAJAJAJA'
 	}
 };
 
@@ -43,7 +43,7 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	torcuato:RegisterEvent(fraseTorcuato2, 8000, 1)
 
 	torcuato:RegisterEvent(apareceRuffo, 8500, 1)
-	torcuato:RegisterEvent(apareceRasky, 9000, 1)
+	torcuato:RegisterEvent(apareceRasky, 9500, 1)
 
 	player:RegisterEvent(matarAlPlayer, 6500, 1)
 	player:RegisterEvent(DarElTransformador, 30000, 1)
@@ -75,8 +75,8 @@ end
 function apareceRuffo(eventid, delay, repeats, creature)
 	local ruffomaker = creature:SpawnCreature(
 		creatures.ruffomaker, 
-		creature:GetX() + 1,
-		creature:GetY(),
+		creature:GetX() + 3,
+		creature:GetY() - 3,
 		creature:GetZ(),
 		creature:GetO(),
 		8
@@ -85,9 +85,9 @@ end
 
 function apareceRasky(eventid, delay, repeats, creature)
 	local rasky = creature:SpawnCreature(
-		creatures.ruffomaker, 
-		creature:GetX() - 1,
-		creature:GetY(),
+		creatures.rasky, 
+		creature:GetX() - 3,
+		creature:GetY() - 3,
 		creature:GetZ(),
 		creature:GetO(),
 		8
