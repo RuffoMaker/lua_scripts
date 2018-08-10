@@ -2,20 +2,11 @@ local items = {
 	transformador = 8939
 };
 
-local player = {};
-
 local creatures = {
 	ruffomaker = 90004,
 	torcuato = 90005,
 	rasky = 90006
 };
-
-local creaturesObj = {
-	ruffomaker = {},
-	torcuato = {},
-	rasky = {},
-	player = {}
-}
 
 local spells = {
 	muerte = 64165,
@@ -36,7 +27,7 @@ end
 
 function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.paralisis, true)
-	local creature = player:SpawnCreature(
+	local torcuato = player:SpawnCreature(
 		creatures.torcuato, 
 		player:GetX(),
 		player:GetY(),
@@ -45,12 +36,10 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 		8
 	) -- despawn on UnSummon()
 
-	creaturesObj.torcuato = creature
-	creaturesObj.player = player
+	torcuato:RegisterEvent(fraseTorcuato0, 1000, 1)
+	torcuato:RegisterEvent(fraseTorcuato1, 4000, 1)
+	torcuato:RegisterEvent(CastDedoDeLaMuerte, 6000, 1)
 
-	creature:RegisterEvent(fraseTorcuato0, 1000, 1)
-	creature:RegisterEvent(fraseTorcuato1, 4000, 1)
-	player:RegisterEvent(CastDedoDeLaMuerte, 6000, 1)
 	player:RegisterEvent(matarAlPlayer, 6500, 1)
 	player:RegisterEvent(DarElTransformador, 30000, 1)
 end
@@ -68,7 +57,8 @@ function matarAlPlayer(eventid, delay, repeats, player)
 end
 
 function CastDedoDeLaMuerte(eventid, delay, repeats, creature)
-	creature:CastSpell(creaturesObj, spells.dedoDeLaMuerte, false)
+	nearestPlayer = WorldObject:GetNearestPlayer( 20 )
+	creature:CastSpell(nearestPlayer, spells.dedoDeLaMuerte, false)
 end
 
 
