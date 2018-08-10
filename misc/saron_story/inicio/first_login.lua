@@ -22,7 +22,7 @@ local firstLogin = {
 };
 
 function firstLogin.RegistrarInicioDeHistoria(event, player)
-	player:RegisterEvent(firstLogin.IniciarAtaqueDeGmMalvado, 60000)
+	player:RegisterEvent(firstLogin.IniciarAtaqueDeGmMalvado, 10000)
 end
 
 function firstLogin.IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
