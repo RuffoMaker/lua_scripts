@@ -11,7 +11,7 @@ local firstLogin = {
 	spells = {
 		muerte = 64165,
 		paralisis = 38132,
-		dedoDeLaMuerte = 31984
+		dedoDeLaMuerte = 32111
 	},
 	frases = {
 		torcuato = {
