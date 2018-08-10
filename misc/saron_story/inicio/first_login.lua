@@ -2,6 +2,9 @@ local items = {
 	transformador = 8939
 };
 
+local distancia = 5
+local angulo = 1.25
+
 local creatures = {
 	ruffomaker = 90004,
 	torcuato = 90005,
@@ -30,8 +33,8 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:CastSpell(player, spells.paralisis, true)
 	local torcuato = player:SpawnCreature(
 		creatures.torcuato, 
-		player:GetX() + (math.cos(player:GetO()) * 3),
-		player:GetY() + (math.sin(player:GetO()) * 3),
+		player:GetX() + (math.cos(player:GetO()) * distancia),
+		player:GetY() + (math.sin(player:GetO()) * distancia),
 		player:GetZ(),
 		player:GetO(),
 		8
@@ -75,8 +78,8 @@ end
 function apareceRuffo(eventid, delay, repeats, creature)
 	local ruffomaker = creature:SpawnCreature(
 		creatures.ruffomaker, 
-		creature:GetX() + (math.cos(creature:GetO() + 1) * 3),
-		creature:GetY() + (math.sin(creature:GetO() + 1) * 3),
+		creature:GetX() + (math.cos(creature:GetO() + angulo) * distancia),
+		creature:GetY() + (math.sin(creature:GetO() + angulo) * distancia),
 		creature:GetZ(),
 		creature:GetO(),
 		8
@@ -86,8 +89,8 @@ end
 function apareceRasky(eventid, delay, repeats, creature)
 	local rasky = creature:SpawnCreature(
 		creatures.rasky, 
-		creature:GetX() + (math.cos(creature:GetO() - 1) * 3),
-		creature:GetY() + (math.sin(creature:GetO() - 1) * 3),
+		creature:GetX() + (math.cos(creature:GetO() - angulo) * 3),
+		creature:GetY() + (math.sin(creature:GetO() - angulo) * 3),
 		creature:GetZ(),
 		creature:GetO(),
 		8
