@@ -36,7 +36,7 @@ local frases = {
 	},
 	ruffomaker = {
 		[0] = '¡¡Vas a pagar por todo esto!!',
-		[1] = 'Siento mucho todo esto...',
+		[1] = 'Siento mucho lo que ha sucedido...',
 		[2] = 'Me presento, soy RuffoMaker y el es Rasky',
 		[3] = 'Antes de nada, vamos a resucitarte.',
 		[4] = 'Torcuato fue uno de nuestros GM más poderosos.',
