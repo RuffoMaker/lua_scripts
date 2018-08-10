@@ -7,4 +7,12 @@ function initGossip(event, player, item, target)
   player:GossipSendMenu(1, item, MenuId) -- MenuId required for player gossip
 end
 
+local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
+    if (intid == 1) then
+        player:GossipComplete()
+        player:SendUnitSay('Hola puto', 0)
+	end
+end
+
 RegisterItemEvent(entry, 2, initGossip)
+RegisterItemGossipEvent(entry, 2, OnGossipSelect)
