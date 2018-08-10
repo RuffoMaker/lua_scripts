@@ -27,10 +27,14 @@ local frases = {
 		[3] = 'JAJAJAJA ¡¡Primero tendréis que capturarme!!',
 	},
 	rasky = {
-		[0] = '¡¡Torcuato!! ¡¡Maldito seas!!'
+		[0] = '¡¡Torcuato!! ¡¡Maldito seas!!',
+		[1] = 'Somos los creadores de WoW Saron'
 	},
 	ruffomaker = {
-		[0] = '¡¡Vas a pagar por todo esto!!'
+		[0] = '¡¡Vas a pagar por todo esto!!',
+		[1] = 'Siento mucho todo esto...',
+		[2] = 'Me presento, soy RuffoMaker y el es Rasky',
+		[3] = 'Antes de nada, vamos a resucitarte.'
 	}
 };
 
@@ -110,6 +114,9 @@ function apareceRuffo(eventid, delay, repeats, creature)
 	ruffomaker:CastSpell(ruffomaker, spells.teleport, false)
 
 	ruffomaker:RegisterEvent(fraseRuffomaker0, 6000)
+	ruffomaker:RegisterEvent(fraseRuffomaker1, 11000)
+	ruffomaker:RegisterEvent(fraseRuffomaker2, 13000)
+	ruffomaker:RegisterEvent(fraseRuffomaker3, 17000)
 end
 
 function apareceRasky(eventid, delay, repeats, creature)
@@ -125,14 +132,33 @@ function apareceRasky(eventid, delay, repeats, creature)
 	rasky:CastSpell(ruffomaker, spells.teleport, false)
 
 	rasky:RegisterEvent(fraseRasky0, 3000)
+	rasky:RegisterEvent(fraseRasky1, 15000)
 end
 
 function fraseRasky0(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.rasky[0], 0)
 end
 
+function fraseRasky1(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.rasky[1], 0)
+end
+
+
+
 function fraseRuffomaker0(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.ruffomaker[0], 0)
+end
+
+function fraseRuffomaker1(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.ruffomaker[1], 0)
+end
+
+function fraseRuffomaker2(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.ruffomaker[2], 0)
+end
+
+function fraseRuffomaker3(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.ruffomaker[3], 0)
 end
 
 
