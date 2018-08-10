@@ -92,7 +92,7 @@ end
 
 function torcuatoDesaparece(eventid, delay, repeats, creature)
 	creature:CastSpell(creature, spells.teleport, true)
-	creature:UnSummon()
+	creature:DespawnOrUnsummon(1000)
 end
 
 
