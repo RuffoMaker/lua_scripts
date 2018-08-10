@@ -9,7 +9,7 @@ local firstLogin = {
 		rasky = 90006
 	},
 	spells = {
-		muerte = 64165
+		muerte = 64165,
 		paralisis = 38132
 	},
 	frases = {
