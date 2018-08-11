@@ -1,6 +1,6 @@
 local caballo = {
 	entry = 5403,
-	tiempoFraseInit = 200000,
+	tiempoFraseInit = 120000,
 	tiempoFrase = 10000,
 	fraseadecir = -1,
 	frasedicha = -1,
@@ -16,8 +16,8 @@ caballo.tiempoFrase = caballo.tiempoFrase - diff
 
 	if(caballo.tiempoFrase < 0) then		
 		caballo.fraseadecir = math.random(0, 1)
-		if(caballo.fraseadecir ~= caballo.frasedicha) then		
-			creature:SendUnitSay(caballo.frases[caballo.fraseadecir], 0)			
+		if(caballo.fraseadecir ~= caballo.frasedicha) then
+			creature:SendUnitSay(caballo.frases[caballo.fraseadecir], 0)
 			caballo.frasedicha = caballo.fraseadecir
 			caballo.Reset(creature)
 		end
