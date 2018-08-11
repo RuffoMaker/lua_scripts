@@ -24,13 +24,11 @@ CharDBQuery(charactersSQL)
 
 function initGossip(event, player, item, target)
 	player:GossipClearMenu() -- required for player gossip
-	local contador = 1
 
 	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `account_transformaciones` INNER JOIN `transformaciones` ON (`account_transformaciones`.`transformacion` = `transformaciones`.`id`) WHERE `account` = '"..player:GetAccountId().."';" )
 	if (transformaciones) then
 		repeat
-			player:GossipMenuAddItem(0, transformaciones:GetString(1), 1, contador)
-			contador = contador + 1
+			player:GossipMenuAddItem(0, transformaciones:GetString(1), 1, transformaciones:GetUInt32(0))
 		until not transformaciones:NextRow()
 	end
 
@@ -39,12 +37,26 @@ function initGossip(event, player, item, target)
 end
 
 local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
-  if(intid == 1) then
-	  player:GossipComplete()
-	  player:SetDisplayId(1060)
-	elseif(intid == 0) then
+	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `account_transformaciones` INNER JOIN `transformaciones` ON (`account_transformaciones`.`transformacion` = `transformaciones`.`id`) WHERE `account` = '"..player:GetAccountId().."';" )
+	if (transformaciones) then
+		repeat
+			if(intid == transformaciones:GetUInt32(0)) then
+			  player:GossipComplete()
+			  player:SetDisplayId(transformaciones:GetUInt32(0))
+			  if(transformaciones:GetUInt32(2) ~= 0) then
+			  	player:SetSpeed(1, transformaciones:GetUInt32(2))
+			  end
+			  if(transformaciones:GetUInt32(3) ~= 0) then
+			  	player:LearnSpell(transformaciones:GetUInt32(3))
+			  end
+			end
+		until not transformaciones:NextRow()
+	end
+	
+	if(intid == 0) then
 		player:GossipComplete()
 		player:DeMorph()
+		player:player:SetSpeed(1, 1)
 	end
 end
 
