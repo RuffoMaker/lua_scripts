@@ -9,10 +9,10 @@ function initGossip(event, player, item, target)
 end
 
 local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
-  if (intid == 1) then
+  if(intid == 1) then
 	  player:GossipComplete()
 	  player:SetDisplayId(1060)
-	else if (intid == 2) then
+	elseif(intid == 2) then
 		player:GossipComplete()
 		player:DeMorph()
 	end
