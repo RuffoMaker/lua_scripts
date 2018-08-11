@@ -82,6 +82,7 @@ function CheckTransformacion(event, player, newZone, newArea)
 		  	player:LearnSpell(transformaciones:GetUInt32(3))
 		  end
 		until not transformaciones:NextRow()
+	end
 end
 
 RegisterItemEvent(entry, 2, initGossip)
