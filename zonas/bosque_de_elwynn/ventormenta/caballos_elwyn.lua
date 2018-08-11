@@ -1,12 +1,12 @@
 local caballo = {
-	entry = 5403,
-	tiempoFraseInit = 120000,
+	entry = 1976,
+	tiempoFraseInit = 200000,
 	tiempoFrase = 10000,
 	fraseadecir = -1,
 	frasedicha = -1,
 	frases = {
-		[0] = 'hiiii',
-		[1] = '¡frrrrrrrr!'
+		[0] = 'Que dolor de pies..',
+		[1] = 'Uff.. ya queda poco.. pronto terminaré mi turno de una vez..'
 	}
 }
 
