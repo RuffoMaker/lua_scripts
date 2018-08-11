@@ -187,7 +187,7 @@ function creatureAI(event, creature, diff)
 	
 	if(estado == 'recordatorio') then
 		if(recordatorioDicho == false) then
-			--creature:SendUnitSay('Recuerda que debes ejecutar el comando ".reload all starter" para poder spawnearlo.', 0)
+			creature:SendUnitSay('Recuerda que debes ejecutar el comando ".reload creatures" seguido de ".reload all" y finalmente ".reload creature_template '..entry..'" para poder spawnearlo.', 0)
 			recordatorioDicho = true
 			tiempo = 0
 		end
