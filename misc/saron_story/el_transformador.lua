@@ -73,7 +73,7 @@ function CheckTransformacion(event, player, newZone, newArea)
 end
 
 function transformar(player)
-	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `character_transformacion` INNER JOIN `transformaciones` ON (`character_transformacion`.`transformacion` = `transformaciones`.`id`) WHERE `id` = '"..player:GetGUIDLow(player:GetGUID()).."';" )
+	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `character_transformacion` INNER JOIN `transformaciones` ON (`character_transformacion`.`transformacion` = `transformaciones`.`id`) WHERE `character_transformacion`.`id` = '"..player:GetGUIDLow(player:GetGUID()).."';" )
 	if (transformaciones) then
 		repeat
 		  player:SetDisplayId(transformaciones:GetUInt32(0))
