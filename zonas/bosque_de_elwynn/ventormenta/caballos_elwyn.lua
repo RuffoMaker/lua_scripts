@@ -6,8 +6,7 @@ local caballo = {
 	frasedicha = -1,
 	frases = {
 		[0] = 'hiiii',
-		[1] = '¡frrrrrrrr!',
-		[2] = '¡Hola puto!'
+		[1] = '¡frrrrrrrr!'
 	}
 }
 
@@ -17,19 +16,8 @@ caballo.tiempoFrase = caballo.tiempoFrase - diff
 
 	if(caballo.tiempoFrase < 0) then		
 		caballo.fraseadecir = math.random(0, 2)
-		if(caballo.fraseadecir ~= caballo.frasedicha) then
-			if(caballo.fraseadecir == 0) then
-				creature:SendUnitSay(caballo.frases[0], 0)
-			end
-
-			if(caballo.fraseadecir == 1) then
-				creature:SendUnitSay(caballo.frases[1], 0)
-			end
-
-			if(caballo.fraseadecir == 2) then
-				creature:SendUnitSay(caballo.frases[2], 0)
-			end
-
+		if(caballo.fraseadecir ~= caballo.frasedicha) then		
+			creature:SendUnitSay(caballo.frases[caballo.fraseadecir], 0)			
 			caballo.frasedicha = caballo.fraseadecir
 			caballo.Reset(creature)
 		end
