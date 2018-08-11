@@ -57,7 +57,7 @@ local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
 			  if(transformaciones:GetUInt32(3) ~= 0) then
 			  	player:LearnSpell(transformaciones:GetUInt32(3))
 			  end
-			  local charactersSQL = "REPLACE INTO `character_transformacion` (`id`, `transformacion`) VALUES ('"..player:GetGUID().."', '"..transformaciones:GetUInt32(0).."');";
+			  local charactersSQL = "REPLACE INTO `character_transformacion` (`id`, `transformacion`) VALUES ('"..player:GetGUIDLow(player:GetGUID()).."', '"..transformaciones:GetUInt32(0).."');";
 				CharDBQuery(charactersSQL)
 			end
 		until not transformaciones:NextRow()
