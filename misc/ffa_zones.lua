@@ -1,5 +1,5 @@
 function onUpdateZone(event, player, newZone, newArea)
-	player.SetFFA(true)
+	player:SetFFA(true)
 end
 
 RegisterPlayerEvent(27, onUpdateZone)
