@@ -34,7 +34,7 @@ function initGossip(event, player, item, target)
 		until not transformaciones:NextRow()
 	end
 
-  player:GossipMenuAddItem(0, "Quiero volver a mi apariencia original.", 1, -1)
+  player:GossipMenuAddItem(0, "Quiero volver a mi apariencia original.", 1, 0)
   player:GossipSendMenu(1, item, MenuId) -- MenuId required for player gossip
 end
 
@@ -42,7 +42,7 @@ local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
   if(intid == 1) then
 	  player:GossipComplete()
 	  player:SetDisplayId(1060)
-	elseif(intid == -1) then
+	elseif(intid == 0) then
 		player:GossipComplete()
 		player:DeMorph()
 	end
