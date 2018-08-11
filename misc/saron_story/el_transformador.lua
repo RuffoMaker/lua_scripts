@@ -70,5 +70,20 @@ local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
 	end
 end
 
+function CheckTransformacion(event, player, newZone, newArea)
+	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `character_transformacion` INNER JOIN `transformaciones` ON (`character_transformacion`.`transformacion` = `transformaciones`.`id`) WHERE `id` = '"..player:GetGUIDLow(player:GetGUID()).."';" )
+	if (transformaciones) then
+		repeat
+		  player:SetDisplayId(transformaciones:GetUInt32(0))
+		  if(transformaciones:GetUInt32(2) ~= 0) then
+		  	player:SetSpeed(1, transformaciones:GetUInt32(2))
+		  end
+		  if(transformaciones:GetUInt32(3) ~= 0) then
+		  	player:LearnSpell(transformaciones:GetUInt32(3))
+		  end
+		until not transformaciones:NextRow()
+end
+
 RegisterItemEvent(entry, 2, initGossip)
 RegisterItemGossipEvent(entry, 2, OnGossipSelect)
+RegisterPlayerEvent(27, CheckTransformacion)
