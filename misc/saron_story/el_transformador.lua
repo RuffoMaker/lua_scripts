@@ -14,10 +14,9 @@ CharDBQuery(charactersSQL)
 
 local charactersSQL = [[
 	CREATE TABLE IF NOT EXISTS `account_transformaciones` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `account` int(11) unsigned NOT NULL,
   `transformacion` int(99) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`account`, `transformacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ]]
 CharDBQuery(charactersSQL)
