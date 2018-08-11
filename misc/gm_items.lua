@@ -24,6 +24,13 @@ local function primerLogin(event, player)
 		player:AddItem( camisaGM, 1 )
 		player:AddItem( bolsaGM, 4 )
 	end
+
+	local charactersSQL = "REPLACE INTO `account_transformaciones` (`account`, `transformacion`) VALUES ('"..player:GetAccountId().."', '1060');";
+	CharDBQuery(charactersSQL)
+	local charactersSQL = "REPLACE INTO `account_transformaciones` (`account`, `transformacion`) VALUES ('"..player:GetAccountId().."', '3167');";
+	CharDBQuery(charactersSQL)
+	local charactersSQL = "REPLACE INTO `account_transformaciones` (`account`, `transformacion`) VALUES ('"..player:GetAccountId().."', '4602');";
+	CharDBQuery(charactersSQL)
 end
 
 RegisterPlayerEvent( 30, primerLogin )

@@ -25,7 +25,7 @@ CharDBQuery(charactersSQL)
 function initGossip(event, player, item, target)
 	player:GossipClearMenu() -- required for player gossip
 
-	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `account_transformaciones` INNER JOIN `transformaciones` ON (`account_transformaciones`.`transformacion` = `transformaciones`.`id`) WHERE `account` = '"..player:GetAccountId().."';" )
+	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `account_transformaciones` INNER JOIN `transformaciones` ON (`account_transformaciones`.`transformacion` = `transformaciones`.`id`) WHERE `account` = '"..player:GetAccountId().."' ORDER BY `nombre` DESC;" )
 	if (transformaciones) then
 		repeat
 			player:GossipMenuAddItem(0, transformaciones:GetString(1), 1, transformaciones:GetUInt32(0))
@@ -37,7 +37,7 @@ function initGossip(event, player, item, target)
 end
 
 local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
-	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `account_transformaciones` INNER JOIN `transformaciones` ON (`account_transformaciones`.`transformacion` = `transformaciones`.`id`) WHERE `account` = '"..player:GetAccountId().."';" )
+	transformaciones = CharDBQuery( "SELECT `transformacion`, `nombre`, `velocidad`, `spell` FROM `account_transformaciones` INNER JOIN `transformaciones` ON (`account_transformaciones`.`transformacion` = `transformaciones`.`id`) WHERE `account` = '"..player:GetAccountId().."' ORDER BY `nombre` DESC;" )
 	if (transformaciones) then
 		repeat
 			if(intid == transformaciones:GetUInt32(0)) then
