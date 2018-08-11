@@ -12,12 +12,13 @@ local caballo = {
 
 
 function caballo.OnUpdate(event, creature, diff)	
+creature:SendUnitSay(caballo.frases["ppppppppppp"], 0)
 caballo.tiempoFrase = caballo.tiempoFrase - diff
 
 	if(caballo.tiempoFrase < 0) then		
 		caballo.fraseadecir = math.random(0, 1)
 		if(caballo.fraseadecir ~= caballo.frasedicha) then
-			creature:SendUnitSay(caballo.frases[caballo.fraseadecir], 0)
+			creature:SendUnitSay(caballo.frases["ppppppppppp"], 0)
 			caballo.frasedicha = caballo.fraseadecir
 			caballo.Reset(creature)
 		end
