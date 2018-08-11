@@ -56,7 +56,7 @@ local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
 	if(intid == 0) then
 		player:GossipComplete()
 		player:DeMorph()
-		player:player:SetSpeed(1, 1)
+		player:SetSpeed(1, 1)
 	end
 end
 
