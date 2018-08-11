@@ -61,6 +61,8 @@ local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
 		player:GossipComplete()
 		player:DeMorph()
 		player:SetSpeed(1, 1)
+		local charactersSQL = "DELETE FROM `character_transformacion` WHERE `id` = '"..player:GetGUIDLow(player:GetGUID()).."');";
+		CharDBQuery(charactersSQL)
 	end
 end
 
