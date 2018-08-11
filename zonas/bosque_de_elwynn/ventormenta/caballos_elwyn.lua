@@ -1,5 +1,5 @@
 local caballo = {
-	entry = 1976,
+	entry = 5403,
 	tiempoFraseInit = 200000,
 	tiempoFrase = 10000,
 	fraseadecir = -1,
