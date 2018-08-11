@@ -15,7 +15,7 @@ function caballo.OnUpdate(event, creature, diff)
 caballo.tiempoFrase = caballo.tiempoFrase - diff
 
 	if(caballo.tiempoFrase < 0) then		
-		caballo.fraseadecir = math.random(0, 2)
+		caballo.fraseadecir = math.random(0, 1)
 		if(caballo.fraseadecir ~= caballo.frasedicha) then		
 			creature:SendUnitSay(caballo.frases[caballo.fraseadecir], 0)			
 			caballo.frasedicha = caballo.fraseadecir
