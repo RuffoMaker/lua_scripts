@@ -10,7 +10,7 @@ end
 local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
     if (intid == 1) then
         player:GossipComplete()
-        player:Morph(123)
+        player:SetDisplayId(123)
 	end
 end
 
