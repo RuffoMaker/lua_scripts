@@ -21,6 +21,15 @@ local charactersSQL = [[
 ]]
 CharDBQuery(charactersSQL)
 
+local charactersSQL = [[
+	CREATE TABLE IF NOT EXISTS `character_transformacion` (
+  `id` int(11) unsigned NOT NULL,
+  `transformacion` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+]]
+CharDBQuery(charactersSQL)
+
 function initGossip(event, player, item, target)
 	player:GossipClearMenu() -- required for player gossip
 
@@ -48,6 +57,8 @@ local function OnGossipSelect(event, player, item, sender, intid, code, menuid)
 			  if(transformaciones:GetUInt32(3) ~= 0) then
 			  	player:LearnSpell(transformaciones:GetUInt32(3))
 			  end
+			  local charactersSQL = "REPLACE INTO `character_transformacion` (`id`, `transformacion`) VALUES ('"..player:GetGUID().."', '"..transformaciones:GetUInt32(0)..');";
+				CharDBQuery(charactersSQL)
 			end
 		until not transformaciones:NextRow()
 	end
