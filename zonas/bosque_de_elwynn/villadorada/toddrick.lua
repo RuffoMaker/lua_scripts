@@ -10,7 +10,7 @@ local TopperMcNabb = {
 
 function TopperMcNabb.OnSpawn(event, creature)
 	creature:Emote(TopperMcNabb.emotes.picarCarne)
-	creature:RegisterEvent(TopperMcNabb.Talk, 1000, 0)
+	creature:RegisterEvent(TopperMcNabb.Talk, {0, 100000}, 0)
 end
 
 function TopperMcNabb.Talk(eventid, delay, repeats, creature)
