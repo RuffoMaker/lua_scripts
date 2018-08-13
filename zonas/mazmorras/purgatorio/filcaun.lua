@@ -18,7 +18,6 @@ filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo + diff
 			creature:SendUnitSay(" No hagaís ruido.Escape por los pelos... ese esbirro de Torcuato... ¡esta incluso más loco que él¡", 0)	
 			creature:SendUnitSay(" Escape graciás aún búfo que conseguir lanzarme que invente yo mismo.., es un poco impreciso aún y los resultados pueden variar..Pero si quereís os lo  lanzare a ustedes también, solo tiene que hablar conmigo todo el que quiera probar..,¡No seais tímidos!.", 0)
 			creature:SendUnitSay(" Como os dije aun esta en fase experimental... pero puede funcionar muy bien...", 0)		
-		-- filcaun.contadorInicioDicho = filcaun.contadorInicioDicho + 1
 		end
 		filcaun.sumatorioDetiempo = 0
 	else
