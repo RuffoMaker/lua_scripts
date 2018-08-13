@@ -2,9 +2,8 @@ local filcaun = {
 	sumatorioDetiempo = 0, -- contador de tiempo acumulado
 	contadorInicio = 1000, -- a partir del tiempo que dira la frase 
 	emoteHablar = 1,	
-	emoteNoHaceNada = 0	
-	-- contadorInicioDicho = 0		
-}
+	emoteNoHaceNada = 0		
+};
 
 function filcaun.OnUpdate(event, creature, diff)
 
@@ -18,7 +17,6 @@ filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo +diff
 			creature:SendUnitSay(" Escape graciás aún búfo que conseguir lanzarme que invente yo mismo.., es un poco impreciso aún y los resultados pueden variar..Pero si quereís os lo  lanzare a ustedes también, solo tiene que hablar conmigo todo el que quiera probar..,¡No seais tímidos!.", 0)
 			creature:SendUnitSay(" Como os dije aun esta en fase experimental... pero puede funcionar muy bien...", 0)
 			creature:Emote(filcaun.emoteNoHaceNada)
-			-- filcaun.contadorInicioDicho = filcaun.contadorInicioDicho + 1
 		end
 		filcaun.sumatorioDetiempo = 0
 	else
