@@ -29,12 +29,22 @@ end
   
 end
 
- function filcaun.OnReceiveEmote(event, creature, player, emoteid)
-	
-		creature:SendUnitSay(emoteid,0)	  
+
+
+function filcaun.OnUpdate2(event, creature, diff)
+
+filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo +diff
+
+if(filcaun.contadorInicio < filcaun.sumatorioDetiempo) then	
+	creature:SendUnitSay(filcaun.sumatorioDetiempo, 0)
+		
+		-- filcaun.contadorInicioDicho = filcaun.contadorInicioDicho + 1
+else
+	creature:SendUnitSay("En espera... ".. filcaun.sumatorioDetiempo, 0)
 end
 
-
-RegisterCreatureEvent(80500, 8, filcaun.OnReceiveEmote)
+	
+  
+end
 
 RegisterCreatureEvent(80500, 7, filcaun.OnUpdate)
