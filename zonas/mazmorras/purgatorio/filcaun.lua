@@ -1,4 +1,6 @@
 local filcaun = {
+	sumatorioDetiempo = 0,
+	contadorInicio 10000,
 	contadorInicioDicho = 0,
 	emoteHablar = 1,
 	emoteNoHaceNada = 0			
@@ -6,6 +8,9 @@ local filcaun = {
 
 function filcaun.OnUpdate(event, creature, diff)
 
+filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo +diff
+
+if(filcaun.contadorInicio < filcaun.sumatorioDetiempo) then
 	if(creature:GetFriendlyUnitsInRange(3) ~= {}) then
 		creature:Emote(filcaun.emoteHablar)
 		creature:SendUnitSay(" ¡Pssss!,¡Pssss!,¡Pssss! ¡por aquí!", 0)
@@ -15,6 +20,11 @@ function filcaun.OnUpdate(event, creature, diff)
 		creature:Emote(filcaun.emoteNoHaceNada)
 		-- filcaun.contadorInicioDicho = filcaun.contadorInicioDicho + 1
 	end
+	filcaun.sumatorioDetiempo = 0
+else
+	creature:SendUnitSay("En espera...", 0)
+end
+
 	
   
 end
