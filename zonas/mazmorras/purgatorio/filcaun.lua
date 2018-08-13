@@ -1,6 +1,6 @@
 local filcaun = {
 	sumatorioDetiempo = 0,
-	contadorInicio 10000,
+	contadorInicio 1000,
 	contadorInicioDicho = 0,
 	emoteHablar = 1,
 	emoteNoHaceNada = 0			
