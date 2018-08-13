@@ -28,14 +28,9 @@ end
 	local recibe_saludo = 78
 	local envia_saludo = 66	
 
-	if(emoteid == recibe_hola or emoteid == recibe_hola2) then
-		creature:SendUnitSay("Hola cosita linda...",0)
-	elseif(emoteid == recibe_saludo) then
-		creature:Emote(envia_saludo)
-		creature:SendUnitSay("¡"..player:GetName().." alistaté en la marina!.", 0) -- saludo al objetivo
-	else
-		creature:SendUnitSay('Y tu que miras... camina!', 0)
-	end
+	
+		creature:SendUnitSay(emoteid,0)
+	
 	  
 end
 
