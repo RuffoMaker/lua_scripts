@@ -1,6 +1,6 @@
 local filcaun = {
 	sumatorioDetiempo = 0,
-	contadorInicio 1000,
+	contadorInicio = 1000,
 	contadorInicioDicho = 0,
 	emoteHablar = 1,
 	emoteNoHaceNada = 0			
@@ -23,7 +23,7 @@ filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo +diff
 		filcaun.sumatorioDetiempo = 0
 	else
 	creature:SendUnitSay("En espera...", 0)
-	end	 
+	end 
 end
 
 
