@@ -45,7 +45,6 @@ end
 function Stephanie.Reset(creature)
 	Stephanie.contadorFrase = 0
 	Stephanie.fraseContador = 300000
-	creature:Emote(0)
 end
 
 RegisterCreatureEvent(Stephanie.entry, 7, Stephanie.OnUpdate)
