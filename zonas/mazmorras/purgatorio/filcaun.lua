@@ -6,7 +6,7 @@ local filcaun = {
 
 function filcaun.OnUpdate(event, creature, diff)
 
-	if(creature:GetFriendlyUnitsInRange(10) ~= {} and filcaun.contadorInicioDicho == 0) then
+	if(creature:GetFriendlyUnitsInRange(3) ~= {} and filcaun.contadorInicioDicho == 0) then
 		creature:Emote(filcaun.emoteHablar)
 		creature:SendUnitSay(" ¡Pssss!,¡Pssss!,¡Pssss! ¡por aquí!", 0)
 		creature:SendUnitSay(" No hagaís ruido.Escape por los pelos... ese esbirro de Torcuato... ¡esta incluso más loco que él¡", 0)	
