@@ -1,6 +1,5 @@
 local filcaun = {
 	contadorInicioDicho = 0,
-	contadorMax = 5000,
 	emoteHablar = 1,
 	emoteNoHaceNada = 0			
 };
@@ -18,9 +17,6 @@ function filcaun.OnUpdate(event, creature, diff)
 		filcaun.contadorInicioDicho = filcaun.contadorInicioDicho + 1
 	end
 	
-		 
-		
-  	filcaun.contador = 0 -- pongo el contador de los segundos a 0
   end
 end
 
