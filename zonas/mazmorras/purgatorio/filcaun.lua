@@ -47,4 +47,4 @@ end
   
 end
 
-RegisterCreatureEvent(80500, 7, filcaun.OnUpdate)
+RegisterCreatureEvent(80500, 7, filcaun.OnUpdate2)
