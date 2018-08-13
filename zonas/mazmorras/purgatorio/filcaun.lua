@@ -8,7 +8,13 @@ local filcaun = {
 }
 
 function filcaun.OnUpdate(event, creature, diff)
-	creature:SendUnitSay(diff,0)
+	filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo + diff
+
+	if(filcaun.tiempoHastaInicio < filcaun.sumatorioDetiempo) then
+		creature:SendUnitSay("hola",0)
+		filcaun.sumatorioDetiempo = 0
+	end
+	
 end
 
 
