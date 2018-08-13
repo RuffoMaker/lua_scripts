@@ -19,4 +19,27 @@ function filcaun.OnUpdate(event, creature, diff)
   
 end
 
+
+
+
+ function filcaun.OnReceiveEmote(event, creature, player, emoteid)
+ 	local recibe_hola = 101
+	local recibe_hola2 = 55
+	local recibe_saludo = 78
+	local envia_saludo = 66	
+
+	if(emoteid == recibe_hola or emoteid == recibe_hola2) then
+		creature:SendUnitSay("Hola cosita linda...",0)
+	elseif(emoteid == recibe_saludo) then
+		creature:Emote(envia_saludo)
+		creature:SendUnitSay("¡"..player:GetName().." alistaté en la marina!.", 0) -- saludo al objetivo
+	else
+		creature:SendUnitSay('Y tu que miras... camina!', 0)
+	end
+	  
+end
+
+
+RegisterCreatureEvent(80500, 8, filcaun.OnReceiveEmote)
+
 RegisterCreatureEvent(80500, 7, filcaun.OnUpdate)
