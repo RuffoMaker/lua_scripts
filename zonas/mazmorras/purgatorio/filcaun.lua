@@ -12,7 +12,7 @@ function filcaun.OnUpdate(event, creature, diff)
 filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo + diff
 
 	if(filcaun.tiempoHastaInicio < filcaun.sumatorioDetiempo) then
-		if(creature:GetFriendlyUnitsInRange(3) ~= {} and filcaun.contadorCiclos == 0) then
+		if(creature:GetFriendlyUnitsInRange(8) ~= {} and filcaun.contadorCiclos == 0) then
 			creature:Emote(filcaun.emoteHablar)
 			creature:SendUnitSay(" ¡Pssss!,¡Pssss!,¡Pssss! ¡por aquí!", 0)
 			creature:SendUnitSay(" No hagaís ruido.Escape por los pelos... ese esbirro de Torcuato... ¡esta incluso más loco que él¡", 0)	
