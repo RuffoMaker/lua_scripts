@@ -5,9 +5,8 @@ local filcaun = {
 };
 
 function filcaun.OnUpdate(event, creature, diff)
-	friendyUnits = creature:GetFriendlyUnitsInRange(10) -- obtengo los objetivos amistosos a 10m
 
-	if(friendyUnits ~= 0 and filcaun.contadorInicioDicho == 0) then
+	if(creature:GetFriendlyUnitsInRange(10) ~= nil and filcaun.contadorInicioDicho == 0) then
 		creature:Emote(filcaun.emoteHablar)
 		creature:SendUnitSay(" ¡Pssss!,¡Pssss!,¡Pssss! ¡por aquí!", 0)
 		creature:SendUnitSay(" No hagaís ruido.Escape por los pelos... ese esbirro de Torcuato... ¡esta incluso más loco que él¡", 0)	
@@ -17,7 +16,7 @@ function filcaun.OnUpdate(event, creature, diff)
 		filcaun.contadorInicioDicho = filcaun.contadorInicioDicho + 1
 	end
 	
-  end
+  
 end
 
 RegisterCreatureEvent(80500, 7, filcaun.OnUpdate)
