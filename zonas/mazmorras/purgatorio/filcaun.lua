@@ -1,7 +1,7 @@
 local filcaun = {
 	sumatorioDetiempo = 0,
-	contadorInicio = 1000		
-}
+	contadorInicio = 1000	
+};
 
 function filcaun.OnUpdate(event, creature, diff)
 
