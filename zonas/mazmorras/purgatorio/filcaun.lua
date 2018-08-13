@@ -19,8 +19,8 @@ filcaun.sumatorioDetiempo = filcaun.sumatorioDetiempo +diff
 end
 
  function filcaun.OnReceiveEmote(event, creature, player, emoteid)
- 		filcaun.idemot = emoteid
-		creature:SendUnitSay(filcaun.idemot,0)
+ 		-- filcaun.idemot = emoteid
+		-- creature:SendUnitSay(filcaun.idemot,0)
 	  
 end
 
