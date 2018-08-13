@@ -12,6 +12,7 @@ function EspirituVaca.OnGossipSelect(event, player, creature, sender, intid, cod
     if (intid == 1) then
         player:GossipComplete()     
         creature:SendUnitSay('¡Muuuuuuuu!', 0)
+        creature:PlayDirectSound(1467)
     end
 end
 

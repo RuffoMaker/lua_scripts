@@ -1,7 +1,7 @@
 local TopperMcNabb = {
 	entry = 3935,
 	frases = {
-		[0] = 'La última vaca que mate tenía una mirada rara... parecía que no quería irse.'
+		[0] = 'La última vaca que maté tenía una mirada rara... es como si no quisiera irse...'
 	},
 	emotes = {
 		picarCarne = 173
