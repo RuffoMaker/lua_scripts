@@ -2,7 +2,7 @@ local filcaun = {
 	contadorInicioDicho = 0,
 	emoteHablar = 1,
 	emoteNoHaceNada = 0			
-};
+}
 
 function filcaun.OnUpdate(event, creature, diff)
 
