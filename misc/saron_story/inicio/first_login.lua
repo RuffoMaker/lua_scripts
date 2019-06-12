@@ -46,9 +46,7 @@ local frases = {
 };
 
 function RegistrarInicioDeHistoria(event, player, oldLevel)
-	if(oldLevel == 1) then
-		player:RegisterEvent(IniciarAtaqueDeGmMalvado, 5000)
-	end
+	player:RegisterEvent(IniciarAtaqueDeGmMalvado, 20000)
 end
 
 function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
@@ -246,4 +244,4 @@ function RestarOrientacion(orientacion, resta)
 	return orientacion
 end
 
-RegisterPlayerEvent( 13, RegistrarInicioDeHistoria )
+RegisterPlayerEvent( 30, RegistrarInicioDeHistoria )
