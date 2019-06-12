@@ -32,7 +32,8 @@ local frases = {
 		[1] = 'Somos los creadores de WoW Saron',
 		[2] = 'Tanto poder lo corrompió y ahora está modificando el servidor para hacer el mal.',
 		[3] = 'Es un objeto que te permite en ocasiones especiales capturar el alma de algunos enemigos y poder transformarte en ellos.',
-		[4] = '¡¡Nos vemos!!',
+		[4] = 'Necesitamos que estés preparado y nos ayudes a combatir el mal.',
+		[5] = '¡¡Nos vemos!!',
 	},
 	ruffomaker = {
 		[0] = '¡¡Vas a pagar por todo esto!!',
@@ -41,12 +42,13 @@ local frases = {
 		[3] = 'Antes de nada, vamos a resucitarte.',
 		[4] = 'Torcuato fue uno de nuestros GM más poderosos.',
 		[5] = 'Vamos a darte por las molestias este Transformador.',
-		[6] = 'Si tienes cualquier duda, puedes escribirnos un ticket.'
+		[6] = 'Y ahora es hora de armarte, te vamos a dar nivel y te llevamos a la tienda.'
+		[7] = 'Si tienes cualquier duda, puedes escribirnos un ticket.'
 	}
 };
 
 function RegistrarInicioDeHistoria(event, player, oldLevel)
-	player:RegisterEvent(IniciarAtaqueDeGmMalvado, 20000)
+	player:RegisterEvent(IniciarAtaqueDeGmMalvado, 10000)
 end
 
 function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
@@ -76,6 +78,7 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:RegisterEvent(PonerVisualRes, 30000, 1)
 	player:RegisterEvent(QuitarVisualRes, 33000, 1)
 	player:RegisterEvent(DarElTransformador, 40000, 1)
+	player:RegisterEvent(SubirNivelAlPlayer, 45000, 1)
 end
 
 function PonerVisualRes(eventid, delay, repeats, player)
@@ -138,7 +141,8 @@ function apareceRuffo(eventid, delay, repeats, creature)
 	ruffomaker:RegisterEvent(fraseRuffomaker4, 26000)
 	ruffomaker:RegisterEvent(fraseRuffomaker5, 30000)
 	ruffomaker:RegisterEvent(fraseRuffomaker6, 35000)
-	ruffomaker:RegisterEvent(RuffoSeVa, 37000)
+	ruffomaker:RegisterEvent(fraseRuffomaker7, 40000)
+	ruffomaker:RegisterEvent(RuffoSeVa, 42000)
 end
 
 function apareceRasky(eventid, delay, repeats, creature)
@@ -158,7 +162,8 @@ function apareceRasky(eventid, delay, repeats, creature)
 	rasky:RegisterEvent(fraseRasky2, 27000)
 	rasky:RegisterEvent(fraseRasky3, 31000)
 	rasky:RegisterEvent(fraseRasky4, 35000)
-	rasky:RegisterEvent(RaskySeVa, 37000)
+	rasky:RegisterEvent(fraseRasky5, 40000)
+	rasky:RegisterEvent(RaskySeVa, 42000)
 end
 
 function fraseRasky0(eventid, delay, repeats, creature)
@@ -179,6 +184,10 @@ end
 
 function fraseRasky4(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.rasky[4], 0)
+end
+
+function fraseRasky5(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.rasky[5], 0)
 end
 
 function RaskySeVa(eventid, delay, repeats, creature)
@@ -216,6 +225,10 @@ function fraseRuffomaker6(eventid, delay, repeats, creature)
 	creature:SendUnitSay(frases.ruffomaker[6], 0)
 end
 
+function fraseRuffomaker7(eventid, delay, repeats, creature)
+	creature:SendUnitSay(frases.ruffomaker[7], 0)
+end
+
 function RuffoSeVa(eventid, delay, repeats, creature)
 	creature:CastSpell(creature, spells.teleport, true)
 	creature:DespawnOrUnsummon(1000)
@@ -226,6 +239,10 @@ end
 function DarElTransformador(eventid, delay, repeats, player)
 	player:RemoveAura(spells.paralisis)
 	player:AddItem(items.transformador, 1)
+end
+
+function SubirNivelAlPlayer(eventid, delay, repeats, player)
+	player:SetLevel(80)
 end
 
 function OrientacionContraria(orientacion)
