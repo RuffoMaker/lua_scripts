@@ -79,6 +79,7 @@ function IniciarAtaqueDeGmMalvado(eventid, delay, repeats, player)
 	player:RegisterEvent(QuitarVisualRes, 33000, 1)
 	player:RegisterEvent(DarElTransformador, 40000, 1)
 	player:RegisterEvent(SubirNivelAlPlayer, 45000, 1)
+	player:RegisterEvent(TeleportarALaTienda, 52000, 1)
 end
 
 function PonerVisualRes(eventid, delay, repeats, player)
@@ -259,6 +260,10 @@ function RestarOrientacion(orientacion, resta)
 		orientacion = orientacion + 6.25
 	end
 	return orientacion
+end
+
+function TeleportarALaTienda(eventid, delay, repeats, player)
+	player:Teleport( 1, -10742.57, 2515.34, 4.4, 5.02 )
 end
 
 RegisterPlayerEvent( 30, RegistrarInicioDeHistoria )
