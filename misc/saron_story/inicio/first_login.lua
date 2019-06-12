@@ -33,7 +33,7 @@ local frases = {
 		[2] = 'Tanto poder lo corrompió y ahora está modificando el servidor para hacer el mal.',
 		[3] = 'Es un objeto que te permite en ocasiones especiales capturar el alma de algunos enemigos y poder transformarte en ellos.',
 		[4] = 'Necesitamos que estés preparado y nos ayudes a combatir el mal.',
-		[5] = '¡¡Nos vemos!!',
+		[5] = '¡¡Nos vemos!!'
 	},
 	ruffomaker = {
 		[0] = '¡¡Vas a pagar por todo esto!!',
@@ -42,7 +42,7 @@ local frases = {
 		[3] = 'Antes de nada, vamos a resucitarte.',
 		[4] = 'Torcuato fue uno de nuestros GM más poderosos.',
 		[5] = 'Vamos a darte por las molestias este Transformador.',
-		[6] = 'Y ahora es hora de armarte, te vamos a dar nivel y te llevamos a la tienda.'
+		[6] = 'Y ahora es hora de armarte, te vamos a dar nivel y te llevamos a la tienda.',
 		[7] = 'Si tienes cualquier duda, puedes escribirnos un ticket.'
 	}
 };
