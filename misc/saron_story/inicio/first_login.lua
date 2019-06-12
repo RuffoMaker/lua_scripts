@@ -31,7 +31,7 @@ local frases = {
 		[0] = '¡¡Torcuato!! ¡¡Maldito seas!!',
 		[1] = 'Somos los creadores de WoW Saron',
 		[2] = 'Tanto poder lo corrompió y ahora está modificando el servidor para hacer el mal.',
-		[3] = 'Es un objeto que te permite en ocasiones especiales capturar el alma de algunos enemigos y poder transformarte en ellos.',
+		[3] = 'Te permite capturar el alma de algunos enemigos para en ellos.',
 		[4] = 'Necesitamos que estés preparado y nos ayudes a combatir el mal.',
 		[5] = '¡¡Nos vemos!!'
 	},
