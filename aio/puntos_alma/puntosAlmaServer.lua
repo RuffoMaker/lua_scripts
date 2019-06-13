@@ -33,8 +33,9 @@ local function UpdatePlayerStats(player)
     for k, v in pairs(AttributesPointsSpend[guid]) do
         local aura = player:GetAura(AttributesAuraIds[k])
         
+        v = tonumber(v)
+        
         for kv, nv in v do
-            v = tonumber(v)
             if (aura) then
                 aura:SetStackAmount(v)
             else
