@@ -11,7 +11,7 @@ frameAttributes:SetSize(200, 300)
 frameAttributes:SetMovable(true)
 frameAttributes:EnableMouse(true)
 frameAttributes:RegisterForDrag("LeftButton")
-frameAttributes:SetPoint("RIGHT")
+frameAttributes:SetPoint("RIGHT", -100, 0)
 frameAttributes:SetBackdrop(
 {
     bgFile = "Interface/AchievementFrame/UI-Achievement-Parchment-Horizontal",
