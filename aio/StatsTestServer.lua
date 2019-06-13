@@ -98,7 +98,7 @@ function MyHandlers.AttributesIncrease(player, statId)
             	statName = "espiritu"
             end
             
-            CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `"..statName.."` = '"..spend[statId].."' WHERE `guid` = '"..guid..";" )
+            CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `"..statName.."` = '"..spend[statId].."' WHERE `guid` = '"..guid.."';" )
             
             local aura = player:GetAura(AttributesAuraIds[statId])
             if (aura) then
