@@ -27,6 +27,8 @@ end
 AIO.AddOnInit(AddPlayerStats)
 
 local function UpdatePlayerStats(player)
+	local guid = player:GetGUIDLow()
+	CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `fuerza` = '"..AttributesPointsSpend[0].."', `agilidad` = '"..AttributesPointsSpend[1].."', `aguante` = '"..AttributesPointsSpend[2].."', `intelecto` = '"..AttributesPointsSpend[3].."', `espiritu` = '"..AttributesPointsSpend[4].."' WHERE `guid` = '"..guid.."';" )
     AddPlayerStats(AIO.Msg(), player):Send(player)
 end
 
@@ -80,25 +82,6 @@ function MyHandlers.AttributesIncrease(player, statId)
         else
             AttributesPointsLeft[guid] = left - 1
             spend[statId] = spend[statId] + 1
-            local statName = "fuerza"
-            
-            if (statId == 1) then
-            	statName = "agilidad"
-            end
-
-            if (statId == 2) then
-            	statName = "aguante"
-            end
-
-            if (statId == 3) then
-            	statName = "intelecto"
-            end
-
-            if (statId == 4) then
-            	statName = "espiritu"
-            end
-            
-            CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `"..statName.."` = '"..spend[statId].."' WHERE `guid` = '"..guid.."';" )
             
             local aura = player:GetAura(AttributesAuraIds[statId])
             if (aura) then
