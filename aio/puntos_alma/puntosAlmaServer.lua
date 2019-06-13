@@ -32,10 +32,13 @@ local function UpdatePlayerStats(player)
     
     for k, v in pairs(AttributesPointsSpend[guid]) do
         local aura = player:GetAura(AttributesAuraIds[k])
-        if (aura) then
-            aura:SetStackAmount(AttributesPointsSpend[guid][k])
-        else
-            player:AddAura(AttributesAuraIds[k], player)
+        
+        for nv in AttributesPointsSpend[guid][k]
+            if (aura) then
+                aura:SetStackAmount(AttributesPointsSpend[guid][k])
+            else
+                player:AddAura(AttributesAuraIds[k], player)
+            end
         end
     end
         
