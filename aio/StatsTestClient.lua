@@ -48,7 +48,7 @@ frameAttributesTitleBar:SetPoint("TOP", 0, 9)
 local fontAttributesTitleText = frameAttributesTitleBar:CreateFontString("fontAttributesTitleText")
 fontAttributesTitleText:SetFont("Fonts\\FRIZQT__.TTF", 13)
 fontAttributesTitleText:SetSize(190, 5)
-fontAttributesTitleText:SetPoint("TOPLEFT", 0, 0)
+fontAttributesTitleText:SetPoint("CENTER", 0, 0)
 fontAttributesTitleText:SetText("|cffFFC125Subir estadísticas|r")
 
 -- Attribute points left
