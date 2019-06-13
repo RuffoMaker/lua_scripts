@@ -54,6 +54,7 @@ end
 
 local function OnLogin(event, player)
     AttributesInitPoints(player:GetGUIDLow())
+    UpdatePlayerStats(player)
 end
 local function OnLogout(event, player)
     AttributesDeinitPoints(player:GetGUIDLow())
