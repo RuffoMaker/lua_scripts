@@ -49,13 +49,14 @@ local fontAttributesTitleText = frameAttributesTitleBar:CreateFontString("fontAt
 fontAttributesTitleText:SetFont("Fonts\\FRIZQT__.TTF", 13)
 fontAttributesTitleText:SetSize(190, 5)
 fontAttributesTitleText:SetPoint("CENTER", 0, 0)
-fontAttributesTitleText:SetText("|cffFFC125Puntos de estadísticas|r")
+fontAttributesTitleText:SetText("|cffFFC125Subir estadísticas|r")
 
 -- Attribute points left
 local fontAttributesPointsLeft = frameAttributes:CreateFontString("fontAttributesPointsLeft")
 fontAttributesPointsLeft:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesPointsLeft:SetSize(50, 5)
 fontAttributesPointsLeft:SetPoint("TOPLEFT", 107, -25)
+fontAttributesPointsLeft:SetText("|cFF000000Puntos restantes|r")
 
 -- Strength
 local fontAttributesStrength = frameAttributes:CreateFontString("fontAttributesStrength")
