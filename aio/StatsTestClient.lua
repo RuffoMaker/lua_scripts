@@ -55,7 +55,7 @@ fontAttributesTitleText:SetText("|cffFFC125Subir estadísticas|r")
 local fontAttributesPointsLeft = frameAttributes:CreateFontString("fontAttributesPointsLeft")
 fontAttributesPointsLeft:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesPointsLeft:SetSize(50, 5)
-fontAttributesPointsLeft:SetPoint("TOPLEFT", 107, -25)
+fontAttributesPointsLeft:SetPoint("TOPLEFT", 20, -25)
 fontAttributesPointsLeft:SetText("|cFF000000Puntos restantes|r")
 
 -- Strength
