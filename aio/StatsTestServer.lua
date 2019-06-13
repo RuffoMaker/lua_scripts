@@ -29,7 +29,7 @@ AIO.AddOnInit(AddPlayerStats)
 local function UpdatePlayerStats(player)
 	local guid = player:GetGUIDLow()
 	--local consulta = "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `fuerza` = '"..AttributesPointsSpend[0].."', `agilidad` = '"..AttributesPointsSpend[1].."', `aguante` = '"..AttributesPointsSpend[2].."', `intelecto` = '"..AttributesPointsSpend[3].."', `espiritu` = '"..AttributesPointsSpend[4].."' WHERE `guid` = '"..guid.."';"
-	player:SendUnitSay(AttributesPointsSpend[guid], 0)
+	player:SendUnitSay(AttributesPointsSpend[guid][1], 0)
 	CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `fuerza` = '"..AttributesPointsSpend[0].."', `agilidad` = '"..AttributesPointsSpend[1].."', `aguante` = '"..AttributesPointsSpend[2].."', `intelecto` = '"..AttributesPointsSpend[3].."', `espiritu` = '"..AttributesPointsSpend[4].."' WHERE `guid` = '"..guid.."';" )
     AddPlayerStats(AIO.Msg(), player):Send(player)
 end
