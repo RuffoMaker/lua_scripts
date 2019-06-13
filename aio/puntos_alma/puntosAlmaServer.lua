@@ -29,6 +29,16 @@ AIO.AddOnInit(AddPlayerStats)
 local function UpdatePlayerStats(player)
 	local guid = player:GetGUIDLow()
 	CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `fuerza` = '"..AttributesPointsSpend[guid][1].."', `agilidad` = '"..AttributesPointsSpend[guid][2].."', `aguante` = '"..AttributesPointsSpend[guid][3].."', `intelecto` = '"..AttributesPointsSpend[guid][4].."', `espiritu` = '"..AttributesPointsSpend[guid][5].."' WHERE `guid` = '"..guid.."';" )
+    
+    for k, v in pairs(AttributesPointsSpend[guid]) do
+        local aura = player:GetAura(AttributesAuraIds[k])
+        if (aura) then
+            aura:SetStackAmount(AttributesPointsSpend[guid][k])
+        else
+            player:AddAura(AttributesAuraIds[k], player)
+        end
+    end
+        
     AddPlayerStats(AIO.Msg(), player):Send(player)
 end
 
