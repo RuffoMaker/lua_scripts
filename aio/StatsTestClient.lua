@@ -49,7 +49,7 @@ local fontAttributesTitleText = frameAttributesTitleBar:CreateFontString("fontAt
 fontAttributesTitleText:SetFont("Fonts\\FRIZQT__.TTF", 13)
 fontAttributesTitleText:SetSize(190, 5)
 fontAttributesTitleText:SetPoint("CENTER", 0, 0)
-fontAttributesTitleText:SetText("|cffFFC125Attribute Points|r")
+fontAttributesTitleText:SetText("|cffFFC125Puntos de estadísticas|r")
 
 -- Attribute points left
 local fontAttributesPointsLeft = frameAttributes:CreateFontString("fontAttributesPointsLeft")
@@ -62,7 +62,7 @@ local fontAttributesStrength = frameAttributes:CreateFontString("fontAttributesS
 fontAttributesStrength:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesStrength:SetSize(137, 5)
 fontAttributesStrength:SetPoint("TOPLEFT", -20, -45)
-fontAttributesStrength:SetText("|cFF000000Strength|r")
+fontAttributesStrength:SetText("|cFF000000Fuerza|r")
 
 local fontAttributesStrengthValue = frameAttributes:CreateFontString("fontAttributesStrengthValue")
 fontAttributesStrengthValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
@@ -92,7 +92,7 @@ local fontAttributesAgility = frameAttributes:CreateFontString("fontAttributesAg
 fontAttributesAgility:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesAgility:SetSize(137, 5)
 fontAttributesAgility:SetPoint("TOPLEFT", -20, -65)
-fontAttributesAgility:SetText("|cFF000000Agility|r")
+fontAttributesAgility:SetText("|cFF000000Agilidad|r")
 
 local fontAttributesAgilityValue = frameAttributes:CreateFontString("fontAttributesAgilityValue")
 fontAttributesAgilityValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
@@ -122,7 +122,7 @@ local fontAttributesStamina = frameAttributes:CreateFontString("fontAttributesSt
 fontAttributesStamina:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesStamina:SetSize(137, 5)
 fontAttributesStamina:SetPoint("TOPLEFT", -20, -85)
-fontAttributesStamina:SetText("|cFF000000Stamina|r")
+fontAttributesStamina:SetText("|cFF000000Aguante|r")
 
 local fontAttributesStaminaValue = frameAttributes:CreateFontString("fontAttributesStaminaValue")
 fontAttributesStaminaValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
@@ -152,7 +152,7 @@ local fontAttributesIntellect = frameAttributes:CreateFontString("fontAttributes
 fontAttributesIntellect:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesIntellect:SetSize(137, 5)
 fontAttributesIntellect:SetPoint("TOPLEFT", -20, -105)
-fontAttributesIntellect:SetText("|cFF000000Intellect|r")
+fontAttributesIntellect:SetText("|cFF000000Intelecto|r")
 
 local fontAttributesIntellectValue = frameAttributes:CreateFontString("fontAttributesIntellectValue")
 fontAttributesIntellectValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
@@ -182,7 +182,7 @@ local fontAttributesSpirit = frameAttributes:CreateFontString("fontAttributesSpi
 fontAttributesSpirit:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesSpirit:SetSize(137, 5)
 fontAttributesSpirit:SetPoint("TOPLEFT", -20, -125)
-fontAttributesSpirit:SetText("|cFF000000Spirit|r")
+fontAttributesSpirit:SetText("|cFF000000Espíritu|r")
 
 local fontAttributesSpiritValue = frameAttributes:CreateFontString("fontAttributesSpiritValue")
 fontAttributesSpiritValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
