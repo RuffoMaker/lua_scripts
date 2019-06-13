@@ -48,7 +48,7 @@ frameAttributesTitleBar:SetPoint("TOP", 0, 9)
 local fontAttributesTitleText = frameAttributesTitleBar:CreateFontString("fontAttributesTitleText")
 fontAttributesTitleText:SetFont("Fonts\\FRIZQT__.TTF", 13)
 fontAttributesTitleText:SetSize(190, 5)
-fontAttributesTitleText:SetPoint("CENTER", 0, 0)
+fontAttributesTitleText:SetPoint("TOPLEFT", 0, 0)
 fontAttributesTitleText:SetText("|cffFFC125Subir estadísticas|r")
 
 -- Attribute points left
@@ -218,5 +218,5 @@ function MyHandlers.SetStats(player, left, p1, p2, p3, p4, p5)
     fontAttributesStaminaValue:SetText("|cFF000000"..p3.."|r")
     fontAttributesIntellectValue:SetText("|cFF000000"..p4.."|r")
     fontAttributesSpiritValue:SetText("|cFF000000"..p5.."|r")
-    fontAttributesPointsLeft:SetText("|cFF000000"..left.."|r")
+    fontAttributesPointsLeft:SetText("|cFF000000 Puntos restantes"..left.."|r")
 end
