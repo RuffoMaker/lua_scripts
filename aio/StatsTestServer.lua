@@ -1,5 +1,19 @@
 local AIO = AIO or require("AIO")
 
+local charactersSQL = [[
+	CREATE TABLE IF NOT EXISTS `puntos_alma` (
+  `guid` int(11) unsigned NOT NULL,
+  `restantes` int(11) NOT NULL DEFAULT 0,
+  `fuerza` int(11) NOT NULL DEFAULT 0,
+  `agilidad` int(11) NOT NULL DEFAULT 0,
+  `aguante` int(11) NOT NULL DEFAULT 0,
+  `intelecto` int(11) NOT NULL DEFAULT 0,
+  `espiritu` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`guid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+]]
+CharDBQuery(charactersSQL)
+
 local MyHandlers = AIO.AddHandlers("Kaev", {})
 local AttributesPointsLeft = {}
 local AttributesPointsSpend = {}
@@ -17,8 +31,19 @@ local function UpdatePlayerStats(player)
 end
 
 local function AttributesInitPoints(guid)
-    AttributesPointsLeft[guid] = 5
-    AttributesPointsSpend[guid] = { 0, 0, 0, 0, 0 }
+	puntosAlma = CharDBQuery( "SELECT `restantes`, `fuerza`, `agilidad`, `aguante`, `intelecto`, `espiritu` FROM `puntos_alma` WHERE `guid` = '"..guid.."';" )
+    if (puntosAlma) then
+		repeat
+			AttributesPointsLeft[guid] = puntosAlma:GetUInt32(0)
+    		AttributesPointsSpend[guid] = { puntosAlma:GetUInt32(1), puntosAlma:GetUInt32(2), puntosAlma:GetUInt32(3), puntosAlma:GetUInt32(4), puntosAlma:GetUInt32(5) }
+		until not puntosAlma:NextRow()
+	else
+		CharDBQuery( "INSERT INTO `puntos_alma` (`guid`, `restantes`, `fuerza`, `agilidad`, `aguante`, `intelecto`, `espiritu`) VALUES ('"..guid.."', '5', '0', '0', '0', '0', '0');" )
+		AttributesPointsLeft[guid] = 5
+		AttributesPointsSpend[guid] = { 0, 0, 0, 0, 0 }
+	end
+
+
 end
 local function AttributesDeinitPoints(guid)
     AttributesPointsLeft[guid] = nil
@@ -40,7 +65,7 @@ end
 
 function MyHandlers.AttributesIncrease(player, statId)
     if (player:IsInCombat()) then
-        player:SendBroadcastMessage("Du kannst während einem Kampfes keine Attributspunkte verteilen.")
+        player:SendBroadcastMessage("No puedes asignar los puntos de alma mientras estás en combate.")
     else
         local guid = player:GetGUIDLow()
         local spend, left = AttributesPointsSpend[guid], AttributesPointsLeft[guid]
@@ -51,7 +76,7 @@ function MyHandlers.AttributesIncrease(player, statId)
             return
         end
         if (left <= 0) then
-            player:SendBroadcastMessage("Du hast nicht genuegend Attributspunkte.")
+            player:SendBroadcastMessage("No tienes puntos de alma disponibles.")
         else
             AttributesPointsLeft[guid] = left - 1
             spend[statId] = spend[statId] + 1
@@ -68,7 +93,7 @@ end
 
 function MyHandlers.AttributesDecrease(player, statId)
     if (player:IsInCombat()) then
-        player:SendBroadcastMessage("Du kannst während einem Kampfes keine Attributspunkte verteilen.")
+        player:SendBroadcastMessage("No puedes asignar los puntos de alma mientras estás en combate.")
     else
         local guid = player:GetGUIDLow()
         local spend, left = AttributesPointsSpend[guid], AttributesPointsLeft[guid]
@@ -79,7 +104,7 @@ function MyHandlers.AttributesDecrease(player, statId)
             return
         end
         if (spend[statId] <= 0) then
-            player:SendBroadcastMessage("Es sind keine Punkte auf diesem Attribut verteilt.")
+            player:SendBroadcastMessage("No hay puntos de alma distribuidos en este atributo.")
         else
             AttributesPointsLeft[guid] = left + 1
             spend[statId] = spend[statId] - 1
