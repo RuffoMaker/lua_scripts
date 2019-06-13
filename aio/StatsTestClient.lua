@@ -49,7 +49,7 @@ local fontAttributesTitleText = frameAttributesTitleBar:CreateFontString("fontAt
 fontAttributesTitleText:SetFont("Fonts\\FRIZQT__.TTF", 13)
 fontAttributesTitleText:SetSize(190, 5)
 fontAttributesTitleText:SetPoint("CENTER", 0, 0)
-fontAttributesTitleText:SetText("|cffFFC125Subir estadísticas|r")
+fontAttributesTitleText:SetText("|cffFFC125Puntos de Alma|r")
 
 -- Attribute points left
 local fontAttributesPointsLeft = frameAttributes:CreateFontString("fontAttributesPointsLeft")

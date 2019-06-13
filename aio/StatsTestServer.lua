@@ -94,8 +94,10 @@ function MyHandlers.AttributesDecrease(player, statId)
     end
 end
 
-local function AttributesOnChangeLevel(event, player, oldLevel)
-    AIO.Handle(player, "Kaev", "ShowAttributes")
-    return false
+local function AttributesOnCommand(event, player, command)
+	if(command == "alma") then
+    	AIO.Handle(player, "Kaev", "ShowAttributes")
+    	return false
+    end
 end
-RegisterPlayerEvent(13, AttributesOnChangeLevel)
+RegisterPlayerEvent(42, AttributesOnCommand)
