@@ -29,23 +29,20 @@ AIO.AddOnInit(AddPlayerStats)
 local function UpdatePlayerStats(player)
 	local guid = player:GetGUIDLow()
 	CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `fuerza` = '"..AttributesPointsSpend[guid][1].."', `agilidad` = '"..AttributesPointsSpend[guid][2].."', `aguante` = '"..AttributesPointsSpend[guid][3].."', `intelecto` = '"..AttributesPointsSpend[guid][4].."', `espiritu` = '"..AttributesPointsSpend[guid][5].."' WHERE `guid` = '"..guid.."';" )
-    UpdatePlayerAlma(player)
-end
-
-local function UpdatePlayerAlma(player)
-    local guid = player:GetGUIDLow()
+    
     for k, v in pairs(AttributesPointsSpend[guid]) do
         local aura = player:GetAura(AttributesAuraIds[k])
+        player:SendUnitSay(k, 0)
         
         local contador = 1
 
         while contador <= v do
             if (aura) then
                 aura:SetStackAmount(v)
-                player:SendUnitSay(contador, 0)
+                --player:SendUnitSay(contador, 0)
             else
                 player:AddAura(AttributesAuraIds[k], player)
-                player:SendUnitSay(contador, 0)
+                --player:SendUnitSay(contador, 0)
             end
             contador = contador + 1
         end
@@ -76,7 +73,7 @@ end
 
 local function OnLogin(event, player)
     AttributesInitPoints(player:GetGUIDLow())
-    UpdatePlayerAlma(player)
+    UpdatePlayerStats(player)
     AIO.Handle(player, "Kaev", "ShowAttributes")
 end
 local function OnLogout(event, player)
