@@ -27,7 +27,7 @@ frameAttributes:Hide()
 
 -- Close button
 local buttonAttributesClose = CreateFrame("Button", "buttonAttributesClose", frameAttributes, "UIPanelCloseButton")
-buttonAttributesClose:SetPoint("TOPRIGHT", -5, -5)
+buttonAttributesClose:SetPoint("TOPRIGHT", -5, -10)
 buttonAttributesClose:EnableMouse(true)
 buttonAttributesClose:SetSize(27, 27)
 
@@ -79,14 +79,14 @@ buttonAttributesIncreaseStrength:SetHighlightTexture("Interface/BUTTONS/UI-Panel
 buttonAttributesIncreaseStrength:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Down")
 buttonAttributesIncreaseStrength:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 1) end)
        
-local buttonAttributesDecreaseStrength = CreateFrame("Button", "buttonAttributesDecreaseStrength", frameAttributes, nil)
-buttonAttributesDecreaseStrength:SetSize(20, 20)
-buttonAttributesDecreaseStrength:SetPoint("TOPLEFT", 104, -39)
-buttonAttributesDecreaseStrength:EnableMouse(true)
-buttonAttributesDecreaseStrength:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-PrevPage-Up")
-buttonAttributesDecreaseStrength:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
-buttonAttributesDecreaseStrength:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-PrevPage-Down")
-buttonAttributesDecreaseStrength:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesDecrease", 1) end)
+--local buttonAttributesDecreaseStrength = CreateFrame("Button", "buttonAttributesDecreaseStrength", frameAttributes, nil)
+--buttonAttributesDecreaseStrength:SetSize(20, 20)
+--buttonAttributesDecreaseStrength:SetPoint("TOPLEFT", 104, -39)
+--buttonAttributesDecreaseStrength:EnableMouse(true)
+--buttonAttributesDecreaseStrength:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-PrevPage-Up")
+--buttonAttributesDecreaseStrength:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
+--buttonAttributesDecreaseStrength:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-PrevPage-Down")
+--buttonAttributesDecreaseStrength:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesDecrease", 1) end)
 
 -- Agility
 local fontAttributesAgility = frameAttributes:CreateFontString("fontAttributesAgility")
