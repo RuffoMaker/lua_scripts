@@ -5,7 +5,7 @@ end
 
 local MyHandlers = AIO.AddHandlers("Kaev", {})
 
-local formFramework = FormFramework or require("FormFramework")
+local formFramework = require("FormFramework")
 
 -- Attribute window
 local frameAttributes = CreateFrame("Frame", "frameAttributes", UIParent)
