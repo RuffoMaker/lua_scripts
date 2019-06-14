@@ -210,7 +210,15 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 
 
 local buttonAddSoulPoints = frameAttributes:CreateButton("", "Comprar un punto de alma", 50, 25, 144, -189)
-
+local buttonAddSoulPoints = CreateFrame("Button", "buttonAddSoulPoints", frameAttributes, nil)
+buttonAddSoulPoints:SetSize(50, 25)
+buttonAddSoulPoints:SetPoint("TOPLEFT", 10, -189)
+buttonAddSoulPoints:EnableMouse(true)
+buttonAddSoulPoints:SetNormalTexture("Interface/BUTTONS/UI-Panel-Button-Up")
+buttonAddSoulPoints:SetHighlightTexture("UI-Panel-Button-Highlight")
+buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
+buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
+    
 
 
 function MyHandlers.ShowAttributes(player)
