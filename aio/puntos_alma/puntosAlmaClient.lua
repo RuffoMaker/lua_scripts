@@ -210,8 +210,8 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 
 
 local buttonAddSoulPoints = CreateFrame("Button", "buttonAddSoulPoints", frameAttributes, nil)
-buttonAddSoulPoints:SetSize(250, 125)
-buttonAddSoulPoints:SetPoint("TOPLEFT", 30, -209)
+buttonAddSoulPoints:SetSize(250, 50)
+buttonAddSoulPoints:SetPoint("TOPLEFT", 15, -209)
 buttonAddSoulPoints:EnableMouse(true)
 buttonAddSoulPoints:SetNormalTexture("Interface/BUTTONS/UI-Panel-Button-Up")
 buttonAddSoulPoints:SetHighlightTexture("UI-Panel-Button-Highlight")
