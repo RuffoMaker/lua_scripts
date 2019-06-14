@@ -36,7 +36,7 @@ local function UpdatePlayerStats(player)
         local contador = 1
 
         while contador <= v do
-            if (aura) then
+            if (contador > 1) then
                 aura:SetStackAmount(v)
                 player:SendUnitSay("Stackeo aura "..contador, 0)
             else
