@@ -217,8 +217,6 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAddSoulPoints:SetHighlightTexture("UI-Panel-Button-Highlight")
 --buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
 --buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
-    
-local buttonAddSoulPoints = createButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
 function createButton(frame, text, width, height, left, top, position)
     local button = CreateFrame("Button", "button", frame, nil)
@@ -249,6 +247,8 @@ function createButton(frame, text, width, height, left, top, position)
 
     return button
 end
+
+local buttonAddSoulPoints = createButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
 
 function MyHandlers.ShowAttributes(player)
