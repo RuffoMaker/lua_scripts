@@ -27,7 +27,7 @@ frameAttributes:Hide()
 
 -- Close button
 local buttonAttributesClose = CreateFrame("Button", "buttonAttributesClose", frameAttributes, "UIPanelCloseButton")
-buttonAttributesClose:SetPoint("TOPRIGHT", 10, 10)
+buttonAttributesClose:SetPoint("TOPRIGHT", 7, 7)
 buttonAttributesClose:EnableMouse(true)
 buttonAttributesClose:SetSize(27, 27)
 
