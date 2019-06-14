@@ -220,8 +220,8 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
     
 local buttonAddSoulPoints = CreateFrame("Button", "buttonAddSoulPoints", frameAttributes, nil)
 buttonAddSoulPoints:SetPoint("BOTTOM", 0, 0)
-buttonAddSoulPoints:SetWidth(200)
-buttonAddSoulPoints:SetHeight(50)
+buttonAddSoulPoints:SetWidth(150)
+buttonAddSoulPoints:SetHeight(30)
 
 buttonAddSoulPoints:SetText("test")
 buttonAddSoulPoints:SetNormalFontObject("GameFontNormal")
