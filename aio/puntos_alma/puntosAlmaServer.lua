@@ -31,12 +31,11 @@ local function UpdatePlayerStats(player)
 	CharDBQuery( "UPDATE `puntos_alma` SET `restantes` = '"..AttributesPointsLeft[guid].."', `fuerza` = '"..AttributesPointsSpend[guid][1].."', `agilidad` = '"..AttributesPointsSpend[guid][2].."', `aguante` = '"..AttributesPointsSpend[guid][3].."', `intelecto` = '"..AttributesPointsSpend[guid][4].."', `espiritu` = '"..AttributesPointsSpend[guid][5].."' WHERE `guid` = '"..guid.."';" )
     
     for k, v in pairs(AttributesPointsSpend[guid]) do
-        local aura = player:GetAura(AttributesAuraIds[k])
-        
         local contador = 1
 
         while contador <= v do
-            if (contador > 1) then
+            local aura = player:GetAura(AttributesAuraIds[k])
+            if (aura) then
                 aura:SetStackAmount(v)
                 player:SendUnitSay("Stackeo aura "..contador, 0)
             else
