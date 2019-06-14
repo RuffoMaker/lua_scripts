@@ -1,4 +1,4 @@
-FormFramework = {}
+local FormFramework = {}
 
 function FormFramework:CreateButton(frame, text, width, height, left, top, position)
 	local button = CreateFrame("Button", "button", frame, nil)
@@ -29,3 +29,5 @@ function FormFramework:CreateButton(frame, text, width, height, left, top, posit
 
     return button
 end
+
+return FormFramework
