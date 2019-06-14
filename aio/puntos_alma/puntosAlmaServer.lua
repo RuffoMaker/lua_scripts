@@ -33,14 +33,15 @@ local function UpdatePlayerStats(player)
     for k, v in pairs(AttributesPointsSpend[guid]) do
         local aura = player:GetAura(AttributesAuraIds[k])
         
-        v = tonumber(v)
-        
-        for kv, nv in v do
+        local contador = 1
+
+        while contador <= v do
             if (aura) then
                 aura:SetStackAmount(v)
             else
                 player:AddAura(AttributesAuraIds[k], player)
             end
+            contador = contador + 1
         end
     end
         
