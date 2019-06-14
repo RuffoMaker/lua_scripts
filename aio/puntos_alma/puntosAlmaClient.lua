@@ -3,9 +3,9 @@ if AIO.AddAddon() then
     return
 end
 
-local FormFramework = FormFramework or require("FormFramework")
-
 local MyHandlers = AIO.AddHandlers("Kaev", {})
+
+local FormFramework = FormFramework or require("FormFramework")
 
 -- Attribute window
 local frameAttributes = CreateFrame("Frame", "frameAttributes", UIParent)
