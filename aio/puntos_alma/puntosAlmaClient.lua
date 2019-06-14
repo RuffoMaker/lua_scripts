@@ -209,7 +209,7 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAttributesDecreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesDecrease", 5) end)
 
 
-local buttonAddSoulPoints = frameAttributes:CreateButton(frameAttributes, "Comprar un punto de alma", 50, 25, 144, -189)
+local buttonAddSoulPoints = frameAttributes:CreateButton("", "Comprar un punto de alma", 50, 25, 144, -189)
 
 
 
