@@ -210,9 +210,7 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 
 
 local buttonAddSoulPoints = frameAttributes:CreateButton(frameAttributes, "Comprar un punto de alma", 50, 25, 144, -189)
-function buttonAddSoulPoints:OnClick()
 
-end
 
 
 function MyHandlers.ShowAttributes(player)
