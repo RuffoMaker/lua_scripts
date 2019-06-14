@@ -218,7 +218,7 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
 --buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
     
-local buttonAddSoulPoints = CreateFrame("buttonAddSoulPoints", nil, frameAttributes)
+local buttonAddSoulPoints = CreateFrame("Button", "buttonAddSoulPoints", frameAttributes, nil)
 buttonAddSoulPoints:SetPoint("CENTER", mainframe, "CENTER", 0, 0)
 buttonAddSoulPoints:SetWidth(200)
 buttonAddSoulPoints:SetHeight(50)
