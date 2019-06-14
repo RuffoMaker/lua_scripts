@@ -32,17 +32,16 @@ local function UpdatePlayerStats(player)
     
     for k, v in pairs(AttributesPointsSpend[guid]) do
         local aura = player:GetAura(AttributesAuraIds[k])
-        player:SendUnitSay(k, 0)
         
         local contador = 1
 
         while contador <= v do
             if (aura) then
                 aura:SetStackAmount(v)
-                --player:SendUnitSay(contador, 0)
+                player:SendUnitSay("Stackeo aura "..contador, 0)
             else
                 player:AddAura(AttributesAuraIds[k], player)
-                --player:SendUnitSay(contador, 0)
+                player:SendUnitSay("Pongo aura "..contador, 0)
             end
             contador = contador + 1
         end
