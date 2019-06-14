@@ -208,6 +208,18 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAttributesDecreaseSpirit:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-PrevPage-Down")
 --buttonAttributesDecreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesDecrease", 5) end)
 
+
+local buttonAddSoulPoints = CreateFrame("Button", "buttonAddSoulPoints", frameAttributes, nil)
+buttonAddSoulPoints:SetSize(20, 20)
+buttonAddSoulPoints:SetPoint("TOPLEFT", 144, -189)
+buttonAddSoulPoints:EnableMouse(true)
+buttonAddSoulPoints:SetNormalTexture("Interface\\Buttons\\CancelButton-Up")
+buttonAddSoulPoints:SetPushedTexture("Interface\\Buttons\\CancelButton-Down")
+buttonAddSoulPoints:SetHighlightTexture("Interface\\Buttons\\CancelButton-Highlight")
+buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
+       
+
+
 function MyHandlers.ShowAttributes(player)
     frameAttributes:Show()
 end
