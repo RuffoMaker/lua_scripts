@@ -38,8 +38,10 @@ local function UpdatePlayerStats(player)
         while contador <= v do
             if (aura) then
                 aura:SetStackAmount(v)
+                player:Unit:SendUnitSay(contador, 0)
             else
                 player:AddAura(AttributesAuraIds[k], player)
+                player:Unit:SendUnitSay(contador, 0)
             end
             contador = contador + 1
         end
