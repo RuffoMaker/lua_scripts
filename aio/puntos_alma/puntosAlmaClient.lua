@@ -218,31 +218,37 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
 --buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
     
-local buttonAddSoulPoints = CreateFrame("Button", "buttonAddSoulPoints", frameAttributes, nil)
-buttonAddSoulPoints:SetPoint("BOTTOM", 0, 0)
-buttonAddSoulPoints:SetWidth(150)
-buttonAddSoulPoints:SetHeight(30)
+local buttonAddSoulPoints = createButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
-buttonAddSoulPoints:SetText("test")
-buttonAddSoulPoints:SetNormalFontObject("GameFontNormal")
+function createButton(frame, text, width, height, left, top, position)
+    local button = CreateFrame("Button", "button", frame, nil)
+    button:SetPoint(position, left, top)
+    button:SetWidth(width)
+    button:SetHeight(height)
 
-local ntex = buttonAddSoulPoints:CreateTexture()
-ntex:SetTexture("Interface/Buttons/UI-Panel-Button-Up")
-ntex:SetTexCoord(0, 0.625, 0, 0.6875)
-ntex:SetAllPoints() 
-buttonAddSoulPoints:SetNormalTexture(ntex)
+    button:SetText(text)
+    button:SetNormalFontObject("GameFontNormal")
 
-local htex = buttonAddSoulPoints:CreateTexture()
-htex:SetTexture("Interface/Buttons/UI-Panel-Button-Highlight")
-htex:SetTexCoord(0, 0.625, 0, 0.6875)
-htex:SetAllPoints()
-buttonAddSoulPoints:SetHighlightTexture(htex)
+    local ntex = button:CreateTexture()
+    ntex:SetTexture("Interface/Buttons/UI-Panel-Button-Up")
+    ntex:SetTexCoord(0, 0.625, 0, 0.6875)
+    ntex:SetAllPoints() 
+    button:SetNormalTexture(ntex)
 
-local ptex = buttonAddSoulPoints:CreateTexture()
-ptex:SetTexture("Interface/Buttons/UI-Panel-Button-Down")
-ptex:SetTexCoord(0, 0.625, 0, 0.6875)
-ptex:SetAllPoints()
-buttonAddSoulPoints:SetPushedTexture(ptex)
+    local htex = button:CreateTexture()
+    htex:SetTexture("Interface/Buttons/UI-Panel-Button-Highlight")
+    htex:SetTexCoord(0, 0.625, 0, 0.6875)
+    htex:SetAllPoints()
+    button:SetHighlightTexture(htex)
+
+    local ptex = button:CreateTexture()
+    ptex:SetTexture("Interface/Buttons/UI-Panel-Button-Down")
+    ptex:SetTexCoord(0, 0.625, 0, 0.6875)
+    ptex:SetAllPoints()
+    button:SetPushedTexture(ptex)
+
+    return button
+end
 
 
 function MyHandlers.ShowAttributes(player)
