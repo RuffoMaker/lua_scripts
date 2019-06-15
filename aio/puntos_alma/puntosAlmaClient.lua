@@ -201,12 +201,12 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 
 
 local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
-buttonOpenAlma:SetSize(20, 20)
+buttonOpenAlma:SetSize(27, 27)
 buttonOpenAlma:SetPoint("TOPLEFT", -25, -60)
 buttonOpenAlma:EnableMouse(true)
 buttonOpenAlma:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
-buttonOpenAlma:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
-buttonOpenAlma:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Down")
+buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
+buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
 
 buttonOpenAlma:SetScript("OnEnter", function()
     GameTooltip:SetOwner(this, "ANCHOR_LEFT");
