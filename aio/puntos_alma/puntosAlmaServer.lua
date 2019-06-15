@@ -99,6 +99,34 @@ function MyHandlers.AddPoints(player)
     end
 end
 
+function MyHandlers.ResetPoints(player)
+    if (player:IsInCombat()) then
+        player:SendBroadcastMessage("No puedes reiniciar los puntos de alma mientras estás en combate.")
+    else
+        local guid = player:GetGUIDLow()
+
+        if (player:GetHonorPoints() < 1000) then
+            player:SendBroadcastMessage("No tienes suficientes puntos de honor.")
+        else
+            player:ModifyHonorPoints(-1000)
+            local suma = AttributesPointsLeft[guid]
+            suma = suma + AttributesPointsSpend[guid][1]
+            suma = suma + AttributesPointsSpend[guid][2]
+            suma = suma + AttributesPointsSpend[guid][3]
+            suma = suma + AttributesPointsSpend[guid][4]
+            suma = suma + AttributesPointsSpend[guid][5]
+            AttributesPointsLeft[guid] = suma
+            AttributesPointsSpend[guid][1] = 0
+            AttributesPointsSpend[guid][2] = 0
+            AttributesPointsSpend[guid][3] = 0
+            AttributesPointsSpend[guid][4] = 0
+            AttributesPointsSpend[guid][5] = 0
+            player:SendBroadcastMessage("Has reiniciado tus puntos de alma.")
+            UpdatePlayerStats(player)
+        end
+    end
+end
+
 function MyHandlers.AttributesIncrease(player, statId)
     if (player:IsInCombat()) then
         player:SendBroadcastMessage("No puedes asignar los puntos de alma mientras estás en combate.")
