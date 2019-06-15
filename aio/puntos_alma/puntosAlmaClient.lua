@@ -206,14 +206,9 @@ buttonOpenAlma:SetSize(50, 50)
 buttonOpenAlma:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlma:EnableMouse(true)
 buttonOpenAlma:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
-buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
-buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
-
-
-
-buttonOpenAlma:SetScript("OnLoad", function()
-    buttonOpenAlma:SetFrameLevel(buttonOpenAlma:GetFrameLevel()+1)
-end)
+buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorderHighlight")
+buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorderDown")
+buttonOpenAlma:SetFrameLevel(buttonOpenAlma:GetFrameLevel()+10)
 
 buttonOpenAlma:SetScript("OnEnter", function()
     GameTooltip:SetOwner(this, "ANCHOR_LEFT");
