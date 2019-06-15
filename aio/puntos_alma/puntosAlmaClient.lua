@@ -232,8 +232,8 @@ buttonOpenAlma:SetScript("OnMouseUp", function()
 end)
 
 local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
-buttonOpenAlmaBG:SetSize(25, 25)
-buttonOpenAlmaBG:SetPoint("TOPLEFT", -20, -70)
+buttonOpenAlmaBG:SetSize(20, 20)
+buttonOpenAlmaBG:SetPoint("TOPLEFT", -22, -72)
 buttonOpenAlmaBG:EnableMouse(true)
 buttonOpenAlmaBG:SetNormalTexture("Interface/Icons/INV_Enchant_EssenceAstralSmall")
 
