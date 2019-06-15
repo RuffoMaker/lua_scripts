@@ -226,6 +226,10 @@ buttonOpenAlma:SetScript("OnLeave", function()
     GameTooltip:Hide();
 end)
 
+buttonOpenAlma:SetScript("OnMouseUp", function()
+    frameAttributes:Show()
+end)
+
 
 
        
