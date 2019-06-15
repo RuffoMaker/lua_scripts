@@ -248,7 +248,7 @@ local function createButton(frame, text, width, height, left, top, position)
     return button
 end
 
-local buttonAddSoulPoints = FormFramework:CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
+local buttonAddSoulPoints = createButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
 
 function MyHandlers.ShowAttributes(player)
