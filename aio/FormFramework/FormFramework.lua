@@ -29,5 +29,3 @@ function FormFramework.CreateButton(frame, text, width, height, left, top, posit
 
     return button
 end
-
-return FormFramework
