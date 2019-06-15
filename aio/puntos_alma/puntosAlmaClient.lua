@@ -208,6 +208,12 @@ buttonOpenAlma:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
 buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
 
+
+
+buttonOpenAlma:SetScript("OnLoad", function()
+    buttonOpenAlma:SetFrameLevel(buttonOpenAlma:GetFrameLevel()+1)
+end)
+
 buttonOpenAlma:SetScript("OnEnter", function()
     GameTooltip:SetOwner(this, "ANCHOR_LEFT");
     GameTooltip:AddLine("Puntos de Alma");
