@@ -218,11 +218,12 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
 --buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
 
-local buttonAddSoulPoints = FormFramework:CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
+--local buttonAddSoulPoints = FormFramework:CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
 
 function MyHandlers.ShowAttributes(player)
     frameAttributes:Show()
+    player:SendUnitSay(FACTION_BOOTY_BAY, 0)
 end
 
 function MyHandlers.SetStats(player, left, p1, p2, p3, p4, p5)
