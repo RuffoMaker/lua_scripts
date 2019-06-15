@@ -235,7 +235,7 @@ local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
 buttonOpenAlmaBG:SetSize(25, 25)
 buttonOpenAlmaBG:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlmaBG:EnableMouse(true)
-buttonOpenAlmaBG:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
+buttonOpenAlmaBG:SetNormalTexture("Interface/Icons/INV_Misc_QuestionMark")
 
 
 
