@@ -204,7 +204,7 @@ local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(20, 20)
 buttonOpenAlma:SetPoint("TOPLEFT", -25, -60)
 buttonOpenAlma:EnableMouse(true)
-buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
+buttonOpenAlma:SetNormalTexture("Interface\Minimap\MiniMap-TrackingBorder")
 buttonOpenAlma:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Down")
 
@@ -212,7 +212,6 @@ buttonOpenAlma:SetScript("OnEnter", function()
     GameTooltip:SetOwner(this, "ANCHOR_LEFT");
     GameTooltip:AddLine("Puntos de Alma");
     GameTooltip:AddLine("Escribe .alma para mostrar la ventana de puntos de alma.");
-    GameTooltip:AddLine(" ");
     GameTooltip:AddLine("Click izquierdo para mostrar la ventana de pultos de alma.");
     GameTooltip:Show();
 end)
