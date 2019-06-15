@@ -68,7 +68,7 @@ fontAttributesStrength:SetText("|cFF000000Fuerza|r")
 local fontAttributesStrengthValue = frameAttributes:CreateFontString("fontAttributesStrengthValue")
 fontAttributesStrengthValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontAttributesStrengthValue:SetSize(50, 5)
-fontAttributesStrengthValue:SetPoint("TOPLEFT", 107, -65)
+fontAttributesStrengthValue:SetPoint("TOPLEFT", 100, -65)
 
 local buttonAttributesIncreaseStrength = CreateFrame("Button", "buttonAttributesIncreaseStrength", frameAttributes, nil)
 buttonAttributesIncreaseStrength:SetSize(20, 20)
