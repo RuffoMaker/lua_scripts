@@ -205,7 +205,7 @@ local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(50, 50)
 buttonOpenAlma:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlma:EnableMouse(true)
-buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
+buttonOpenAlma:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
 buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
 
@@ -235,7 +235,7 @@ local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
 buttonOpenAlmaBG:SetSize(50, 50)
 buttonOpenAlmaBG:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlmaBG:EnableMouse(true)
-buttonOpenAlmaBG:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
+buttonOpenAlmaBG:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
 
 
 
