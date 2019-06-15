@@ -252,7 +252,7 @@ end
 local fontPointsValue = frameAttributes:CreateFontString("fontPointsValue")
 fontPointsValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontPointsValue:SetSize(150, 5)
-fontPointsValue:SetPoint("BOTTOM", 0, 80)
+fontPointsValue:SetPoint("BOTTOM", 0, 110)
 fontPointsValue:SetText("|cFF0000001 Punto = 200 Honor|r")
 
 local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 150, 30, 0, 70, "BOTTOM")
@@ -270,5 +270,4 @@ function MyHandlers.SetStats(player, left, p1, p2, p3, p4, p5)
     fontAttributesIntellectValue:SetText("|cFF000000"..p4.."|r")
     fontAttributesSpiritValue:SetText("|cFF000000"..p5.."|r")
     fontAttributesPointsLeft:SetText("|cFF000000 Puntos disponibles: "..left.."|r")
-    fontPointsValue:SetText("|cFF0000001 Punto = 200 Honor|r")
 end
