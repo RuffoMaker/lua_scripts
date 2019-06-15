@@ -211,11 +211,9 @@ buttonOpenAlma:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Dow
 buttonOpenAlma:SetScript("OnEnter", function()
     GameTooltip:SetOwner(this, "ANCHOR_LEFT");
     GameTooltip:AddLine("Puntos de Alma");
-    GameTooltip:AddLine("Type /gomove to show or hide the GOMove window");
-    GameTooltip:AddLine("Type /gomove reset to reset the gomove UI positions");
+    GameTooltip:AddLine("Escribe .alma para mostrar la ventana de puntos de alma.");
     GameTooltip:AddLine(" ");
-    GameTooltip:AddLine("Left click to show/hide");
-    GameTooltip:AddLine("Right click to drag this");
+    GameTooltip:AddLine("Click izquierdo para mostrar la ventana de pultos de alma.");
     GameTooltip:Show();
 end)
 
