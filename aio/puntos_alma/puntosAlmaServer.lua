@@ -93,6 +93,7 @@ function MyHandlers.AddPoints(player)
         else
             player:ModifyHonorPoints(-200)
             AttributesPointsLeft[guid] = AttributesPointsLeft[guid] + 1
+            player:SendBroadcastMessage("Has comprado un punto de alma.")
             UpdatePlayerStats(player)
         end
     end
