@@ -210,7 +210,7 @@ local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(50, 50)
 buttonOpenAlma:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlma:EnableMouse(true)
-buttonOpenAlma:SetNormalTexture("Interface/QuestFrame/UI-QuestLogTitleHighlight")
+buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
 buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
 
