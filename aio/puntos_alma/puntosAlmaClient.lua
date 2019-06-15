@@ -218,12 +218,41 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
 --buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
 
---local buttonAddSoulPoints = FormFramework:CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
+local function createButton(frame, text, width, height, left, top, position)
+    local button = CreateFrame("Button", "button", frame, nil)
+    button:SetPoint(position, left, top)
+    button:SetWidth(width)
+    button:SetHeight(height)
+
+    button:SetText(text)
+    button:SetNormalFontObject("GameFontNormal")
+
+    local ntex = button:CreateTexture()
+    ntex:SetTexture("Interface/Buttons/UI-Panel-Button-Up")
+    ntex:SetTexCoord(0, 0.625, 0, 0.6875)
+    ntex:SetAllPoints() 
+    button:SetNormalTexture(ntex)
+
+    local htex = button:CreateTexture()
+    htex:SetTexture("Interface/Buttons/UI-Panel-Button-Highlight")
+    htex:SetTexCoord(0, 0.625, 0, 0.6875)
+    htex:SetAllPoints()
+    button:SetHighlightTexture(htex)
+
+    local ptex = button:CreateTexture()
+    ptex:SetTexture("Interface/Buttons/UI-Panel-Button-Down")
+    ptex:SetTexCoord(0, 0.625, 0, 0.6875)
+    ptex:SetAllPoints()
+    button:SetPushedTexture(ptex)
+
+    return button
+end
+
+local buttonAddSoulPoints = FormFramework:CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
 
 function MyHandlers.ShowAttributes(player)
     frameAttributes:Show()
-    player:SendUnitSay(FACTION_BOOTY_BAY, 0)
 end
 
 function MyHandlers.SetStats(player, left, p1, p2, p3, p4, p5)
