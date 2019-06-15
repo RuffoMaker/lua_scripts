@@ -207,6 +207,24 @@ buttonOpenAlma:EnableMouse(true)
 buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
 buttonOpenAlma:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Down")
+
+buttonOpenAlma:SetScript("OnEnter", function()
+    GameTooltip:SetOwner(this, "ANCHOR_LEFT");
+    GameTooltip:AddLine("Puntos de Alma");
+    GameTooltip:AddLine("Type /gomove to show or hide the GOMove window");
+    GameTooltip:AddLine("Type /gomove reset to reset the gomove UI positions");
+    GameTooltip:AddLine(" ");
+    GameTooltip:AddLine("Left click to show/hide");
+    GameTooltip:AddLine("Right click to drag this");
+    GameTooltip:Show();
+end)
+
+buttonOpenAlma:SetScript("OnLeave", function()
+    GameTooltip:Hide();
+end)
+
+
+
        
 --buttonAttributesDecreaseSpirit = CreateFrame("Button", "buttonAttributesDecreaseSpirit", frameAttributes, nil)
 --buttonAttributesDecreaseSpirit:SetSize(20, 20)
