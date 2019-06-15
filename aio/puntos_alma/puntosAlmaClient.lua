@@ -200,11 +200,6 @@ buttonAttributesIncreaseSpirit:SetPushedTexture("Interface/BUTTONS/UI-SpellbookI
 buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
 
 
-local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
-buttonOpenAlmaBG:SetSize(50, 50)
-buttonOpenAlmaBG:SetPoint("TOPLEFT", -20, -70)
-buttonOpenAlmaBG:EnableMouse(true)
-buttonOpenAlmaBG:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
 
 local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(50, 50)
@@ -235,6 +230,13 @@ end)
 buttonOpenAlma:SetScript("OnMouseUp", function()
     frameAttributes:Show()
 end)
+
+local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
+buttonOpenAlmaBG:SetSize(50, 50)
+buttonOpenAlmaBG:SetPoint("TOPLEFT", -20, -70)
+buttonOpenAlmaBG:EnableMouse(true)
+buttonOpenAlmaBG:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
+
 
 
 
