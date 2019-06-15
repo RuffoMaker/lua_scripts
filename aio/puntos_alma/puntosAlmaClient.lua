@@ -200,7 +200,7 @@ buttonAttributesIncreaseSpirit:SetPushedTexture("Interface/BUTTONS/UI-SpellbookI
 buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
 
 
-local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", "Minimap", nil)
+local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(20, 20)
 buttonOpenAlma:SetPoint("TOPLEFT", -25, -60)
 buttonOpenAlma:EnableMouse(true)
