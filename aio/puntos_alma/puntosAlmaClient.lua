@@ -233,7 +233,7 @@ end)
 
 local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
 buttonOpenAlmaBG:SetSize(20, 20)
-buttonOpenAlmaBG:SetPoint("TOPLEFT", -22, -72)
+buttonOpenAlmaBG:SetPoint("TOPLEFT", -25, -75)
 buttonOpenAlmaBG:EnableMouse(true)
 buttonOpenAlmaBG:SetNormalTexture("Interface/Icons/INV_Enchant_EssenceAstralSmall")
 
