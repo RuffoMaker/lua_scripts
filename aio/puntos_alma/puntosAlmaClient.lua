@@ -259,7 +259,7 @@ local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 15
 
 local fontPointsResetValue = frameAttributes:CreateFontString("fontPointsResetValue")
 fontPointsResetValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
-fontPointsResetValue:SetSize(150, 5)
+fontPointsResetValue:SetSize(180, 5)
 fontPointsResetValue:SetPoint("BOTTOM", 0, 55)
 fontPointsResetValue:SetText("|cFF000000Reiniciar = 1000 Honor|r")
 
