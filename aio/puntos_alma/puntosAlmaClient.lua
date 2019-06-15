@@ -200,12 +200,17 @@ buttonAttributesIncreaseSpirit:SetPushedTexture("Interface/BUTTONS/UI-SpellbookI
 buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
 
 
+local buttonOpenAlmaBG = CreateFrame("Button", "buttonOpenAlmaBG", Minimap, nil)
+buttonOpenAlmaBG:SetSize(50, 50)
+buttonOpenAlmaBG:SetPoint("TOPLEFT", -20, -70)
+buttonOpenAlmaBG:EnableMouse(true)
+buttonOpenAlmaBG:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
+
 local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(50, 50)
 buttonOpenAlma:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlma:EnableMouse(true)
-buttonOpenAlma:SetBackgroundTexture("Interface/Minimap/MiniMap-TrackingBorder")
-buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
+buttonOpenAlma:SetNormalTexture("Interface/QuestFrame/UI-QuestLogTitleHighlight")
 buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
 
