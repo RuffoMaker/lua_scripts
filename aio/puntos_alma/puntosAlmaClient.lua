@@ -202,7 +202,7 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 
 local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", Minimap, nil)
 buttonOpenAlma:SetSize(50, 50)
-buttonOpenAlma:SetPoint("TOPLEFT", -20, -80)
+buttonOpenAlma:SetPoint("TOPLEFT", -20, -65)
 buttonOpenAlma:EnableMouse(true)
 buttonOpenAlma:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
 buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
