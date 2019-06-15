@@ -82,6 +82,22 @@ for k,v in ipairs(GetPlayersInWorld()) do
     OnLogin(3, v)
 end
 
+function MyHandlers.AddPoints(player)
+    if (player:IsInCombat()) then
+        player:SendBroadcastMessage("No puedes comprar puntos de alma mientras estás en combate.")
+    else
+        local guid = player:GetGUIDLow()
+
+        if (player:GetHonorPoints() < 200) then
+            player:SendBroadcastMessage("No tienes suficientes puntos de honor.")
+        else
+            player:ModifyHonorPoints(-200)
+            AttributesPointsLeft[guid] = AttributesPointsLeft[guid] + 1
+            UpdatePlayerStats(player)
+        end
+    end
+end
+
 function MyHandlers.AttributesIncrease(player, statId)
     if (player:IsInCombat()) then
         player:SendBroadcastMessage("No puedes asignar los puntos de alma mientras estás en combate.")
