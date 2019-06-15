@@ -5,8 +5,6 @@ end
 
 local MyHandlers = AIO.AddHandlers("Kaev", {})
 
-local formFramework = require("FormFramework")
-
 -- Attribute window
 local frameAttributes = CreateFrame("Frame", "frameAttributes", UIParent)
 frameAttributes:SetSize(200, 300)
@@ -220,7 +218,7 @@ buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kae
 --buttonAddSoulPoints:SetPushedTexture("Interface/BUTTONS/UI-Panel-Button-Down")
 --buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
 
---local buttonAddSoulPoints = FormFramework.CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
+local buttonAddSoulPoints = FormFramework.CreateButton(frameAttributes, "Prueba", 150, 30, 0, 0, "BOTTOM")
 
 
 function MyHandlers.ShowAttributes(player)

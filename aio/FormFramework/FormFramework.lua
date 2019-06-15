@@ -1,4 +1,4 @@
-local FormFramework = {}
+FormFramework = {}
 
 function FormFramework.CreateButton(frame, text, width, height, left, top, position)
 	local button = CreateFrame("Button", "button", frame, nil)
