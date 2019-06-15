@@ -198,6 +198,15 @@ buttonAttributesIncreaseSpirit:SetNormalTexture("Interface/BUTTONS/UI-SpellbookI
 buttonAttributesIncreaseSpirit:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
 buttonAttributesIncreaseSpirit:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Down")
 buttonAttributesIncreaseSpirit:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AttributesIncrease", 5) end)
+
+
+local buttonOpenAlma = CreateFrame("Button", "buttonOpenAlma", "Minimap", nil)
+buttonOpenAlma:SetSize(20, 20)
+buttonOpenAlma:SetPoint("TOPLEFT", -25, -60)
+buttonOpenAlma:EnableMouse(true)
+buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
+buttonOpenAlma:SetHighlightTexture("Interface/BUTTONS/UI-Panel-MinimizeButton-Highlight")
+buttonOpenAlma:SetPushedTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Down")
        
 --buttonAttributesDecreaseSpirit = CreateFrame("Button", "buttonAttributesDecreaseSpirit", frameAttributes, nil)
 --buttonAttributesDecreaseSpirit:SetSize(20, 20)
