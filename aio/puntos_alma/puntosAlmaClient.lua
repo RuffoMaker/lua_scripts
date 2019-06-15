@@ -248,8 +248,8 @@ local function createButton(frame, text, width, height, left, top, position)
     return button
 end
 
-local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 150, 30, 0, 90, "BOTTOM")
-local buttonResetSoulPoints = createButton(frameAttributes, "Reiniciar puntos", 150, 30, 0, 40, "BOTTOM")
+local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 150, 30, 0, 60, "BOTTOM")
+local buttonResetSoulPoints = createButton(frameAttributes, "Reiniciar puntos", 150, 30, 0, 20, "BOTTOM")
 
 
 function MyHandlers.ShowAttributes(player)
