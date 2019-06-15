@@ -257,6 +257,8 @@ fontPointsValue:SetText("|cFF0000001 Punto = 200 Honor|r")
 
 local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 150, 30, 0, 75, "BOTTOM")
 
+buttonAddSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "AddPoints") end)
+
 local fontPointsResetValue = frameAttributes:CreateFontString("fontPointsResetValue")
 fontPointsResetValue:SetFont("Fonts\\FRIZQT__.TTF", 15)
 fontPointsResetValue:SetSize(180, 5)
@@ -264,6 +266,8 @@ fontPointsResetValue:SetPoint("BOTTOM", 0, 55)
 fontPointsResetValue:SetText("|cFF000000Reiniciar = 1000 Honor|r")
 
 local buttonResetSoulPoints = createButton(frameAttributes, "Reiniciar puntos", 150, 30, 0, 15, "BOTTOM")
+
+buttonResetSoulPoints:SetScript("OnMouseUp", function() AIO.Handle("Kaev", "ResetPoints") end)
 
 
 function MyHandlers.ShowAttributes(player)
