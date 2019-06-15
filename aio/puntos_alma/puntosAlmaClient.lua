@@ -248,7 +248,14 @@ local function createButton(frame, text, width, height, left, top, position)
     return button
 end
 
-local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 150, 30, 0, 55, "BOTTOM")
+
+local fontAttributesStrength = frameAttributes:CreateFontString("fontAttributesStrength")
+fontAttributesStrength:SetFont("Fonts\\FRIZQT__.TTF", 15)
+fontAttributesStrength:SetSize(150, 5)
+fontAttributesStrength:SetPoint("BOTTOM", 0, 85)
+fontAttributesStrength:SetText("|cFF0000001 Punto = 200 Honor|r")
+
+local buttonAddSoulPoints = createButton(frameAttributes, "Comprar un punto", 150, 30, 0, 75, "BOTTOM")
 local buttonResetSoulPoints = createButton(frameAttributes, "Reiniciar puntos", 150, 30, 0, 20, "BOTTOM")
 
 
