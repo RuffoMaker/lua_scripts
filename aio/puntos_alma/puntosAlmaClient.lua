@@ -205,7 +205,7 @@ buttonOpenAlma:SetSize(50, 50)
 buttonOpenAlma:SetPoint("TOPLEFT", -20, -70)
 buttonOpenAlma:EnableMouse(true)
 buttonOpenAlma:SetBackgroundTexture("Interface/Minimap/MiniMap-TrackingBorder")
-buttonOpenAlma:SetNormalTexture("Interface/Minimap/MiniMap-TrackingBorder")
+buttonOpenAlma:SetNormalTexture("Interface/BUTTONS/UI-SpellbookIcon-NextPage-Up")
 buttonOpenAlma:SetHighlightTexture("Interface/Minimap/MiniMap-TrackingBorder-Highlight")
 buttonOpenAlma:SetPushedTexture("Interface/Minimap/MiniMap-TrackingBorder-Down")
 
