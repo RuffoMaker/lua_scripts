@@ -1,5 +1,5 @@
 local varian = {
-	entry = 29611
+	entry = 90016
 };
 
 function varian.OnCombat(event, creature, target)
