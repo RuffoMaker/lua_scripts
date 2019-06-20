@@ -231,11 +231,11 @@ function OnLeaveCombat(event, creature)
     --creature:AttackStop()
 end
 
---function OnReachHome(event, creature)  (No tiene utilidad llamar a esta funcion  Nº24 APARENTEMENTE)
-   -- creature:SendUnitSay('He vuelto!', 0)  
-   -- creature:SetFaction(35)
-   -- creature:AttackStop()
---end
+function OnReachHome(event, creature)  (No tiene utilidad llamar a esta funcion  Nº24 APARENTEMENTE)
+   creature:SendUnitSay('He vuelto!', 0)  
+   creature:SetFaction(35)
+   creature:AttackStop()
+end
 
 --Si el Npc palma devuelve true
 function SielNpcMuere(event, creature, killer) 
