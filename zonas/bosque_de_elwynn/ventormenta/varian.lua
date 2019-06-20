@@ -1,7 +1,9 @@
-local entry=29611;
+local varian = {
+	entry = 29611
+};
 
-function varian.OnCombat(event,creature,target)
-	creature:SendUnitSay('Já no m orire hasta legión!.',0)
-	creature:AttackStart(target)
+function varian.OnCombat(event, creature, target)
+	creature:SendUnitSay('Já no m orire hasta legión!.', 0)
 end
-RegisterCreatureEvent(entry,1,varian.OnCombat)
+
+RegisterCreatureEvent(varian.entry, 1, varian.OnCombat)
